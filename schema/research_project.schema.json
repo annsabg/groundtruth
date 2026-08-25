@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://groundtruth.dev/schema/research_project.schema.json",
+  "title": "Research Project",
+  "type": "object",
+  "properties": {
+    "research_project_id": {"type": "string"},
+    "mission_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string"}
+    },
+    "domain": {
+      "enum": ["Psychology", "Biology", "Geology", "Engineering", "Human Factors", "Nutrition", "Communications", "Habitat Technology", "Other"]
+    },
+    "title": {"type": "string", "minLength": 1},
+    "principal_investigators": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "sample_size": {
+      "type": "object",
+      "properties": {
+        "n_crew": {"type": "integer", "minimum": 0},
+        "n_missions": {"type": "integer", "minimum": 0}
+      },
+      "required": ["n_crew", "n_missions"],
+      "additionalProperties": false
+    },
+    "duration": {"type": "string"},
+    "methods": {"type": "string"},
+    "instruments": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "key_findings": {"type": "string"},
+    "publication_status": {
+      "enum": ["Published", "Conference presentation", "Internal report", "Unpublished"]
+    },
+    "citation": {"type": "string"},
+    "comparable_studies": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "methodology_notes": {"type": "string"},
+    "verified_by": {"type": "string", "minLength": 1}
+  },
+  "required": [
+    "research_project_id", "mission_ids", "domain", "title",
+    "publication_status", "verified_by"
+  ],
+  "additionalProperties": false
+}

@@ -116,3 +116,13 @@ def test_event_schema_accepts_valid_record():
 def test_event_schema_rejects_invalid_record():
     errors = validate_file(SCHEMA / "event.schema.json", FIXTURES / "invalid_event.json")
     assert len(errors) >= 1
+
+
+def test_research_project_schema_accepts_valid_record():
+    errors = validate_file(SCHEMA / "research_project.schema.json", FIXTURES / "valid_research_project.json")
+    assert errors == []
+
+
+def test_research_project_schema_rejects_invalid_record():
+    errors = validate_file(SCHEMA / "research_project.schema.json", FIXTURES / "invalid_research_project.json")
+    assert len(errors) >= 1

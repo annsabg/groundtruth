@@ -1,0 +1,16 @@
+{
+  "research_project_id": "RP-001",
+  "mission_ids": ["FMARS-C16-2024"],
+  "domain": "Human Factors",
+  "title": "Sleep quality under simulated Mars mission constraints",
+  "principal_investigators": ["Ilaria Cinelli"],
+  "sample_size": {"n_crew": 7, "n_missions": 1},
+  "duration": "30 days",
+  "methods": "Daily self-report sleep diary, actigraphy where available.",
+  "instruments": ["Pittsburgh Sleep Quality Index"],
+  "key_findings": "Preliminary trend toward reduced sleep quality in EVA-heavy sols.",
+  "publication_status": "Internal report",
+  "comparable_studies": [],
+  "methodology_notes": "Small n, no control group; treat as exploratory.",
+  "verified_by": "ASG"
+}
