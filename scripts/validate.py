@@ -38,9 +38,75 @@ def validate_directory(schema_path, dir_path, pattern="*.json") -> dict[str, lis
     return results
 
 
+def check_references(data_dir) -> list[str]:
+    """Cross-file referential-integrity check: does every ID referenced from
+    one record (mission_id, related_events, comparable_studies, mission_ids)
+    actually resolve to a record with that ID committed under data/? Schema
+    validation alone can't catch this — these fields are typed as plain
+    strings, not real foreign keys. Returns a list of human-readable error
+    strings; empty means every cross-reference resolves."""
+    data_dir = Path(data_dir)
+
+    def _ids(subdir, id_field):
+        ids = set()
+        for p in (data_dir / subdir).glob("*.json"):
+            record = json.loads(p.read_text())
+            if id_field in record:
+                ids.add(record[id_field])
+        return ids
+
+    mission_ids = _ids("missions", "mission_id")
+    event_ids = _ids("events", "event_id")
+    research_ids = _ids("research_projects", "research_project_id")
+
+    errors = []
+
+    def _check(subdir, filename, field, value, valid_ids, label):
+        if value not in valid_ids:
+            errors.append(f"{subdir}/{filename}: {field} '{value}' does not resolve to any committed {label}")
+
+    for subdir in ("crew_members", "events"):
+        for p in (data_dir / subdir).glob("*.json"):
+            record = json.loads(p.read_text())
+            value = record.get("mission_id")
+            if value is not None:
+                _check(subdir, p.name, "mission_id", value, mission_ids, "Mission")
+
+    for subdir in ("research_projects", "sources"):
+        for p in (data_dir / subdir).glob("*.json"):
+            record = json.loads(p.read_text())
+            for value in record.get("mission_ids") or []:
+                _check(subdir, p.name, "mission_ids", value, mission_ids, "Mission")
+
+    for p in (data_dir / "events").glob("*.json"):
+        record = json.loads(p.read_text())
+        for value in record.get("related_events") or []:
+            _check("events", p.name, "related_events", value, event_ids, "Event")
+
+    for p in (data_dir / "research_projects").glob("*.json"):
+        record = json.loads(p.read_text())
+        for value in record.get("comparable_studies") or []:
+            _check("research_projects", p.name, "comparable_studies", value, research_ids, "Research Project")
+
+    return errors
+
+
 def main():
+    if len(sys.argv) == 3 and sys.argv[1] == "--check-refs":
+        errors = check_references(sys.argv[2])
+        if not errors:
+            print("All cross-references resolve.")
+            sys.exit(0)
+        for err in errors:
+            print(f"  - {err}")
+        sys.exit(1)
+
     if len(sys.argv) != 3:
-        print(f"Usage: {sys.argv[0]} <schema.json> <file_or_directory>", file=sys.stderr)
+        print(
+            f"Usage: {sys.argv[0]} <schema.json> <file_or_directory>\n"
+            f"   or: {sys.argv[0]} --check-refs <data_dir>",
+            file=sys.stderr,
+        )
         sys.exit(2)
 
     schema_path = Path(sys.argv[1])
