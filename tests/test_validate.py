@@ -6,6 +6,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 from validate import validate_file, validate_directory, check_references
 
 FIXTURES = Path(__file__).parent / "fixtures"
+SCHEMA = Path(__file__).parent.parent / "schema"
 
 
 def test_validate_file_valid_returns_no_errors():
@@ -54,3 +55,29 @@ def test_check_references_accepts_valid_cross_references(tmp_path):
 
     errors = check_references(data_dir)
     assert errors == []
+
+
+def test_mission_schema_accepts_valid_record():
+    errors = validate_file(SCHEMA / "mission.schema.json", FIXTURES / "valid_mission.json")
+    assert errors == []
+
+
+def test_mission_schema_rejects_invalid_record():
+    errors = validate_file(SCHEMA / "mission.schema.json", FIXTURES / "invalid_mission.json")
+    assert len(errors) >= 1
+
+
+def test_mission_schema_rejects_malformed_date():
+    # Regression test for the format_checker gap found during planning:
+    # without it, this passes silently instead of failing.
+    import json
+    record = json.loads((FIXTURES / "valid_mission.json").read_text())
+    record["start_date"] = "not-a-date"
+    bad_path = FIXTURES / "_tmp_bad_date_mission.json"
+    bad_path.write_text(json.dumps(record))
+    try:
+        errors = validate_file(SCHEMA / "mission.schema.json", bad_path)
+        assert len(errors) >= 1
+        assert any("date" in e.lower() or "format" in e.lower() for e in errors)
+    finally:
+        bad_path.unlink()

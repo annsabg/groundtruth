@@ -1,0 +1,13 @@
+{
+  "mission_id": "FMARS-C16-2024",
+  "stations": ["FMARS"],
+  "crew_designation": "Crew 16",
+  "institutional_or_volunteer": "volunteer",
+  "start_date": "2024-06-15",
+  "end_date": "2024-07-15",
+  "location": "Devon Island, Nunavut, Canada",
+  "mission_goal": "Analog Mars surface operations and engineering shakedown.",
+  "crew_size": 7,
+  "source_citation": "fmars.marssociety.org, Crew 16 Daily Reports, June-July 2024",
+  "verified_by": "ASG"
+}
