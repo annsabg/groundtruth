@@ -81,3 +81,28 @@ def test_mission_schema_rejects_malformed_date():
         assert any("date" in e.lower() or "format" in e.lower() for e in errors)
     finally:
         bad_path.unlink()
+
+
+def test_crew_member_schema_accepts_valid_record():
+    errors = validate_file(SCHEMA / "crew_member.schema.json", FIXTURES / "valid_crew_member.json")
+    assert errors == []
+
+
+def test_crew_member_schema_rejects_invalid_record():
+    errors = validate_file(SCHEMA / "crew_member.schema.json", FIXTURES / "invalid_crew_member.json")
+    assert len(errors) >= 1
+
+
+def test_crew_member_schema_accepts_undisclosed_age():
+    # Public crew bios rarely state exact age — this is the escape hatch,
+    # matching the pattern gender/nationality already use.
+    import json
+    record = json.loads((FIXTURES / "valid_crew_member.json").read_text())
+    record["age"] = "undisclosed"
+    tmp_path = FIXTURES / "_tmp_undisclosed_age.json"
+    tmp_path.write_text(json.dumps(record))
+    try:
+        errors = validate_file(SCHEMA / "crew_member.schema.json", tmp_path)
+        assert errors == []
+    finally:
+        tmp_path.unlink()

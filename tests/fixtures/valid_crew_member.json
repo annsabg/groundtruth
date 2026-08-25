@@ -1,0 +1,12 @@
+{
+  "crew_member_id": "FMARS-C16-2024-CM03",
+  "mission_id": "FMARS-C16-2024",
+  "primary_role": "Engineer",
+  "secondary_roles": ["EVA Officer"],
+  "gender": "male",
+  "nationality": "USA",
+  "age": 34,
+  "field_of_expertise": {"category": "Engineering", "detail": "Mechanical engineering"},
+  "source_citation": "fmars.marssociety.org, Crew 16 team page, 2024",
+  "verified_by": "ASG"
+}

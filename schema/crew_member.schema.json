@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://groundtruth.dev/schema/crew_member.schema.json",
+  "title": "Crew Member",
+  "type": "object",
+  "properties": {
+    "crew_member_id": {
+      "type": "string",
+      "pattern": "^.+-CM[0-9]{2}$",
+      "description": "Format {mission_id}-CM{NN}, e.g. FMARS-C16-2024-CM03. Pseudonymous — never a name."
+    },
+    "mission_id": {"type": "string"},
+    "primary_role": {
+      "enum": ["Commander", "Executive Officer", "Engineer", "Science Officer", "EVA Officer", "Medical Officer", "Journalist/Media", "Crew Member (unspecified)", "Other"]
+    },
+    "secondary_roles": {
+      "type": "array",
+      "items": {
+        "enum": ["Commander", "Executive Officer", "Engineer", "Science Officer", "EVA Officer", "Medical Officer", "Journalist/Media", "Crew Member (unspecified)", "Other"]
+      }
+    },
+    "gender": {"enum": ["female", "male", "non-binary", "undisclosed"]},
+    "nationality": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-2/alpha-3 country code, or 'undisclosed'."
+    },
+    "age": {
+      "oneOf": [
+        {"type": "integer", "minimum": 0, "maximum": 120},
+        {"const": "undisclosed"}
+      ],
+      "description": "Exact age where the source states it; 'undisclosed' otherwise. Matches gender/nationality's pattern — public crew bios rarely state exact age, and this field being strictly-required-integer would make most real Crew Member records un-fillable."
+    },
+    "field_of_expertise": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "enum": ["Engineering", "Biology", "Geology", "Medicine/Health", "Psychology", "Communications", "Astronomy/Physics", "Other"]
+        },
+        "detail": {"type": "string"}
+      },
+      "required": ["category"],
+      "additionalProperties": false
+    },
+    "source_citation": {"type": "string", "minLength": 1},
+    "verified_by": {"type": "string", "minLength": 1}
+  },
+  "required": [
+    "crew_member_id", "mission_id", "primary_role", "gender", "nationality",
+    "age", "field_of_expertise", "source_citation", "verified_by"
+  ],
+  "additionalProperties": false
+}
