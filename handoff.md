@@ -6,10 +6,11 @@ decisions.md for the why-log.*
 ## Current state (as of Task 11, implementation in progress)
 
 Repo scaffolding, all five JSON schemas (Mission, Crew Member, Event,
-Research Project, Source), `validate.py`, `build_db.py`, `CONTRIBUTING.md`,
-`README.md`, and this file all exist and are committed. Full test suite
-(`pytest`) passes. `data/` directories exist but are empty except for
-`.gitkeep` — no real records committed yet.
+Research Project, Source), `validate.py` (with schema validation and
+referential-integrity checking via `--check-refs`), `build_db.py`,
+`CONTRIBUTING.md`, `README.md`, and this file all exist and are committed.
+Full test suite (`pytest`) passes. `data/` directories exist but are empty
+except for `.gitkeep` — no real records committed yet.
 
 ## What's next
 
@@ -26,6 +27,3 @@ Research Project data is realistically available (see decisions.md,
 - Research Project sourcing strategy is unsolved (decisions.md).
 - Controlled vocabularies (stations, roles, domains) only reflect
   FMARS/MDRS/Mars160 — will need extension for LunAres/HI-SEAS/AMADEE.
-- No referential-integrity check on FK-shaped fields (mission_id,
-  related_events, comparable_studies) — a record can cite an ID that
-  doesn't resolve to any committed file, and nothing catches it yet.
