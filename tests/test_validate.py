@@ -106,3 +106,13 @@ def test_crew_member_schema_accepts_undisclosed_age():
         assert errors == []
     finally:
         tmp_path.unlink()
+
+
+def test_event_schema_accepts_valid_record():
+    errors = validate_file(SCHEMA / "event.schema.json", FIXTURES / "valid_event.json")
+    assert errors == []
+
+
+def test_event_schema_rejects_invalid_record():
+    errors = validate_file(SCHEMA / "event.schema.json", FIXTURES / "invalid_event.json")
+    assert len(errors) >= 1

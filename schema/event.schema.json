@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://groundtruth.dev/schema/event.schema.json",
+  "title": "Operational Event",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "pattern": "^.+-EVT[0-9]{3}$",
+      "description": "Format {mission_id}-EVT{NNN}."
+    },
+    "mission_id": {"type": "string"},
+    "sol": {"type": "integer", "minimum": 0},
+    "event_type": {
+      "enum": ["Failure", "Near-Miss", "Success/Best Practice", "Process Innovation", "Crew Dynamics", "Observation", "Other"]
+    },
+    "system_category": {
+      "enum": ["Power", "Water", "ATVs/Transport", "EVA Suits & Comms", "Hab Structure", "Air Quality", "Medical/Safety", "Logistics", "Meteorological", "Operational/Process", "Scientific", "Psychological"]
+    },
+    "significance": {
+      "enum": ["High", "Medium", "Low"],
+      "description": "How much this matters for future crews to know, not how bad it was."
+    },
+    "description": {"type": "string", "minLength": 1},
+    "response": {"type": "string"},
+    "lesson": {"type": "string"},
+    "pattern_tag": {
+      "type": "string",
+      "description": "Open, extensible tag for recurring patterns (e.g. 'generator fuel line degradation'). Not a closed enum — vocabulary grows from clustering real data. See CONTRIBUTING.md for the current suggested list."
+    },
+    "outcome": {
+      "enum": ["Resolved", "Partially Resolved", "Worked Around", "Unresolved", "Adopted", "Not Applicable"]
+    },
+    "related_events": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "confidence": {
+      "enum": ["A", "B", "C", "D"],
+      "description": "A: formal engineering report. B: daily narrative report. C: journalist/XO report. D: secondhand/inferred."
+    },
+    "source_citation": {"type": "string", "minLength": 1},
+    "verified_by": {"type": "string", "minLength": 1}
+  },
+  "required": [
+    "event_id", "mission_id", "sol", "event_type", "system_category",
+    "significance", "description", "confidence", "source_citation", "verified_by"
+  ],
+  "additionalProperties": false
+}
