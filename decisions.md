@@ -135,3 +135,81 @@ both specs and the plan cold. Findings and fixes:
   Mission, Crew Member, and Research Project all going through the same
   Stage 4 human-review gate (pipeline spec §4). Added `verified_by` as a
   required field to all three.
+
+## 2026-08-26 — Final-review fix wave: structural uncertainty-disclosure gap on `sol` and Mission-level facts (v0.2 candidate)
+
+`event.schema.json`'s `sol` field is `{"type": "integer", "minimum": 0}`,
+required, with no "unknown"/placeholder option — unlike `age` on Crew
+Member, which got exactly this fix during planning for exactly this
+reason (see the "Fresh-eyes review" entry above). As a direct result,
+roughly 34 of the 60 committed Event records carry an inferred or
+placeholder `sol` value that reads as fact to any query or join against
+the `event` table, even though in every case the reasoning behind the
+inference is honestly disclosed in prose within that record's
+`source_citation`. A query has no way to tell a confidently-sourced `sol`
+from an inferred one without re-reading free text.
+
+The same structural gap exists one level up: Mission has no confidence
+field at all (Event has `confidence` A-D; Mission has nothing analogous).
+Uncertain Mission-level facts — start/end dates, `crew_size` — rely
+entirely on free-text disclosure in `source_citation`, with no queryable
+signal that a given Mission's dates or crew size are less certain than
+another's.
+
+This is a real, acknowledged gap, not an oversight to silently patch now.
+Recorded as a v0.2 schema candidate: add an "unknown"/null-equivalent
+option to `sol` (matching the `age` precedent), and/or a structured
+confidence field on Mission, so this uncertainty becomes queryable rather
+than only readable.
+
+## 2026-08-26 — Final-review fix wave: Mars160 pages 83-95 of the Flashline Crew Reports PDF were never processed
+
+Task 15's dispatch scoped the Flashline Crew Reports extraction and
+incorrectly stated that pages 83-95 (the Mars160/FMARS-leg section) did
+not contain relevant content — a controller scoping error, not a missed
+task. In fact this section holds primary daily reports: roughly 430 lines
+of content that were never extracted into any Event or Crew Member
+record. `handoff.md`'s "Known gaps" (as of Task 18) already flagged
+Mars160's thin coverage (5 events, 6 crew members, versus far denser
+coverage for the FMARS-only missions) as unexplained; this is the
+explanation, and it was previously visible only in an untracked
+task-15-report.md, not in this repo's own tracked history.
+
+Recorded here as the top v0.2 data-population priority. Note for whoever
+picks it up: the source bylines for this section name a real individual
+(the name itself is not reproduced here, consistent with this dataset's
+established pseudonymization practice — see RP-001/RP-002/RP-003's
+`methodology_notes` for precedent) — the no-real-names discipline (see the
+entry below, and the widened CONTRIBUTING.md rule) needs active,
+deliberate attention when this section is finally processed, exactly
+because it's new extraction work where the two-pass pipeline hasn't yet
+been exercised against this text.
+
+## 2026-08-26 — Final-review fix wave: the real-name-leak pattern, and the rule it establishes
+
+Two separate incidents, at two different points in this project, involved
+a real name leaking into a place the design explicitly says it must never
+appear:
+
+1. **Task 14**: crew members' real names leaked into Operational Event and
+   Mission free-text fields during extraction, caught and fixed within
+   that task's own review.
+2. **This final-review fix wave**: a real aerospace-medicine researcher's
+   name (identifiable via her own pseudonymous Crew Member record) leaked
+   into `tests/fixtures/valid_research_project.json`, plus a second
+   plausibly-real name in `tests/fixtures/valid_event.json`'s
+   `source_citation` — both invisible to every prior privacy sweep because
+   those sweeps were scoped to `data/`, and fixtures live under `tests/`.
+
+The common thread: neither leak was caught by an automated or
+scope-limited check. Both were caught by a human (a reviewer) actually
+reading content, not by a grep confined to one directory. That establishes
+a rule for everything going forward: **any future privacy check —
+automated or manual — must cover the whole repository, not a directory
+assumed to be the only place names could appear.** `data/` is where
+records live, but it was never actually the boundary of where a real name
+could leak; `tests/`, `docs/`, code comments, and anywhere else free text
+gets written are equally in scope. `CONTRIBUTING.md`'s privacy rule has
+been widened accordingly (see the "Never include a crew member's real
+name anywhere" section, which now states explicitly that it applies
+repo-wide, not just to `data/`).
