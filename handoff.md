@@ -78,11 +78,11 @@ the open discrepancies listed below.
   additional relevant detail (e.g. an Aug 10–11 crew-tension narrative
   possibly related to existing `MARS160-2017-EVT003`/`EVT005`) — flagged
   in task-15-report.md as a real, currently-open gap for a future task.
-- **Probable mission mis-tag on `FMARS-C15-2023-EVT010`** (reagent/
-  coliform-kit storage incident) — Task 15 found primary-source evidence
-  this incident actually belongs to Crew 16, not Crew 15, but deliberately
-  did not correct it (outside that task's edit scope). Still open;
-  recommend retagging in a future correction pass.
+- **Resolved:** `FMARS-C15-2023-EVT010` (reagent/coliform-kit storage
+  incident) was found mis-tagged — primary-source evidence showed it
+  actually belongs to Crew 16, not Crew 15 — and was retagged to
+  `FMARS-C16-2024-EVT034` during Task 15 (commit `509671c`). No longer an
+  open item; noted here only for the historical record.
 - **`FMARS-C17-2025` `crew_size` (6) exceeds its 4 documented Crew Member
   records.** Task 16 flagged this; the coordinator left it as-is since 4
   documented crew doesn't prove the true total is only 4 (roster may be
