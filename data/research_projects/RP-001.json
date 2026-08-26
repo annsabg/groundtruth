@@ -1,0 +1,20 @@
+{
+  "research_project_id": "RP-001",
+  "mission_ids": ["FMARS-C15-2023"],
+  "domain": "Human Factors",
+  "title": "Human Factors Study: Heart-Rate-Variability-Monitored Structured Meditation as a Crew Wellbeing/Stress Intervention (FMARS Crew 15)",
+  "principal_investigators": ["FMARS-C15-2023-CM03"],
+  "sample_size": {
+    "n_crew": 5,
+    "n_missions": 1
+  },
+  "duration": "FMARS Crew 15 simulation, July 2023; documented as a daily practice in science reports dated 24, 26, and 28 July 2023, and described in the post-mission synthesis brief as continuing throughout the simulation",
+  "methods": "Twice-daily structured meditation sessions for the whole crew, paired with continuous heart-rate-variability (HRV) monitoring via wearable Garmin watches used as a stress marker. Supplemented at least weekly by a wellbeing questionnaire and a facial emotion recognition test administered to the crew.",
+  "instruments": ["Garmin wearable HRV monitors", "Weekly crew wellbeing questionnaire", "Facial emotion recognition test"],
+  "key_findings": "Crew self-reported positive subjective wellbeing effects from the meditation practice, and the practice was sustained throughout the simulation rather than dropped. Quantitative HRV, questionnaire, or facial-emotion-recognition results are not stated in the reviewed source material.",
+  "publication_status": "Internal report",
+  "citation": "SRC-flashline-crew-reports: FMARS-15 Science Reports 24-07-2023, 26-07-2023, and 28-07-2023 (item 5, 'Human Factors Study'); corroborated by SRC-hypatia-iii-brief, Part IV Sec.4.5 'Psychological and team dynamics' (Crew C15 register entry) and by data/events/FMARS-C15-2023-EVT012.json.",
+  "comparable_studies": [],
+  "methodology_notes": "Principal-investigator attribution to FMARS-C15-2023-CM03 is inferred from report authorship: all science reports carrying this item are submitted under the crew's Science Officer byline, matched to crew_member FMARS-C15-2023-CM03 by role, GB nationality, and PhD status per SRC-fmars-c15-crew-announcements (the byline name itself is a real name and is not reproduced here, consistent with this dataset's pseudonymization practice). The source does not explicitly name a study PI or state whether the protocol was designed by the Science Officer specifically, by the whole crew, or handed down by an external human-factors collaborator (e.g. Mars Society Mission Support) -- treat this attribution as best-available inference, not a confirmed byline for the study itself. Domain classified as 'Human Factors' per the source's own label ('Human Factors Study'); 'Psychology' would also be a defensible domain given the questionnaire/facial-emotion-recognition instruments.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,15 @@
+{
+  "research_project_id": "RP-002",
+  "mission_ids": ["FMARS-C15-2023"],
+  "domain": "Biology",
+  "title": "Microplastics Study: Nile Red Fluorescent Staining Screen of FMARS-Area Lake and Creek Water (FMARS Crew 15)",
+  "principal_investigators": ["FMARS-C15-2023-CM03"],
+  "duration": "FMARS Crew 15 simulation, July 2023; Nile Red stock prepared 24 July 2023, with sampling and microscopy documented through at least 28 July 2023 in the reviewed science reports",
+  "methods": "A Nile Red fluorescent dye stock (1 mg/mL in acetone) was prepared and stored in the hab laboratory. A positive control vial containing known plastic shavings was made up first to calibrate dye concentration and fluorescent-microscope settings. Local lake/creek water samples (collected via glass tubes during EVAs) were then treated with the Nile Red stock and examined under the fluorescent microscope for microplastic particles.",
+  "instruments": ["Nile Red fluorescent stain (acetone stock, 1 mg/mL)", "Fluorescent microscope", "Positive control vial (plastic shavings)", "Glass sample tubes"],
+  "publication_status": "Internal report",
+  "citation": "SRC-flashline-crew-reports: FMARS-15 Science Reports 24-07-2023, 26-07-2023, and 28-07-2023 (item 3, 'Microplastics Study'); FMARS-15 Crew Journalist Report and XO Report, both 29-07-2023 (creek water collected via glass tubes 'for microplastic analysis').",
+  "comparable_studies": ["RP-003"],
+  "methodology_notes": "Principal-investigator attribution to FMARS-C15-2023-CM03 is inferred from report authorship (see RP-001 for the same caveat and the same reason the byline name is not reproduced here) -- the source does not explicitly name a study PI. The extracted source text is truncated at the point a microscopy result would be stated ('...viewed under the fluorescent microscope and …'); no quantitative or qualitative finding is available in the reviewed material, so key_findings is omitted rather than inferred or guessed. Domain classified as Biology in the absence of an 'Environmental Science' option in the schema enum; this study sits at the boundary of biology, analytical chemistry, and environmental science. Related to RP-003 (FMARS Crew 16's nanoplastics/water-quality survey the following year) as part of the same recurring line of contamination-screening inquiry at the station, though the two use different target particle sizes (micro- vs nano-) and different leads, so they are recorded as separate projects rather than merged.",
+  "verified_by": "ASG"
+}
