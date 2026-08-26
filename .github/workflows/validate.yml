@@ -29,3 +29,13 @@ jobs:
           done
       - name: Check cross-file references
         run: python scripts/validate.py --check-refs data
+      - name: Check groundtruth.sqlite matches data/
+        run: |
+          python scripts/build_db.py data /tmp/rebuild-check.sqlite
+          sqlite3 groundtruth.sqlite .dump > /tmp/committed.sql
+          sqlite3 /tmp/rebuild-check.sqlite .dump > /tmp/rebuilt.sql
+          if ! diff -u /tmp/committed.sql /tmp/rebuilt.sql; then
+            echo "::error::committed groundtruth.sqlite does not match a fresh build from data/ -- run 'python scripts/build_db.py' and commit the result."
+            exit 1
+          fi
+          echo "groundtruth.sqlite matches data/."
