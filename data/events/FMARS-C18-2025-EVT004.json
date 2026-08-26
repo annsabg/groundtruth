@@ -1,0 +1,17 @@
+{
+  "event_id": "FMARS-C18-2025-EVT004",
+  "mission_id": "FMARS-C18-2025",
+  "sol": 8,
+  "event_type": "Observation",
+  "system_category": "Scientific",
+  "significance": "Medium",
+  "description": "On the final sol, the Science Officer prepared samples for off-site analysis and explicitly noted the absence of microscopy data for the mission, while praising the richness of the fieldwork otherwise completed. No working microscope appears to have been available or used during Crew 18's mission.",
+  "response": "None during the mission; noted as a gap in the final debrief.",
+  "lesson": "Confirm a working microscope is packed, inventoried, and tested on Sol 1 for every crew — this is a recurring gap across FMARS crews (compare Crew 15's own packed-away, undiscovered microscope). Do not assume lab equipment carries over crew-to-crew without an explicit handover check.",
+  "pattern_tag": "lab equipment discovery / activation on arrival",
+  "outcome": "Unresolved",
+  "related_events": ["FMARS-C15-2023-EVT006"],
+  "confidence": "B",
+  "source_citation": "SRC-flashline-crew-reports, AMARUQ (CREW 18) SOL 8 REPORT (31-7-2025), lines 2-15. Sol: explicit from report header. Confidence (B) rationale: paraphrased daily-report narrative including a direct quote.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,17 @@
+{
+  "event_id": "FMARS-C17-2025-EVT001",
+  "mission_id": "FMARS-C17-2025",
+  "sol": 2,
+  "event_type": "Process Innovation",
+  "system_category": "EVA Suits & Comms",
+  "significance": "Low",
+  "description": "The crew debuted custom-made sun visors added to the EVA suits, improving comfort and visibility during sunny-condition traverses.",
+  "response": "Visors were fabricated and fitted by a crew member before the day's EVA and used successfully in the field.",
+  "lesson": "Custom sun-visor fabrication is a low-cost, high-value suit modification for high-Arctic summer sun angles; consider adopting it as standard EVA suit kit rather than an ad hoc, single-crew improvisation (compare the same class of fix independently reinvented by Crew 15 in 2023).",
+  "pattern_tag": "improvised sun visor for EVA helmets",
+  "outcome": "Adopted",
+  "related_events": ["FMARS-C15-2023-EVT014"],
+  "confidence": "B",
+  "source_citation": "SRC-flashline-crew-reports, SILALIQ (CREW 17) SOL 2 REPORT (22-7-2025), lines 256-266. Sol: explicit from report header. Confidence (B) rationale: daily-report narrative style.",
+  "verified_by": "ASG"
+}

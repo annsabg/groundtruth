@@ -1,0 +1,17 @@
+{
+  "event_id": "FMARS-C17-2025-EVT003",
+  "mission_id": "FMARS-C17-2025",
+  "sol": 3,
+  "event_type": "Process Innovation",
+  "system_category": "Operational/Process",
+  "significance": "High",
+  "description": "Crew 17 and the incoming Crew 18 conducted an in-person, same-day 'hot swap' handover on Devon Island — the outgoing crew briefed the arriving crew on pertinent station maintenance issues before departing on the same aircraft. Described in the report as a first for the Mars Society.",
+  "response": "The outgoing crew collected water for the incoming crew in advance, cleaned and organized the station, and gave a verbal handover briefing on maintenance issues before the incoming crew's plane departed with them.",
+  "lesson": "A same-day, in-person hot-swap handover transfers tacit knowledge (maintenance status, known issues) far better than a written report read after the fact — but this handover was verbal only. Pair any future hot-swap with a short written checklist so nothing depends on memory under the time pressure of a same-day changeover (compare FMARS-C18-2025-EVT001, where the wall-heater handover task was itself communicated only verbally and nearly missed).",
+  "pattern_tag": "cross-crew hot-swap handover",
+  "outcome": "Adopted",
+  "related_events": ["FMARS-C18-2025-EVT001"],
+  "confidence": "B",
+  "source_citation": "SRC-flashline-crew-reports, SILALIQ (CREW 17) SOL 3 REPORT (23-7-2025), lines 228-255. Sol: explicit from report header. Confidence (B) rationale: first-person daily-report narrative account of the handover.",
+  "verified_by": "ASG"
+}

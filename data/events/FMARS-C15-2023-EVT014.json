@@ -1,0 +1,17 @@
+{
+  "event_id": "FMARS-C15-2023-EVT014",
+  "mission_id": "FMARS-C15-2023",
+  "sol": 5,
+  "event_type": "Success/Best Practice",
+  "system_category": "EVA Suits & Comms",
+  "significance": "Medium",
+  "description": "An unscheduled EVA was conducted specifically to test two suit modifications: an improvised external sun visor (to aid helmet ventilation and visibility against a low sun angle) and a separately repaired suit's waist/upper-leg interface (which had undergone extensive prior patch repairs). The sun visor proved effective; the suit repair was found to restrict mobility and need further modification.",
+  "response": "The sun visor was adopted going forward. The repaired suit was flagged for further modification before use on a working EVA.",
+  "lesson": "Test suit modifications on a short, dedicated EVA before relying on them for a working science EVA — this surfaced the suit-repair mobility problem cheaply, before it could affect a real objective.",
+  "pattern_tag": "improvised sun visor for EVA helmets",
+  "outcome": "Partially Resolved",
+  "related_events": ["FMARS-C17-2025-EVT001"],
+  "confidence": "A",
+  "source_citation": "SRC-flashline-crew-reports, FMARS-15 COMMANDER REPORT 28-07-2023, lines 2378-2399, and FMARS-15 EVA REPORT 28-07-2023, lines 2400-2420. Sol: 5 confirmed via FMARS-15 ENGINEERING REPORT 28-07-2023's explicit 'Sol: 5' header for the same calendar date. Confidence (A) rationale: matching Commander report and formal EVA report (with start/end times and objective-level outcome) for the same test.",
+  "verified_by": "ASG"
+}

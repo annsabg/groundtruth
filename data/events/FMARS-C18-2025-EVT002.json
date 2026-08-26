@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C18-2025-EVT002",
+  "mission_id": "FMARS-C18-2025",
+  "sol": 5,
+  "event_type": "Process Innovation",
+  "system_category": "Power",
+  "significance": "Medium",
+  "description": "The Commander and Engineer collaborated on a fuel metering approach to maintain a comfortable ('sweatshirt temperature') interior temperature while conserving fuel. By Sol 7, fuel consumption had dropped to 1.5 liters, with the XO noting the crew could now shift attention from survival tasks toward science objectives.",
+  "response": "The crew iterated on generator/heater fuel metering over Sols 5-7, stabilizing power and steadily lowering consumption.",
+  "lesson": "Track and report fuel consumption rate (not just tank level) daily from Sol 1 so the trend toward an efficient steady-state is visible early, rather than only being noticed once power 'feels' stabilized.",
+  "pattern_tag": "fuel metering / consumption optimization",
+  "outcome": "Adopted",
+  "confidence": "B",
+  "source_citation": "SRC-flashline-crew-reports, AMARUQ (CREW 18) SOL 5 REPORT (28-7-2025), lines 98-107, and SOL 7 REPORT (30-7-2025), lines 50-63. Sol: explicit from report header. Confidence (B) rationale: daily-report narrative style, not a formal engineering log with metered readings.",
+  "verified_by": "ASG"
+}

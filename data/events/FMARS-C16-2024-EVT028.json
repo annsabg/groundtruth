@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT028",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 4,
+  "event_type": "Process Innovation",
+  "system_category": "Operational/Process",
+  "significance": "Medium",
+  "description": "During a weather-forced indoor day, the Logistics Officer and Health and Safety Officer began building out the crew's standard operating procedure (SOP) library for the research station, assigning SOPs to be written by individual crew members over the rest of the mission.",
+  "response": "Work began on SOPs for tasks such as generator refuelling and fuel-drum tapping; the effort continued through the mission alongside other duties.",
+  "lesson": "Treat SOP-writing as a first-week deliverable, not a rainy-day filler task — a populated SOP library lets future crews (including less technically experienced members) execute maintenance tasks correctly without relying on a departing crew's undocumented tacit knowledge.",
+  "pattern_tag": "standard operating procedure library",
+  "outcome": "Partially Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 05-07-2024, lines 1371-1380, 637-639. Sol: calculated from report date (05-07-2024) against Sol 1 = 02-07-2024 (arrival day, per FMARS-C16-2024's established Sol convention — see e.g. FMARS-C16-2024-EVT004). Confidence (B) rationale: daily-report narrative style.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,17 @@
+{
+  "event_id": "FMARS-C16-2024-EVT032",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 12,
+  "event_type": "Success/Best Practice",
+  "system_category": "Operational/Process",
+  "significance": "High",
+  "description": "Facing a compressed, weather-dependent departure window (woken with under an hour's notice that the charter plane was fuelling), the crew executed a standardized set of 'final tasks' — stowing bear mirrors, covering and disassembling the incinerator, fuel-stabilizing and sheltering the main generator, tarping the last ATV, and disconnecting and stowing Starlink — completing habitat shutdown and reaching the runway on foot in time to meet the plane.",
+  "response": "All final tasks were completed within roughly an hour of waking; the crew departed successfully on the delayed charter window.",
+  "lesson": "Maintain a named, rehearsed 'final tasks' checklist (distinct from routine daily shutdown) for imminent, short-notice departure, since weather-dependent Arctic charter windows can open with under an hour's warning.",
+  "pattern_tag": "rapid departure readiness checklist",
+  "outcome": "Adopted",
+  "related_events": ["FMARS-C16-2024-EVT011"],
+  "confidence": "B",
+  "source_citation": "SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 13 & 14-07-2024, lines 299-345. Sol: calculated from report date (the Saturday departure, 13-07-2024) against Sol 1 = 02-07-2024; within tolerance of the Day 11 departure figure cited in FMARS-C16-2024-EVT011's source. Confidence (B) rationale: first-person daily-report narrative account of the departure sequence.",
+  "verified_by": "ASG"
+}

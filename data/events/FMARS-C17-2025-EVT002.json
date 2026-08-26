@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C17-2025-EVT002",
+  "mission_id": "FMARS-C17-2025",
+  "sol": 2,
+  "event_type": "Success/Best Practice",
+  "system_category": "Psychological",
+  "significance": "Low",
+  "description": "As part of a habitat redesign project, a crew member painted a wooden window covering with Inuit constellations and drilled holes at the star positions, so that sunlight through the covering projected the constellations into the room.",
+  "response": "Completed and installed over a single evening; no formal request or budget was required.",
+  "lesson": "Small, cheap, crew-initiated habitat personalization projects (decor, lighting effects) are worth explicitly encouraging — they add tangible morale value at very low cost and time investment relative to major infrastructure work.",
+  "pattern_tag": "crew-initiated habitat personalization for morale",
+  "outcome": "Adopted",
+  "confidence": "B",
+  "source_citation": "SRC-flashline-crew-reports, SILALIQ (CREW 17) SOL 2 REPORT (22-7-2025), lines 270-278. Sol: explicit from report header. Confidence (B) rationale: daily-report narrative style.",
+  "verified_by": "ASG"
+}

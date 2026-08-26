@@ -1,0 +1,11 @@
+{
+  "source_id": "SRC-flashline-crew-reports",
+  "mission_ids": ["FMARS-C15-2023", "FMARS-C16-2024", "FMARS-C17-2025", "FMARS-C18-2025"],
+  "url_or_reference": "Compiled by Anna Sabaté Garcia from fmars.marssociety.org, May 2025 (local file: Flashline Crew Reports.pdf, not in repo)",
+  "source_type": "compiled_pdf",
+  "covers": ["events"],
+  "date_range_or_sols": "FMARS Crews 15-18, 2023-2025",
+  "discovery_method": "manual",
+  "approved_by": "ASG",
+  "approved_date": "2026-08-26"
+}
