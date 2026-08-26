@@ -1,0 +1,12 @@
+{
+  "mission_id": "FMARS-C15-2023",
+  "stations": ["FMARS"],
+  "crew_designation": "Crew 15",
+  "institutional_or_volunteer": "volunteer",
+  "start_date": "2023-07-01",
+  "end_date": "2023-07-31",
+  "location": "FMARS, Haynes Ridge, Devon Island, Nunavut, Canada (~75°25'N, 89°49'W)",
+  "crew_size": 6,
+  "source_citation": "SRC-hypatia-iii-brief, Appendix – Sources and notes: 'FMARS Crew 15 full reports (July 2023): Commander reports, Engineering Reports by Caleb Pool (Sols 1–5), XO reports, Journalist reports, EVA reports, Sol summaries' (extracted-text line 457); crew_size inferred from named/implied role-holders referenced throughout the brief – Commander, XO, Engineers Pool and Greco (line 528), Science Officer Drayson (line 687), Journalist (reports exist per line 457); Part IV incident register entries tagged 'C15' (e.g. lines 494-499, 512-529, 612-616, 683-718, 758-769, 780-784).",
+  "verified_by": "ASG"
+}
