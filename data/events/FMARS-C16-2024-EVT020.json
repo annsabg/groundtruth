@@ -2,15 +2,15 @@
   "event_id": "FMARS-C16-2024-EVT020",
   "mission_id": "FMARS-C16-2024",
   "sol": 6,
-  "event_type": "Failure",
+  "event_type": "Process Innovation",
   "system_category": "Scientific",
   "significance": "Medium",
   "description": "Terrain was significantly softer and more waterlogged in early July 2024 than in late July 2023. Deep footprints in the silty terrain can persist for centuries, requiring a complete revision of EVA walking technique mid-expedition.",
   "response": "CSO Nicholson introduced real-time terrain navigation protocols: rock-hopping, following stony seams, avoiding smooth surfaces ('oatmeal not porridge' as a field mnemonic).",
   "lesson": "Brief all EVA participants on terrain fragility protocols before the first EVA. Earlier in July = wetter = more fragile. This is not a preference — leaving tracks in undisturbed Arctic terrain is a scientific harm.",
   "pattern_tag": "terrain fragility / EVA technique adaptation",
-  "outcome": "Resolved",
+  "outcome": "Adopted",
   "confidence": "A",
-  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 707-712. Register Crew tag: 'C16'. Sol: not stated; 'mid-expedition' placed at a representative mid-mission point. Confidence (A) rationale: named CSO, specific protocol detail and field mnemonic — reads as a formal science-officer report.",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 707-712. Register Crew tag: 'C16'. Sol: not stated; 'mid-expedition' placed at a representative mid-mission point. Confidence (A) rationale: named CSO, specific protocol detail and field mnemonic — reads as a formal science-officer report. Reclassification note (2026-08-26): originally classified Failure; on review, the entry's substance is CSO Nicholson's newly-devised real-time terrain navigation protocol (rock-hopping, stony-seam following, the 'oatmeal not porridge' mnemonic), explicitly recommended for future crews to brief and use. Reclassified to Process Innovation; outcome changed to Adopted to reflect that the protocol is intended to carry forward as standard practice.",
   "verified_by": "ASG"
 }

@@ -2,7 +2,7 @@
   "event_id": "FMARS-C15-2023-EVT009",
   "mission_id": "FMARS-C15-2023",
   "sol": 1,
-  "event_type": "Failure",
+  "event_type": "Observation",
   "system_category": "Water",
   "significance": "Medium",
   "description": "Creek water levels dropped significantly through July; Crew 15 observed a significant fall by Sol 1. (Crew 16's early-July 2024 mission was, by contrast, notably wetter with softer terrain than Crew 15's late-July 2023 mission — see FMARS-C16-2024's related terrain entry.)",
@@ -11,6 +11,6 @@
   "pattern_tag": "seasonal creek water level decline",
   "outcome": "Worked Around",
   "confidence": "A",
-  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 701-706. Register Crew tag: 'C15/C16'. Sol: explicit for C15: 'Crew 15 observed significant fall by Sol 1'. Confidence (A) rationale: sol-referenced observation ('by Sol 1') reads as a formal daily/engineering log entry; assigned to FMARS-C15-2023 since it is the only mission with an explicit sol anchor in this entry, with Crew 16's comparison noted in the description.",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 701-706. Register Crew tag: 'C15/C16'. Sol: explicit for C15: 'Crew 15 observed significant fall by Sol 1'. Confidence (A) rationale: sol-referenced observation ('by Sol 1') reads as a formal daily/engineering log entry; assigned to FMARS-C15-2023 since it is the only mission with an explicit sol anchor in this entry, with Crew 16's comparison noted in the description. Reclassification note (2026-08-26): originally classified Failure; on review, no operational problem (e.g. a shortage) is actually described here — this entry records a seasonal environmental pattern (creek levels declining through July) for future planning purposes, so Observation is the accurate fit. The bulk-collection response and 'Worked Around' outcome are kept since crews did take an active planning step in response to the observed pattern.",
   "verified_by": "ASG"
 }
