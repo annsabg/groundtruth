@@ -5,9 +5,20 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
-from build_db import build_database
+from build_db import ENTITIES, build_database
 
 FIXTURES = Path(__file__).parent / "fixtures"
+SCHEMA = Path(__file__).parent.parent / "schema"
+
+# entity name -> schema file, so a schema field change is caught even if
+# nobody remembers to update ENTITIES in build_db.py to match.
+SCHEMA_FILES = {
+    "mission": "mission.schema.json",
+    "crew_member": "crew_member.schema.json",
+    "event": "event.schema.json",
+    "research_project": "research_project.schema.json",
+    "source": "source.schema.json",
+}
 
 
 def _write_fixture_data_dir(tmp_path):
@@ -54,6 +65,23 @@ def test_build_database_inserts_correct_row_data(tmp_path):
     row = conn.execute("SELECT event_id, significance FROM event").fetchone()
     assert row == ("FMARS-C16-2024-EVT001", "High")
     conn.close()
+
+
+def test_entities_columns_match_schema_properties():
+    # Guards against schema drift: if a schema gains (or loses) a field but
+    # ENTITIES in build_db.py isn't updated to match, that field would
+    # silently vanish from the database (or a stale column would silently
+    # persist) with no error. This catches drift in either direction.
+    for entity, schema_filename in SCHEMA_FILES.items():
+        schema = json.loads((SCHEMA / schema_filename).read_text())
+        schema_fields = set(schema["properties"].keys())
+        entity_columns = set(ENTITIES[entity][1])
+        assert entity_columns == schema_fields, (
+            f"{entity}: ENTITIES columns {entity_columns} != "
+            f"schema properties {schema_fields} "
+            f"(diff: only in ENTITIES={entity_columns - schema_fields}, "
+            f"only in schema={schema_fields - entity_columns})"
+        )
 
 
 def test_build_database_is_idempotent_overwrite(tmp_path):
