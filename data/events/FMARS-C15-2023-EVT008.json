@@ -12,5 +12,6 @@
   "outcome": "Partially Resolved",
   "confidence": "A",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 695-700. Register Crew tag: 'C15'. Sol: not stated; the lesson recommends a Day 1 baseline TVOC measurement, used as a proxy for when this was likely measured. Confidence (A) rationale: precise instrument reading with a cited WHO reference limit — formal engineering/science measurement report.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

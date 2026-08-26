@@ -12,5 +12,6 @@
   "outcome": "Worked Around",
   "confidence": "A",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 530-535. Register Crew tag: 'C15'. Sol: not stated; placed within the same Sols 1-2 suit-rehabilitation window as the preceding entry, since compatibility testing preceded the first EVA. Confidence (A) rationale: same engineering-rehabilitation context as the preceding suit entry; formal diagnostic in nature.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

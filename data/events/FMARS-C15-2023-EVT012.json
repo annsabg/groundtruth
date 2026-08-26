@@ -12,5 +12,6 @@
   "outcome": "Adopted",
   "confidence": "A",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.5 Psychological and team dynamics, lines 764-769. Register Crew tag: 'C15'. Sol: not stated precisely; described as continuing 'throughout simulation' — sol 1 used as onset. Confidence (A) rationale: formal human-factors study element with quantitative tracking (HRV) — reads as a formal engineering/science report. Reclassification note (2026-08-26): originally forced into Near-Miss under an earlier task instruction that constrained every entry in this register to Failure/Near-Miss; corrected once the full event_type enum was confirmed available. This entry describes a positive, proactive wellbeing practice (formal meditation + HRV tracking, adopted and continued throughout the mission) rather than a failure or a narrowly-avoided incident, so Success/Best Practice is the accurate fit.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

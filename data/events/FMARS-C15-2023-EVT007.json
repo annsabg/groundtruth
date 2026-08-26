@@ -12,5 +12,6 @@
   "outcome": "Partially Resolved",
   "confidence": "A",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 689-694. Register Crew tag: 'C15'. Sol: not stated precisely; 'every night during simulation' placed at sol 1 as the onset of the recurring pattern. Confidence (A) rationale: quantitative measurement description (levels 'dropped to half') reads as a formal engineering/science report.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

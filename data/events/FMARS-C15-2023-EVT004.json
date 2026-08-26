@@ -12,5 +12,6 @@
   "outcome": "Worked Around",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.2 Meteorological incidents, lines 611-616. Register Crew tag: 'C15'. Sol: not stated; the entry places this 'in late July' and C15's mission spans July 1-31, so sol ~27 is used as a late-July placeholder. Confidence (B) rationale: narrative weather-observation entry; daily-report style.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

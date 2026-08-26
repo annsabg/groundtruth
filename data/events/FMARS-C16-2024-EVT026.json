@@ -12,5 +12,6 @@
   "outcome": "Worked Around",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 803-808. Register Crew tag: 'C16'. Sol: not stated; inferred to be discovered during arrival gear unpacking. Confidence (B) rationale: logistics-narrative entry; classified Near-Miss since personal redundancy prevented the missing item from becoming an actual mission failure.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

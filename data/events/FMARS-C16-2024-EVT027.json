@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "C",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 809-814. Register Crew tag: 'C16'. Sol: not stated; placed within the same pre-sim ATV-triage window documented elsewhere for this mission. Confidence (C) rationale: named XO negotiating an external arrangement — reads as an XO-report style account. system_category note: register's own category for this entry is 'Logistics' (a procurement/supply-chain issue), kept as Logistics over ATVs/Transport since the failure is sourcing availability, not a mechanical fault.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

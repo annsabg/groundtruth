@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 632-637. Register Crew tag: 'C16'. Sol: occurred at the Resolute hangar reweigh, before landing on Devon Island; sol 0 placeholder, consistent with the Resolute weather-delay entry. Confidence (B) rationale: specific figures (2,900/2,740 lbs) but presented as narrative logistics account rather than a formal engineering report.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

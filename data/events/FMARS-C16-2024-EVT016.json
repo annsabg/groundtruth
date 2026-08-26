@@ -12,5 +12,6 @@
   "outcome": "Adopted",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 650-655. Register Crew tag: 'C16'. Sol: occurred 'within the 2-hour arrival window'; sol 1 used for arrival day. Confidence (B) rationale: named-individual logistics narrative (the Engineer's rolling method); daily-report style, not a formal engineering log. Reclassification note (2026-08-26): originally classified Failure; on review, no equipment or process actually failed here — the entry's substance is the Engineer's newly-developed ergonomic rolling method for a known heavy-item handling challenge, explicitly recommended for future crews to rehearse. Reclassified to Process Innovation; outcome changed to Adopted to reflect that the method is intended to carry forward, not merely a one-off fix.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

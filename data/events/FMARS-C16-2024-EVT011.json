@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.2 Meteorological incidents, lines 587-592. Register Crew tag: 'C16'. Sol: explicit: 'Departed on Day 11 via early morning charter window' (also cited in FMARS-C16-2024.json's own source_citation). Confidence (B) rationale: narrative account with a specific day reference; daily-report style, not a formal engineering log.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

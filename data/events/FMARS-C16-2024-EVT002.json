@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "A",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 506-511. Register Crew tag: 'C16'. Sol: explicit: 'Started successfully on Day 5' (resolution date used; onset not separately dated). Confidence (A) rationale: step-by-step mechanical triage list (filter/oil/fuel line/battery) reads as a formal engineering diagnostic log.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

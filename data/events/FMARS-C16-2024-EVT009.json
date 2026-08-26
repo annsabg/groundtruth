@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 566-571. Register Crew tag: 'C16'. Sol: not stated; the lesson recommends installing 'on Day 2 or 3 of pre-sim', used as a proxy for when this specific issue was likely encountered. Confidence (B) rationale: brief narrative entry, minor severity, no formal diagnostic detail.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

@@ -12,5 +12,6 @@
   "outcome": "Unresolved",
   "confidence": "A",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 512-517. Register Crew tag: 'C15/C16'. Sol: not stated; placed early in C16's arrival-diagnostics window since Crew 16 diagnosed and removed the unit during hab rehabilitation. Confidence (A) rationale: specific causal chain (valve state at prior mission's closure -> freeze -> rupture) matches the brief's own cross-cutting note (line 832) attributing this to a documented closure-procedure error; reads as formal engineering diagnosis.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

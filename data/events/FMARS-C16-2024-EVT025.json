@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 797-802. Register Crew tag: 'C16'. Sol: explicit: 'found in crew quarter floor platform on Sol 1'. Confidence (B) rationale: brief daily-report entry; classified Near-Miss since the hazard was found and fixed before anyone was injured.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

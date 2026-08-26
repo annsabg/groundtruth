@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 785-790. Register Crew tag: 'C16'. Sol: not stated; 'before the crater expedition' placed at a representative mid-mission point. Confidence (B) rationale: daily-narrative entry. Reclassification note (2026-08-26): originally classified Near-Miss; on review, this entry centres on Crew 16 proactively identifying an underestimated risk and applying sunscreen to the whole crew before exposure occurred, which is better described as a demonstrated good practice than a risk narrowly avoided by circumstance — reclassified to Success/Best Practice.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

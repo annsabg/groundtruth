@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 560-565. Register Crew tag: 'C17 (tagged in register; content describes Crew 18's arrival)'. Sol: explicit: 'their Sol 1 major engineering task'. Confidence (B) rationale: narrative handover-style entry; no formal diagnostic content.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

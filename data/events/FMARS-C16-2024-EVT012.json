@@ -12,5 +12,6 @@
   "outcome": "Worked Around",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.2 Meteorological incidents, lines 593-598. Register Crew tag: 'C16'. Sol: not stated; placed at a representative mid-mission point for recurring weather-driven EVA postponement. Confidence (B) rationale: daily-narrative style summary of recurring weather impact.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

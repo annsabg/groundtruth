@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "A",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 536-541. Register Crew tag: 'C16'. Sol: not stated; occurred 'during transit on EVA 01' — inferred to fall after the ~3-day pre-sim rehab window documented for other C16 systems. Confidence (A) rationale: specific technical repair detail (cut, patch, pressure-test) reads as a formal engineering account.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

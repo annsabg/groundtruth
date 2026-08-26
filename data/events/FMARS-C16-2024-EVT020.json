@@ -12,5 +12,6 @@
   "outcome": "Adopted",
   "confidence": "A",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 707-712. Register Crew tag: 'C16'. Sol: not stated; 'mid-expedition' placed at a representative mid-mission point. Confidence (A) rationale: named CSO, specific protocol detail and field mnemonic — reads as a formal science-officer report. Reclassification note (2026-08-26): originally classified Failure; on review, the entry's substance is the CSO's newly-devised real-time terrain navigation protocol (rock-hopping, stony-seam following, the 'oatmeal not porridge' mnemonic), explicitly recommended for future crews to brief and use. Reclassified to Process Innovation; outcome changed to Adopted to reflect that the protocol is intended to carry forward as standard practice.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

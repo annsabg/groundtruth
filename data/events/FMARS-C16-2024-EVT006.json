@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "A",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 542-547. Register Crew tag: 'C16'. Sol: explicit: 'All 5 started by Day 3'. Confidence (A) rationale: detailed multi-day mechanical triage log reads as a formal engineering report.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

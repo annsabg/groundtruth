@@ -12,5 +12,6 @@
   "outcome": "Worked Around",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 548-553. Register Crew tag: 'C16'. Sol: not stated; 'mid-EVA' placed at a representative mid-mission EVA sol. Confidence (B) rationale: EVA-narrative style entry (field discovery mid-task) without formal diagnostic detail.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

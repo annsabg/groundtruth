@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 791-796. Register Crew tag: 'C15/C16'. Sol: explicit for C16: 'Crew 16 (Day 1) tested'. Confidence (B) rationale: assigned to FMARS-C16-2024 since Crew 16 performed the explicit Day 1 test and resolution; Crew 15's earlier non-testing noted in the description; daily-report style account. system_category note: closest fit is Medical/Safety (health-and-safety framing, matching the register's own 'Safety' category for this entry) over Air Quality, though mold testing content overlaps both.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

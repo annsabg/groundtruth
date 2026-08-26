@@ -12,5 +12,6 @@
   "outcome": "Worked Around",
   "confidence": "C",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.5 Psychological and team dynamics, lines 746-751. Register Crew tag: 'C16'. Sol: occurred in Resolute before landing on Devon Island; sol 0 placeholder, consistent with other pre-landing entries for this mission. Confidence (C) rationale: named Commander, narrative account of crew management — Commander/XO-report style. Reclassification note (2026-08-26): originally classified Failure; on review, this entry is fundamentally about crew fatigue/alertness management under external strain and the Commander's handling of crew expectations, not a system or process failure — Crew Dynamics is the accurate fit, consistent with the other Psychological-section entries in this register.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

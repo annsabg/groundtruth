@@ -12,5 +12,6 @@
   "outcome": "Not Applicable",
   "confidence": "C",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 662-667. Register Crew tag: 'All (register tag; content specifically discusses Crew 16's Commander)'. Sol: pre-simulation rule-setting; sol 0 placeholder. Confidence (C) rationale: register tags this entry 'All' (cross-crew pattern) but the specific example cited is Crew 16's Commander, so assigned to FMARS-C16-2024; reads as a Commander-reflection/XO-report style account rather than formal engineering documentation. Reclassification note (2026-08-26): originally classified Failure with outcome Unresolved; on review, this entry describes an ongoing cross-crew inconsistency (no specific incident, no attempted fix beyond noting that discipline holds anyway) rather than something that went wrong and needed resolving. Reclassified to Observation; outcome changed to Not Applicable since there is no specific incident-resolution status to report.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

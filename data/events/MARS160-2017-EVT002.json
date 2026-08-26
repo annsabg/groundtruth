@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "C",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.2 Meteorological incidents, lines 605-610. Register Crew tag: 'Mars160'. Sol: qualitative cue only ('from mid-mission'); no sol structure given for Mars160 in this source — placeholder. Confidence (C) rationale: Commander-narrative account (monitoring/photography actions); risk was averted rather than materializing, classified Near-Miss on that basis.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

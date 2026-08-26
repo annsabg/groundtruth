@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 638-643. Register Crew tag: 'C16'. Sol: not stated; 'discovered mid-EVA during a planned field comms test' placed at a representative mid-mission point. Confidence (B) rationale: EVA-narrative account of a comms delay; daily-report style. system_category note: Starlink is the hab's field-comms system supporting EVA communication; mapped to EVA Suits & Comms rather than Logistics or Operational/Process since the impact is specifically on hab-to-field EVA comms. Reclassification note (2026-08-26): originally classified Failure; on review, nothing malfunctioned — a 15-minute reacquisition delay is an inherent Starlink terminal characteristic, discovered during a test and worked around by waiting. This is better described as an Observation about system behaviour than a failure.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 644-649. Register Crew tag: 'C16'. Sol: explicit: 'accumulating a backlog by Day 9'. Confidence (B) rationale: narrative process observation, matches the brief's own cross-cutting note (line 826) on documentation degrading under pressure.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

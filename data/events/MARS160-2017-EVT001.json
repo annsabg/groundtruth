@@ -12,5 +12,6 @@
   "outcome": "Worked Around",
   "confidence": "C",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.2 Meteorological incidents, lines 599-604. Register Crew tag: 'Mars160'. Sol: not stated anywhere in the source for Mars160; no sol structure is given for this mission at all (see MARS160-2017.json's own high-uncertainty date flags) — placed at an arbitrary mid-mission placeholder. Confidence (C) rationale: Commander-authorisation narrative; reads as an XO/Commander-report style account rather than a formal engineering log.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

@@ -12,5 +12,6 @@
   "outcome": "Worked Around",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.2 Meteorological incidents, lines 581-586. Register Crew tag: 'C16'. Sol: occurred in Resolute before landing on Devon Island, i.e. before mission sol-clock start; sol 0 used as a placeholder for pre-landing events. Confidence (B) rationale: narrative account of schedule impact and crew activity; daily-report style.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

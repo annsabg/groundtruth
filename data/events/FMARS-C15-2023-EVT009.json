@@ -12,5 +12,6 @@
   "outcome": "Worked Around",
   "confidence": "A",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 701-706. Register Crew tag: 'C15/C16'. Sol: explicit for C15: 'Crew 15 observed significant fall by Sol 1'. Confidence (A) rationale: sol-referenced observation ('by Sol 1') reads as a formal daily/engineering log entry; assigned to FMARS-C15-2023 since it is the only mission with an explicit sol anchor in this entry, with Crew 16's comparison noted in the description. Reclassification note (2026-08-26): originally classified Failure; on review, no operational problem (e.g. a shortage) is actually described here — this entry records a seasonal environmental pattern (creek levels declining through July) for future planning purposes, so Observation is the accurate fit. The bulk-collection response and 'Worked Around' outcome are kept since crews did take an active planning step in response to the observed pattern.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

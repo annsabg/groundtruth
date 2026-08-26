@@ -12,5 +12,6 @@
   "outcome": "Adopted",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.5 Psychological and team dynamics, lines 758-763. Register Crew tag: 'C15'. Sol: not stated precisely; described as ongoing 'throughout the mission' — sol 1 used as onset. Confidence (B) rationale: daily-monitoring narrative. Reclassification note (2026-08-26): originally classified Near-Miss on the reasoning that no adverse outcome occurred; on review this entry is better described as a proactive daily health-vigilance practice with a positive result (no headaches reported) rather than a risk that was narrowly avoided by circumstance — reclassified to Success/Best Practice, and outcome to Adopted since daily monitoring was maintained throughout the mission.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

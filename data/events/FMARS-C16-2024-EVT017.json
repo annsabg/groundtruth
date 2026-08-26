@@ -12,5 +12,6 @@
   "outcome": "Worked Around",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 656-661. Register Crew tag: 'C16'. Sol: not stated; 'mid-EVA' placed at a representative mid-mission point. Confidence (B) rationale: EVA-narrative entry; classified Near-Miss since the crew turned back before creating new tracks or getting lost, avoiding rather than incurring the harm.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

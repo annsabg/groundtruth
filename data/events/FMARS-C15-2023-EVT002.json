@@ -12,5 +12,6 @@
   "outcome": "Partially Resolved",
   "confidence": "A",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 524-529. Register Crew tag: 'C15'. Sol: explicit: 'two Engineers spent Sols 1-2 on suit rehabilitation' — sol 1 used as the start of that window. Confidence (A) rationale: two named engineers in the source and sol-referenced work match the brief's cited Crew Engineer reports (Sols 1-5) for Crew 15 (line 457) — formal engineering report.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

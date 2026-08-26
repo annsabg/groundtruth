@@ -12,5 +12,6 @@
   "outcome": "Partially Resolved",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 626-631. Register Crew tag: 'C15'. Sol: not stated; placed near end of C15's mission window (July 1-31) since this describes forced early departure. Confidence (B) rationale: narrative account of departure-day decision-making; daily/Commander-report style.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

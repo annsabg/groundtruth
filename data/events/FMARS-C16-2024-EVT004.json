@@ -12,5 +12,6 @@
   "outcome": "Worked Around",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 518-523. Register Crew tag: 'C16'. Sol: 'cracked on arrival' for the sprayer; the associated water pump issue was identified by Day 5 and is noted in the description. Confidence (B) rationale: narrative, day-referenced entry without formal diagnostic detail; reads as a daily report item.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

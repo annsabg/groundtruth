@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "A",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 683-688. Register Crew tag: 'C15'. Sol: not stated; placed early in the mission as lab-equipment 'discovery and activation' typically precedes first science operations. Confidence (A) rationale: named Science Officer, specific technical detail (100x lens, oil) — reads as a formal science/engineering report.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

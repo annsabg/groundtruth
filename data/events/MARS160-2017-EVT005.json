@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "C",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.5 Psychological and team dynamics, lines 752-757. Register Crew tag: 'Mars160'. Sol: not stated; no sol structure given for Mars160 in this source — arbitrary placeholder. Confidence (C) rationale: Commander self-reflection with direct quote — Commander/XO-report style, not formal engineering documentation. Reclassification note (2026-08-26): originally classified Failure; on review, this entry (interpersonal conflict and its resolution) is fundamentally about interpersonal/team psychological dynamics under isolation stress, not a system or process failure — Crew Dynamics is the accurate fit, consistent with the other Psychological-section entries in this register.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }

@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "D",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 779-784. Register Crew tag: 'All (register tag; most severe concrete instance is Crew 15's hab storage entry)'. Sol: not stated precisely for the C15 hab-storage entry event itself; sol 1 used since the lesson recommends checking storage areas for animal entry on Day 1 arrival. Confidence (D) rationale: register tags this entry 'All' (cross-crew aggregation spanning Crews 15-18, no single dated report); assigned to FMARS-C15-2023 as the mission with the most severe concrete instance (bear entering hab storage), with Crew 16's track sighting noted in the description; classified Near-Miss since no direct encounter occurred despite the risk.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }
