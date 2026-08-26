@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT007",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 10,
+  "event_type": "Failure",
+  "system_category": "ATVs/Transport",
+  "significance": "Medium",
+  "description": "A beige Alterra 300 ATV lost traction on a snowbank — discovered mid-EVA that this model has no 4WD, unlike the olive Arctic Cat 450s.",
+  "response": "The vehicle detoured while a 4WD Arctic Cat scaled the bank. Mission objectives were achieved.",
+  "lesson": "Know your fleet before EVAs. Arctic Cat 450s = 4WD; Alterra 300s = 2WD only. Mark each ATV visibly. Never assign a 300 as lead vehicle on technical terrain.",
+  "pattern_tag": "ATV model capability mismatch (4WD vs 2WD)",
+  "outcome": "Worked Around",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 548-553. Register Crew tag: 'C16'. Sol: not stated; 'mid-EVA' placed at a representative mid-mission EVA sol. Confidence (B) rationale: EVA-narrative style entry (field discovery mid-task) without formal diagnostic detail.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C17-2025-CM04",
+  "mission_id": "FMARS-C17-2025",
+  "primary_role": "Crew Member (unspecified)",
+  "gender": "female",
+  "nationality": "undisclosed",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Geology",
+    "detail": "Doctoral studies in Earth, Environmental, and Planetary Sciences (Rice University), examining meteorites and lunar samples; aviation student (PPL)"
+  },
+  "source_citation": "SRC-fmars-meet-the-crew-c17-c18, fmars.marssociety.org/meet-the-crew-2/, 'Crew 17 (Silaliq)' section, Mission Specialist bio: 'The Mission Specialist pursues aviation training (PPL) in Los Angeles... She begins doctoral studies in Earth, Environmental, and Planetary Sciences at Rice University, examining meteorites and lunar samples' (explicit 'She' pronoun). No nationality stated.",
+  "verified_by": "ASG"
+}

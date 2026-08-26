@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C15-2023-EVT004",
+  "mission_id": "FMARS-C15-2023",
+  "sol": 27,
+  "event_type": "Failure",
+  "system_category": "Meteorological",
+  "significance": "Low",
+  "description": "Wind reached ~10 m/s and temperatures dropped to single digits (Celsius) in late July — early signals of approaching Arctic autumn.",
+  "response": "EVA duration was adjusted and extra layers worn. Incinerator operations were paused until wind direction was favourable.",
+  "lesson": "Plan weather-exposed and physically demanding work for the earlier part of the mission. Ensure a thermal emergency kit (hand warmers, emergency blankets) is accessible on every EVA. Temperature drops fast in late July on Devon Island.",
+  "pattern_tag": "late-July cold snap / seasonal transition",
+  "outcome": "Worked Around",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.2 Meteorological incidents, lines 611-616. Register Crew tag: 'C15'. Sol: not stated; the entry places this 'in late July' and C15's mission spans July 1-31, so sol ~27 is used as a late-July placeholder. Confidence (B) rationale: narrative weather-observation entry; daily-report style.",
+  "verified_by": "ASG"
+}

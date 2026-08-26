@@ -1,0 +1,17 @@
+{
+  "event_id": "FMARS-C15-2023-EVT015",
+  "mission_id": "FMARS-C15-2023",
+  "sol": 6,
+  "event_type": "Observation",
+  "system_category": "Air Quality",
+  "significance": "Medium",
+  "description": "The Commander conducted a deliberate diagnostic test — sealing the habitat closed for 10 hours after air quality had otherwise improved — to isolate the cause of the recurring CO2/TVOC buildup. Both readings rose back to problem levels during the closure, confirming closure itself (not another factor) as the primary driver.",
+  "response": "The crew reopened the station and returned to open-door/fan ventilation. The result was used to support a recommendation for a proper ventilation or ECLSS system in future analogue seasons, rather than relying on manual door/fan management.",
+  "lesson": "Where a suspected cause (e.g. sealed-habitat CO2/TVOC buildup) can be isolated with a short deliberate test, run one — it converts a recurring nuisance into a confirmed root cause and a concrete infrastructure recommendation for future crews.",
+  "pattern_tag": "CO2 buildup / ventilation",
+  "outcome": "Unresolved",
+  "related_events": ["FMARS-C15-2023-EVT007", "FMARS-C15-2023-EVT008"],
+  "confidence": "B",
+  "source_citation": "SRC-flashline-crew-reports, FMARS-15 XO REPORT 29-07-2023, lines 2227-2251. Sol: explicit 'Sol: 6' header. Confidence (B) rationale: first-person daily/XO-report narrative account, not an instrumented engineering log.",
+  "verified_by": "ASG"
+}

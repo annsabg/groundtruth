@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT031",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 8,
+  "event_type": "Process Innovation",
+  "system_category": "Scientific",
+  "significance": "Medium",
+  "description": "The crew adopted a less invasive permafrost depth measurement method (a thin rod pushed to refusal and tapped with a rubber mallet, per a published standardized protocol) in place of the digging-a-hole method used during pre-mission training in Resolute Bay, reducing ground disturbance.",
+  "response": "The new method was used for the remainder of the mission's permafrost sampling, including a formal science report documenting the protocol and results.",
+  "lesson": "Research and validate lower-impact field methods before departure where possible; adopt literature-standard protocols (with citation) over ad hoc methods invented in the field, both for reduced environmental impact and for result comparability with other researchers.",
+  "pattern_tag": "low-impact field science method adoption",
+  "outcome": "Adopted",
+  "confidence": "A",
+  "source_citation": "SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 09-07-2024, lines 630-644, and FLASHLINE-16 SCIENCE REPORT-06 09-07-2024, lines 574-593. Sol: calculated from report date (09-07-2024) against Sol 1 = 02-07-2024. Confidence (A) rationale: formal science report citing a published field methodology (Boike et al. 2021).",
+  "verified_by": "ASG"
+}

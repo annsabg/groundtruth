@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT005",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 4,
+  "event_type": "Failure",
+  "system_category": "EVA Suits & Comms",
+  "significance": "Medium",
+  "description": "The experimental pressurised suit (Grissom Suit) suffered a torn air hose, snagged on a sharp ATV rail edge during transit on EVA 01.",
+  "response": "In-field repair: the torn segment was cut out, the hose patched, and pressure-tested. The suit held and the EVA continued.",
+  "lesson": "Route and secure all air hoses away from ATV metal edges before departure. Carry duct tape and a hose repair kit in suit pockets on every EVA.",
+  "pattern_tag": "suit hose routing near ATV sharp edges",
+  "outcome": "Resolved",
+  "confidence": "A",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 536-541. Register Crew tag: 'C16'. Sol: not stated; occurred 'during transit on EVA 01' — inferred to fall after the ~3-day pre-sim rehab window documented for other C16 systems. Confidence (A) rationale: specific technical repair detail (cut, patch, pressure-test) reads as a formal engineering account.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C15-2023-CM04",
+  "mission_id": "FMARS-C15-2023",
+  "primary_role": "Engineer",
+  "gender": "undisclosed",
+  "nationality": "US",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Engineering",
+    "detail": "Engineering Team Lead at a major aerospace manufacturer, involved in final assembly of a commercial airplane program; B.S. in Aerospace Engineering (Florida Institute of Technology)"
+  },
+  "source_citation": "SRC-fmars-c15-crew-announcements, marssociety.org 2023-07-06 'Multi-National Crew to Visit FMARS': 'Crew Engineer... (U.S.)... an engineering team lead with a major aerospace manufacturer (Seattle)... involved in the final assembly of a commercial airplane program'. No gender pronoun stated in the source.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C15-2023-EVT002",
+  "mission_id": "FMARS-C15-2023",
+  "sol": 1,
+  "event_type": "Failure",
+  "system_category": "EVA Suits & Comms",
+  "significance": "High",
+  "description": "EVA suit backpack battery trickle chargers: two of three were inoperative on arrival. Almost all comms earpiece/mic units had failed. Strap buckles were incorrectly installed and helmet latches required excessive force or did not latch.",
+  "response": "Two Engineers spent Sols 1-2 on suit rehabilitation. Only two suits were fully operational for the first EVA.",
+  "lesson": "Suit audit is a Day 1 priority. Pre-mission: source replacement chargers matched to backpack model, spare comms units, and confirm a sewing machine is present with compatible needles.",
+  "pattern_tag": "suit hardware failure after winter storage",
+  "outcome": "Partially Resolved",
+  "confidence": "A",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 524-529. Register Crew tag: 'C15'. Sol: explicit: 'two Engineers spent Sols 1-2 on suit rehabilitation' — sol 1 used as the start of that window. Confidence (A) rationale: two named engineers in the source and sol-referenced work match the brief's cited Crew Engineer reports (Sols 1-5) for Crew 15 (line 457) — formal engineering report.",
+  "verified_by": "ASG"
+}

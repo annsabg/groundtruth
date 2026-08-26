@@ -1,0 +1,17 @@
+{
+  "event_id": "FMARS-C16-2024-EVT029",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 7,
+  "event_type": "Observation",
+  "system_category": "Medical/Safety",
+  "significance": "Medium",
+  "description": "Despite Crew 16's own Sol 1 mold test confirming no harmful species (see FMARS-C16-2024-EVT024), three of the seven crew members were experiencing ongoing congestion by Sol 7, believed to be related to habitat humidity and residual mold exposure in hard-to-reach areas.",
+  "response": "Additional, more extensive mold cleaning was carried out on the second and first floors.",
+  "lesson": "A negative mold species test does not mean a mold-free environment — humidity control and thorough (not just visible-surface) cleaning matter independently of species toxicity. Track crew respiratory symptoms as a leading indicator and re-clean proactively rather than waiting for symptoms to worsen.",
+  "pattern_tag": "mold testing on arrival",
+  "outcome": "Partially Resolved",
+  "related_events": ["FMARS-C16-2024-EVT024"],
+  "confidence": "B",
+  "source_citation": "SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 08-07-2024, lines 889-894. Sol: calculated from report date (08-07-2024) against Sol 1 = 02-07-2024. Confidence (B) rationale: daily-report narrative style.",
+  "verified_by": "ASG"
+}

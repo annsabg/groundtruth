@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT022",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 0,
+  "event_type": "Crew Dynamics",
+  "system_category": "Psychological",
+  "significance": "Medium",
+  "description": "Repeated flight delays in Resolute created significant fatigue and alertness strain — crew had to remain constantly ready to depart, sometimes with only 30 minutes' notice.",
+  "response": "The Commander managed expectations explicitly and redirected focus to preparedness tasks.",
+  "lesson": "Brief the crew before Resolute arrival that weather delays are normal. Give crew agency to relax during confirmed wait periods — constant alertness is exhausting. Structure the day: morning weather check, go/no-go by a fixed time, then planned activity.",
+  "pattern_tag": "Resolute delay fatigue and alertness strain",
+  "outcome": "Worked Around",
+  "confidence": "C",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.5 Psychological and team dynamics, lines 746-751. Register Crew tag: 'C16'. Sol: occurred in Resolute before landing on Devon Island; sol 0 placeholder, consistent with other pre-landing entries for this mission. Confidence (C) rationale: named Commander, narrative account of crew management — Commander/XO-report style. Reclassification note (2026-08-26): originally classified Failure; on review, this entry is fundamentally about crew fatigue/alertness management under external strain and the Commander's handling of crew expectations, not a system or process failure — Crew Dynamics is the accurate fit, consistent with the other Psychological-section entries in this register.",
+  "verified_by": "ASG"
+}

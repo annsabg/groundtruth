@@ -1,0 +1,12 @@
+{
+  "mission_id": "MARS160-2017",
+  "stations": ["FMARS", "MDRS"],
+  "crew_designation": "Mars160",
+  "institutional_or_volunteer": "volunteer",
+  "start_date": "2017-07-01",
+  "end_date": "2017-08-31",
+  "location": "FMARS leg: Devon Island, Nunavut, Canada (~75°25'N, 89°49'W). This source contains no description of the MDRS leg (location, dates, or crew) at all.",
+  "crew_size": 6,
+  "source_citation": "SRC-hypatia-iii-brief, Appendix – Sources and notes: 'Mars160 FMARS final mission report (August 2017)' (line 461). Incident register entries tagged 'Mars160': fog reducing EVA visibility to 50m and a cancelled EVA (lines 599-604), saturated landing strip threatening extraction (lines 605-610), crew tensions/fatigue in the 'final week' (lines 734-739), extended bad-weather morale impact (lines 740-745), and interpersonal conflict (lines 752-757). Generator run only 9 hours/day to conserve fuel (lines 270, 828-829). All cited material describes the FMARS leg only; no MDRS-leg content appears anywhere in the source – see report for confidence flags on dates, crew_size, and the stations field.",
+  "verified_by": "ASG"
+}

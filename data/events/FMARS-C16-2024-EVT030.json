@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT030",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 7,
+  "event_type": "Process Innovation",
+  "system_category": "Scientific",
+  "significance": "Low",
+  "description": "The crew conducted a systematic site survey for a possible future Mars Society radio telescope, characterizing five candidate locations (terrain, obstruction angles, proximity to the habitat, and sight-line conflicts with a neighbouring research station) using a repeatable measurement protocol.",
+  "response": "Five sites were surveyed, measured, and ranked with photographic and GPS documentation for future infrastructure planning.",
+  "lesson": "Long-lead infrastructure planning (e.g. a future radio telescope) benefits from being scoped opportunistically during an active mission's EVA time, using a lightweight, repeatable survey protocol, rather than waiting for a dedicated future mission.",
+  "pattern_tag": "future infrastructure site survey",
+  "outcome": "Not Applicable",
+  "confidence": "A",
+  "source_citation": "SRC-flashline-crew-reports, FLASHLINE-16 EVA REPORT-02 08-07-2024, lines 757-823. Sol: calculated from report date (08-07-2024) against Sol 1 = 02-07-2024. Confidence (A) rationale: formal EVA report with GPS coordinates, measurements, and named candidate sites.",
+  "verified_by": "ASG"
+}

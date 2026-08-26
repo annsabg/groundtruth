@@ -1,0 +1,15 @@
+{
+  "crew_member_id": "FMARS-C15-2023-CM05",
+  "mission_id": "FMARS-C15-2023",
+  "primary_role": "Engineer",
+  "secondary_roles": ["Medical Officer"],
+  "gender": "undisclosed",
+  "nationality": "US",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Engineering",
+    "detail": "Mechanical Systems Design Engineer for a major aerospace manufacturer in Seattle; certified Firefighter, EMT, and private pilot; served as crew Health & Safety Officer"
+  },
+  "source_citation": "SRC-fmars-c15-crew-announcements, marssociety.org 2023-07-06 'Multi-National Crew to Visit FMARS': 'Crew Engineer & HSO... (U.S.)... a mechanical systems design engineer with a major aerospace manufacturer (Seattle)... a certified Firefighter, an Emergency Medical Technician (EMT), and a certified private pilot'. No gender pronoun stated in the source.",
+  "verified_by": "ASG"
+}

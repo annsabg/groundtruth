@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT012",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 6,
+  "event_type": "Failure",
+  "system_category": "Meteorological",
+  "significance": "Medium",
+  "description": "Multiple EVA postponements occurred due to rain, fog, and near-freezing temperatures. On the worst day, constant rain at near-zero temperatures left no visibility for a suited EVA.",
+  "response": "Crew redirected to indoor engineering and organisation work: ATV repair, food inventory, mold cleaning, plumbing, and leveling measurements.",
+  "lesson": "Every mission day needs a 'rainy day task list' ready. The XO should prepare this before departure — a full day of high-value indoor work that can absorb any cancelled EVA.",
+  "pattern_tag": "EVA weather cancellation / indoor contingency planning",
+  "outcome": "Worked Around",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.2 Meteorological incidents, lines 593-598. Register Crew tag: 'C16'. Sol: not stated; placed at a representative mid-mission point for recurring weather-driven EVA postponement. Confidence (B) rationale: daily-narrative style summary of recurring weather impact.",
+  "verified_by": "ASG"
+}

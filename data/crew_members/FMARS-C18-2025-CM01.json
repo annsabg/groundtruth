@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C18-2025-CM01",
+  "mission_id": "FMARS-C18-2025",
+  "primary_role": "Commander",
+  "gender": "male",
+  "nationality": "undisclosed",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Engineering",
+    "detail": "Naval Aviator, Aerospace Engineering Duty Officer; Master of Science in Astronautical Engineering; instructs aeronautics and astronautics; test and evaluation of spaceflight equipment"
+  },
+  "source_citation": "SRC-fmars-meet-the-crew-c17-c18, fmars.marssociety.org/meet-the-crew-2/, 'Crew 18 (Amaruq)' section, Commander bio: 'The Commander brings military aviation and academic credentials... He holds advanced degrees in astronautical engineering... Currently serving at the Naval Academy, he instructs aeronautics and astronautics' (explicit 'He'/'he' pronoun). No nationality stated.",
+  "verified_by": "ASG"
+}

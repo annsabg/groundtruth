@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
+
+# Raw source material stays local — never committed. The repo holds
+# extracted structured records + citations, not the original documents.
+# See docs/superpowers/specs/2026-08-25-groundtruth-extraction-pipeline-design.md §5.
+*.pdf
+*.docx
+*.doc
+sources-local/

@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C16-2024-CM01",
+  "mission_id": "FMARS-C16-2024",
+  "primary_role": "Commander",
+  "gender": "undisclosed",
+  "nationality": "IT",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Medicine/Health",
+    "detail": "PhD; Fellow of the Aerospace Medical Association (FAsMA); crew commander"
+  },
+  "source_citation": "SRC-fmars-c16-crew-announcement, marssociety.org 2024-06-19 'Arctic Flashline Mission is Happening Again!': 'Crew Commander: [name redacted], Ph.D., FAsMA (Italy)'. No gender pronoun stated in the source.",
+  "verified_by": "ASG"
+}

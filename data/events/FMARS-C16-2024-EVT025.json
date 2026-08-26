@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT025",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 1,
+  "event_type": "Near-Miss",
+  "system_category": "Hab Structure",
+  "significance": "Low",
+  "description": "A protruding nail head was found in the crew quarter floor platform on Sol 1.",
+  "response": "The Engineer hammered it flat immediately.",
+  "lesson": "Day 1 hab walkthrough must include a floor inspection — particularly platform edges and stairways. Falls and penetrating injuries in a remote Arctic location are serious and slow to evacuate.",
+  "pattern_tag": "hab floor hazard inspection",
+  "outcome": "Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 797-802. Register Crew tag: 'C16'. Sol: explicit: 'found in crew quarter floor platform on Sol 1'. Confidence (B) rationale: brief daily-report entry; classified Near-Miss since the hazard was found and fixed before anyone was injured.",
+  "verified_by": "ASG"
+}

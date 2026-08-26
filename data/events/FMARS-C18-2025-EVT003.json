@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C18-2025-EVT003",
+  "mission_id": "FMARS-C18-2025",
+  "sol": 6,
+  "event_type": "Crew Dynamics",
+  "system_category": "Psychological",
+  "significance": "Medium",
+  "description": "The Commander observed a marked improvement in crew morale and cohesion by Sol 6, in explicit contrast to the early-mission stress of Sols 1-4 (snowfall on arrival, the wall-heater install rush, and early operational pressure). The XO described the crew as now 'operating like a unit,' with the early stress having 'forged something solid.'",
+  "response": "No formal intervention was needed; cohesion emerged through shared task completion (successful EVAs, sample collection) over the first six sols.",
+  "lesson": "Expect and normalise an early-mission stress dip; do not over-react to Sol 1-4 friction. Track morale qualitatively sol-over-sol as an early-warning and reassurance signal, not only after problems arise.",
+  "pattern_tag": "early-mission stress to cohesion arc",
+  "outcome": "Resolved",
+  "confidence": "C",
+  "source_citation": "SRC-flashline-crew-reports, AMARUQ (CREW 18) SOL 6 REPORT (29-7-2025), lines 64-73. Sol: explicit from report header. Confidence (C) rationale: subjective narrative quotes attributed to crew roles, not a measured psychological instrument.",
+  "verified_by": "ASG"
+}

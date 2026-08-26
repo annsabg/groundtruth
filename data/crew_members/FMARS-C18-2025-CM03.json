@@ -1,0 +1,15 @@
+{
+  "crew_member_id": "FMARS-C18-2025-CM03",
+  "mission_id": "FMARS-C18-2025",
+  "primary_role": "EVA Officer",
+  "secondary_roles": ["Engineer"],
+  "gender": "male",
+  "nationality": "undisclosed",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Engineering",
+    "detail": "PhD in Science, Technology, and Innovation Studies; EVA spacesuit engineer with 250+ operational spacesuit hours; Station Chief; COO at an aerospace company"
+  },
+  "source_citation": "SRC-fmars-meet-the-crew-c17-c18, fmars.marssociety.org/meet-the-crew-2/, 'Crew 18 (Amaruq)' section, Station Chief bio: 'Station Chief... EVA spacesuit engineer... He holds a PhD in Science, Technology, and Innovation Studies... His background includes 250+ operational spacesuit hours' (explicit 'He'/'His' pronoun). No nationality stated.",
+  "verified_by": "ASG"
+}

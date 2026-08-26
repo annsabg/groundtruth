@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT013",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 0,
+  "event_type": "Failure",
+  "system_category": "Logistics",
+  "significance": "High",
+  "description": "Crew weight exceeded the aircraft limit (2,900+ lbs) when reweighed at the Resolute hangar, requiring immediate gear triage.",
+  "response": "All crew and equipment were individually reweighed; personal gear was reduced and group gear assessed by mission criticality. Final weight: 2,740 lbs.",
+  "lesson": "Build the weight calculator 4+ weeks before departure. Conduct a test weigh with ALL crew and gear assembled — not at home airports. One person (the XO) must hold final authority for weight cuts.",
+  "pattern_tag": "pre-departure weight triage",
+  "outcome": "Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 632-637. Register Crew tag: 'C16'. Sol: occurred at the Resolute hangar reweigh, before landing on Devon Island; sol 0 placeholder, consistent with the Resolute weather-delay entry. Confidence (B) rationale: specific figures (2,900/2,740 lbs) but presented as narrative logistics account rather than a formal engineering report.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT024",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 1,
+  "event_type": "Failure",
+  "system_category": "Medical/Safety",
+  "significance": "Medium",
+  "description": "Mold was found on arrival; type and location were unknown until tested. Crew 15 did not test it. Crew 16 tested it on Day 1 and confirmed no harmful species.",
+  "response": "Mold cleaning was performed by both crews. No harmful species were confirmed by Crew 16's testing.",
+  "lesson": "Run a mold test on Day 1, before crew sleeps in the hab if possible. Position the mold test kit as the first item unpacked on arrival. Do not assume the hab is clean because the previous crew didn't report issues.",
+  "pattern_tag": "mold testing on arrival",
+  "outcome": "Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 791-796. Register Crew tag: 'C15/C16'. Sol: explicit for C16: 'Crew 16 (Day 1) tested'. Confidence (B) rationale: assigned to FMARS-C16-2024 since Crew 16 performed the explicit Day 1 test and resolution; Crew 15's earlier non-testing noted in the description; daily-report style account. system_category note: closest fit is Medical/Safety (health-and-safety framing, matching the register's own 'Safety' category for this entry) over Air Quality, though mold testing content overlaps both.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT011",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 11,
+  "event_type": "Failure",
+  "system_category": "Meteorological",
+  "significance": "High",
+  "description": "Weather prevented departure from Devon Island on the scheduled day. The entire northern Arctic was affected — the commercial flight was cancelled and the charter unable to land.",
+  "response": "Crew spent an extra day in a holding pattern, completing winterisation tasks during the delay. Departed on Day 11 via an early morning charter window.",
+  "lesson": "Plan departure readiness to be achievable within 2 hours from any point in the final 3 mission days. Never leave winterisation tasks for the scheduled departure day.",
+  "pattern_tag": "Devon departure weather dependency",
+  "outcome": "Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.2 Meteorological incidents, lines 587-592. Register Crew tag: 'C16'. Sol: explicit: 'Departed on Day 11 via early morning charter window' (also cited in FMARS-C16-2024.json's own source_citation). Confidence (B) rationale: narrative account with a specific day reference; daily-report style, not a formal engineering log.",
+  "verified_by": "ASG"
+}

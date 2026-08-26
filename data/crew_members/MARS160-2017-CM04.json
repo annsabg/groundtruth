@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "MARS160-2017-CM04",
+  "mission_id": "MARS160-2017",
+  "primary_role": "Journalist/Media",
+  "gender": "undisclosed",
+  "nationality": "RU",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Communications",
+    "detail": "Crew Journalist; former finalist in a private crewed Mars mission selection program"
+  },
+  "source_citation": "SRC-mars160-fmars-crew-arrival, SpaceFlight Insider, 'Mars 160: 6-person crew arrives at Arctic station', July 2017: Crew Journalist described as Russian, a former finalist in a private crewed Mars mission selection program. Role and nationality independently corroborated by Mars Society mission materials (mars160.marssociety.org/meet-the-crew/). No explicit gender pronoun found in the material reviewed; gender recorded as undisclosed.",
+  "verified_by": "ASG"
+}

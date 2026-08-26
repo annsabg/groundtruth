@@ -1,0 +1,41 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements-dev.txt
+      - run: pytest -v
+      - name: Validate all committed data against schema
+        run: |
+          for entity in mission crew_member event research_project source; do
+            case $entity in
+              mission) dir=missions ;;
+              crew_member) dir=crew_members ;;
+              event) dir=events ;;
+              research_project) dir=research_projects ;;
+              source) dir=sources ;;
+            esac
+            python scripts/validate.py schema/$entity.schema.json data/$dir/
+          done
+      - name: Check cross-file references
+        run: python scripts/validate.py --check-refs data
+      - name: Check groundtruth.sqlite matches data/
+        run: |
+          python scripts/build_db.py data /tmp/rebuild-check.sqlite
+          sqlite3 groundtruth.sqlite .dump > /tmp/committed.sql
+          sqlite3 /tmp/rebuild-check.sqlite .dump > /tmp/rebuilt.sql
+          if ! diff -u /tmp/committed.sql /tmp/rebuilt.sql; then
+            echo "::error::committed groundtruth.sqlite does not match a fresh build from data/ -- run 'python scripts/build_db.py' and commit the result."
+            exit 1
+          fi
+          echo "groundtruth.sqlite matches data/."

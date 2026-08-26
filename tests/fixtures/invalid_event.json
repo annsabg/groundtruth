@@ -1,0 +1,11 @@
+{
+  "event_id": "FMARS-C16-2024-EVT001",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 4,
+  "event_type": "Failure",
+  "system_category": "Power",
+  "significance": "Catastrophic",
+  "description": "Generator seized.",
+  "confidence": "B",
+  "source_citation": "FMARS Crew 16 Daily Report"
+}

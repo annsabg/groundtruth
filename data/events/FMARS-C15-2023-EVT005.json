@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C15-2023-EVT005",
+  "mission_id": "FMARS-C15-2023",
+  "sol": 30,
+  "event_type": "Failure",
+  "system_category": "Operational/Process",
+  "significance": "High",
+  "description": "Crew was forced to depart Devon Island several hours ahead of the planned schedule, leaving insufficient time to complete all pre-planned winterisation tasks.",
+  "response": "The Commander prioritised critical closure tasks and executed them rapidly. Incomplete items were noted for Crew 16.",
+  "lesson": "Never defer winterisation tasks to the final day. Maintain a continuously updated closure checklist from mid-mission. The departure window can close suddenly.",
+  "pattern_tag": "winterisation task deferral to departure day",
+  "outcome": "Partially Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 626-631. Register Crew tag: 'C15'. Sol: not stated; placed near end of C15's mission window (July 1-31) since this describes forced early departure. Confidence (B) rationale: narrative account of departure-day decision-making; daily/Commander-report style.",
+  "verified_by": "ASG"
+}

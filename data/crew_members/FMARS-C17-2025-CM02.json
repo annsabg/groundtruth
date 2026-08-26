@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C17-2025-CM02",
+  "mission_id": "FMARS-C17-2025",
+  "primary_role": "Crew Member (unspecified)",
+  "gender": "male",
+  "nationality": "undisclosed",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Engineering",
+    "detail": "Aerospace scientist and field researcher; PhD studies (University of North Dakota) on technologies for planetary surface habitation and AI systems for Mars atmospheric entry"
+  },
+  "source_citation": "SRC-fmars-meet-the-crew-c17-c18, fmars.marssociety.org/meet-the-crew-2/, 'Crew 17 (Silaliq)' section, Mission Specialist bio: 'The Mission Specialist is an aerospace scientist, field researcher... He pursues doctoral studies at the University of North Dakota' (explicit 'He' pronoun). No nationality stated.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C18-2025-CM04",
+  "mission_id": "FMARS-C18-2025",
+  "primary_role": "Medical Officer",
+  "gender": "male",
+  "nationality": "undisclosed",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Medicine/Health",
+    "detail": "Neurologist; former pilot in the Belgian Air Force; Parkinson's disease research; pharmaceutical regulatory and clinical trial experience; co-founder of a performance-psychology company"
+  },
+  "source_citation": "SRC-fmars-meet-the-crew-c17-c18, fmars.marssociety.org/meet-the-crew-2/, 'Crew 18 (Amaruq)' section, Medical Officer bio: 'He initially served as \"a pilot in the Belgian Air Force\" before transitioning to medicine, eventually specializing in neurological research' (explicit 'He' pronoun). Nationality recorded as undisclosed: the source states military-service affiliation ('Belgian Air Force') plus a separate mention of France, which does not amount to an explicit nationality statement.",
+  "verified_by": "ASG"
+}

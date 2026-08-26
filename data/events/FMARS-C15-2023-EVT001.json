@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C15-2023-EVT001",
+  "mission_id": "FMARS-C15-2023",
+  "sol": 3,
+  "event_type": "Failure",
+  "system_category": "Power",
+  "significance": "High",
+  "description": "Generator 'Genny' (Yanmar) fuel line leaked three times at the same location despite two repairs. A non-OEM replacement tube was weathered and too stiff to survive engine vibration.",
+  "response": "Crew switched to generators Bambi and Rachel while a softer hab-sourced tube was used for the repair. Genny returned to service.",
+  "lesson": "Bring OEM-spec fuel line tubing for each generator model. Never use aftermarket tubing as a permanent fix in Arctic conditions.",
+  "pattern_tag": "generator fuel line tubing degradation",
+  "outcome": "Worked Around",
+  "confidence": "A",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 494-499. Register Crew tag: 'C15'. Sol: not stated; placed within the Sols 1-5 engineering-report window (line 457) since the leak recurred 'despite two repairs', implying multiple days of rehab-period activity. Confidence (A) rationale: formal engineering-report style entry with precise fault diagnosis (repeated leak location, tubing material/stiffness) consistent with the brief's cited 'Engineering Reports by the Crew Engineer' for Crew 15 (line 457).",
+  "verified_by": "ASG"
+}

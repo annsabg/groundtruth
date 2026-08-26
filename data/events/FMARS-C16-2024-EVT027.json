@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT027",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 2,
+  "event_type": "Failure",
+  "system_category": "Logistics",
+  "significance": "Medium",
+  "description": "Replacement ATV tyres were not available through normal channels in Resolute.",
+  "response": "The XO negotiated the loan of two matching tyres and rims from a local contact. Tyres were returned at the end of the mission.",
+  "lesson": "Identify ATV tyre sizes and thread specifications before departure; attempt to ship via the Mars Society. Develop and maintain a local contact network in Resolute — the Mars Society relationship is the entry point.",
+  "pattern_tag": "ATV tyre procurement / local sourcing",
+  "outcome": "Resolved",
+  "confidence": "C",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 809-814. Register Crew tag: 'C16'. Sol: not stated; placed within the same pre-sim ATV-triage window documented elsewhere for this mission. Confidence (C) rationale: named XO negotiating an external arrangement — reads as an XO-report style account. system_category note: register's own category for this entry is 'Logistics' (a procurement/supply-chain issue), kept as Logistics over ATVs/Transport since the failure is sourcing availability, not a mechanical fault.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C15-2023-EVT008",
+  "mission_id": "FMARS-C15-2023",
+  "sol": 2,
+  "event_type": "Failure",
+  "system_category": "Air Quality",
+  "significance": "High",
+  "description": "TVOC (including Benzene and Formaldehyde) was measured at 9.99 mg/m3 on the upper floor — the sensor's maximum reading. The WHO limit is 3 mg/m3. The Benzene source was traced to a gasoline tank used as a urine container in the bathroom.",
+  "response": "The gasoline-tank container was removed; Benzene levels improved. TVOC remained elevated due to off-gassing from hab materials — not fully resolved.",
+  "lesson": "Never store fuel vessels inside the hab. Conduct a TVOC baseline measurement on arrival before sleeping in the hab. Bring a TVOC meter with Benzene/Formaldehyde disaggregation. Have an emergency ventilation plan ready.",
+  "pattern_tag": "VOC off-gassing / fuel vessel stored indoors",
+  "outcome": "Partially Resolved",
+  "confidence": "A",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 695-700. Register Crew tag: 'C15'. Sol: not stated; the lesson recommends a Day 1 baseline TVOC measurement, used as a proxy for when this was likely measured. Confidence (A) rationale: precise instrument reading with a cited WHO reference limit — formal engineering/science measurement report.",
+  "verified_by": "ASG"
+}

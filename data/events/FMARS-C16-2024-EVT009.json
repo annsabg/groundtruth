@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT009",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 2,
+  "event_type": "Failure",
+  "system_category": "Power",
+  "significance": "Low",
+  "description": "The wind turbine had wiring issues immediately after installation and was not immediately functional. NOTE: the station-overview section of this same brief (line 30) states the wind turbine was 'added by Crew 15' in 2023 — this incident-register entry is tagged 'C16' (2024), suggesting either a reinstall/rework by Crew 16 or a tagging inconsistency in the source register; flagged here rather than silently reconciled.",
+  "response": "Fixed the following morning.",
+  "lesson": "Install the wind turbine on Day 2 or 3 of pre-sim to allow troubleshooting time. Full-crew lift required — plan crew availability.",
+  "pattern_tag": "new equipment installation wiring shakedown",
+  "outcome": "Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 566-571. Register Crew tag: 'C16'. Sol: not stated; the lesson recommends installing 'on Day 2 or 3 of pre-sim', used as a proxy for when this specific issue was likely encountered. Confidence (B) rationale: brief narrative entry, minor severity, no formal diagnostic detail.",
+  "verified_by": "ASG"
+}

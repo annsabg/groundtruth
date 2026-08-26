@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C18-2025-CM05",
+  "mission_id": "FMARS-C18-2025",
+  "primary_role": "Engineer",
+  "gender": "male",
+  "nationality": "undisclosed",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Engineering",
+    "detail": "Over 2.5 decades in the electric vehicle industry; Head of Product Engineering Solution for Electric Vehicles at a major automotive supplier; expertise in automotive cybersecurity (ISO21434), functional safety (ISO26262), and SOTIF (ISO21448) standards"
+  },
+  "source_citation": "SRC-fmars-meet-the-crew-c17-c18, fmars.marssociety.org/meet-the-crew-2/, 'Crew 18 (Amaruq)' section, Mission Engineer bio: 'The Mission Engineer represents a seasoned professional with over 2.5 decades in the electric vehicle industry... Currently serving as Head of Product Engineering Solution for Electric Vehicles... he manages global EV business performance' (explicit 'he' pronoun). No nationality stated.",
+  "verified_by": "ASG"
+}

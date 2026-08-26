@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C15-2023-CM01",
+  "mission_id": "FMARS-C15-2023",
+  "primary_role": "Commander",
+  "gender": "male",
+  "nationality": "AU",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Geology",
+    "detail": "Senior geologist for a geology, surveying, and engineering consultancy; veteran of prior Mars Desert Research Station crews"
+  },
+  "source_citation": "SRC-fmars-c15-crew-announcements, marssociety.org 2023-07-06 'Multi-National Crew to Visit FMARS' and 2023-07-19 'Back on Mars!': commander described as '(Australia)... a senior geologist for a geology, surveying, and engineering consultancy' and 'He has also served in similar roles in projects around the world' (explicit 'He' pronoun).",
+  "verified_by": "ASG"
+}

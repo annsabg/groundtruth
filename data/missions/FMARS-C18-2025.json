@@ -1,0 +1,12 @@
+{
+  "mission_id": "FMARS-C18-2025",
+  "stations": ["FMARS"],
+  "crew_designation": "Crew 18 (Amaruq)",
+  "institutional_or_volunteer": "volunteer",
+  "start_date": "2025-07-16",
+  "end_date": "2025-07-31",
+  "location": "FMARS, Haynes Ridge, Devon Island, Nunavut, Canada (~75°25'N, 89°49'W)",
+  "crew_size": 7,
+  "source_citation": "SRC-hypatia-iii-brief, Appendix – Sources and notes: 'FMARS Crew 18 (Amaruq) reports (July 2025): Sol reports 1–8' (line 460). Sol 1 major engineering task: installation of two wall heaters on arrival (line 563); fuel-consumption milestone of 1.5 L/hr (lines 270, 829); a follow-up request from the FMARS Director for 'current status of Crew 18's wall heater installation' (line 470). The second-half-of-July date split from C17 is NOT stated in the source and remains best-available inference – see report for confidence flags. crew_size corrected from an earlier best-available-inference guess of 6 to 7, per SRC-fmars-meet-the-crew-c17-c18 (fmars.marssociety.org/meet-the-crew-2/, 'Crew 18 (Amaruq)' section), which names 7 distinct crew members, all individually documented as Crew Member records (FMARS-C18-2025-CM01 through CM07) during Task 16's crew discovery.",
+  "verified_by": "ASG"
+}

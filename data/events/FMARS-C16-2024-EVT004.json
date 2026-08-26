@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT004",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 1,
+  "event_type": "Failure",
+  "system_category": "Water",
+  "significance": "Medium",
+  "description": "Kitchen sink sprayer cracked on arrival. The water pump was also identified as needing replacement by Day 5.",
+  "response": "The faucet head was replaced entirely. A pump workaround was kept in place for the duration of the mission.",
+  "lesson": "Identify the water pump model from the previous crew's report and bring a replacement unit. Add the faucet assembly to the spare parts list — kitchen plumbing is vulnerable to freeze-thaw cycling.",
+  "pattern_tag": "kitchen plumbing freeze-thaw wear",
+  "outcome": "Worked Around",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 518-523. Register Crew tag: 'C16'. Sol: 'cracked on arrival' for the sprayer; the associated water pump issue was identified by Day 5 and is noted in the description. Confidence (B) rationale: narrative, day-referenced entry without formal diagnostic detail; reads as a daily report item.",
+  "verified_by": "ASG"
+}

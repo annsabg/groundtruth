@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "MARS160-2017-CM02",
+  "mission_id": "MARS160-2017",
+  "primary_role": "Executive Officer",
+  "gender": "undisclosed",
+  "nationality": "JP",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Other",
+    "detail": "Architect by training, serving as Executive Officer; brought polar/extreme-environment experience from prior service on a Japanese Antarctic Research Expedition"
+  },
+  "source_citation": "SRC-mars160-fmars-crew-arrival, SpaceFlight Insider, 'Mars 160: 6-person crew arrives at Arctic station', July 2017: Executive Officer described as Japanese, an architect by training who brought polar/extreme-environment experience from a prior Japanese Antarctic Research Expedition. Role and nationality independently corroborated by Mars Society mission materials (mars160.marssociety.org/meet-the-crew/) and Space.com's 'Notes from Mars 160' series profiling the Executive Officer's background in space architecture. No explicit gender pronoun found in the material reviewed; gender recorded as undisclosed.",
+  "verified_by": "ASG"
+}

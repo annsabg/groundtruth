@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT017",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 7,
+  "event_type": "Near-Miss",
+  "system_category": "ATVs/Transport",
+  "significance": "Medium",
+  "description": "An unknown ATV trail fork was encountered mid-EVA. The team could not determine where either branch led, and was concerned about creating new tracks in pristine terrain.",
+  "response": "Both forks were abandoned; the crew returned on the known route.",
+  "lesson": "Pre-load all known ATV trail GPS coordinates from previous crew reports before departure. Protocol: if a trail is unknown and unmarked, do not explore it during simulation — log coordinates and report.",
+  "pattern_tag": "unmarked trail / terrain preservation protocol",
+  "outcome": "Worked Around",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 656-661. Register Crew tag: 'C16'. Sol: not stated; 'mid-EVA' placed at a representative mid-mission point. Confidence (B) rationale: EVA-narrative entry; classified Near-Miss since the crew turned back before creating new tracks or getting lost, avoiding rather than incurring the harm.",
+  "verified_by": "ASG"
+}

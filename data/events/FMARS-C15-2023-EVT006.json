@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C15-2023-EVT006",
+  "mission_id": "FMARS-C15-2023",
+  "sol": 3,
+  "event_type": "Failure",
+  "system_category": "Scientific",
+  "significance": "Medium",
+  "description": "A microscope was packed away in a box that the crew did not know was there. No microscopy data was collected initially despite samples being available.",
+  "response": "The Science Officer found and activated the microscope, including locating microscope oil for the 100x lens. Cyanobacteria were successfully imaged.",
+  "lesson": "Request a full lab equipment inventory from the Mars Society before departure. Plan a 'discover and activate' step on Day 1 of lab operations — do not assume equipment is set up or functional.",
+  "pattern_tag": "lab equipment discovery / activation on arrival",
+  "outcome": "Resolved",
+  "confidence": "A",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 683-688. Register Crew tag: 'C15'. Sol: not stated; placed early in the mission as lab-equipment 'discovery and activation' typically precedes first science operations. Confidence (A) rationale: named Science Officer, specific technical detail (100x lens, oil) — reads as a formal science/engineering report.",
+  "verified_by": "ASG"
+}

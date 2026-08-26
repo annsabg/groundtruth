@@ -1,0 +1,16 @@
+{
+  "event_id": "MARS160-2017-EVT005",
+  "mission_id": "MARS160-2017",
+  "sol": 20,
+  "event_type": "Crew Dynamics",
+  "system_category": "Psychological",
+  "significance": "Medium",
+  "description": "Interpersonal conflict with one crew member escalated to the point of affecting daily operations. Root cause: lack of clear communication.",
+  "response": "The Commander addressed it directly and behaviour improved. The Commander later reflected that being 'too transparent' had been a mistake — a stronger directive role was needed earlier.",
+  "lesson": "Establish conflict resolution protocols before departure. The Commander should not share every concern publicly — some issues require private handling first. Define escalation steps: private conversation, formal intervention, Mission Support.",
+  "pattern_tag": "interpersonal conflict / communication breakdown",
+  "outcome": "Resolved",
+  "confidence": "C",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.5 Psychological and team dynamics, lines 752-757. Register Crew tag: 'Mars160'. Sol: not stated; no sol structure given for Mars160 in this source — arbitrary placeholder. Confidence (C) rationale: Commander self-reflection with direct quote — Commander/XO-report style, not formal engineering documentation. Reclassification note (2026-08-26): originally classified Failure; on review, this entry (interpersonal conflict and its resolution) is fundamentally about interpersonal/team psychological dynamics under isolation stress, not a system or process failure — Crew Dynamics is the accurate fit, consistent with the other Psychological-section entries in this register.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C18-2025-CM02",
+  "mission_id": "FMARS-C18-2025",
+  "primary_role": "Executive Officer",
+  "gender": "male",
+  "nationality": "undisclosed",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Engineering",
+    "detail": "Engineering Specialist at an aerospace research and engineering organization"
+  },
+  "source_citation": "SRC-fmars-meet-the-crew-c17-c18, fmars.marssociety.org/meet-the-crew-2/, 'Crew 18 (Amaruq)' section, Executive Officer bio: 'Executive Officer... Engineering Specialist working at an aerospace research and engineering organization. He has his...' (explicit 'He' pronoun). No nationality stated.",
+  "verified_by": "ASG"
+}

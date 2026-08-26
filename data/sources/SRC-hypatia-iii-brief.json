@@ -1,0 +1,11 @@
+{
+  "source_id": "SRC-hypatia-iii-brief",
+  "mission_ids": ["FMARS-C15-2023", "FMARS-C16-2024", "FMARS-C17-2025", "FMARS-C18-2025", "MARS160-2017"],
+  "url_or_reference": "Hypatia_III_Mission_Brief_v2.docx, produced May 2025 (local file, not in repo)",
+  "source_type": "other",
+  "covers": ["events"],
+  "date_range_or_sols": "Synthesizes FMARS Crews 15-18 (July 2023, July 2024, July 2025 x2) and the Mars160 FMARS final mission report (August 2017); no MDRS-leg-specific material for Mars160.",
+  "discovery_method": "manual",
+  "approved_by": "ASG",
+  "approved_date": "2026-08-26"
+}

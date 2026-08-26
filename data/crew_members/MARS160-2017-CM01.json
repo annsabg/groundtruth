@@ -1,0 +1,15 @@
+{
+  "crew_member_id": "MARS160-2017-CM01",
+  "mission_id": "MARS160-2017",
+  "primary_role": "Commander",
+  "secondary_roles": ["Engineer"],
+  "gender": "undisclosed",
+  "nationality": "FR",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Engineering",
+    "detail": "Aerospace engineer serving as both Crew Commander and Crew Engineer for the FMARS leg"
+  },
+  "source_citation": "SRC-mars160-fmars-crew-arrival, SpaceFlight Insider, 'Mars 160: 6-person crew arrives at Arctic station', July 2017 (FMARS-leg crew arrival at Flashline Station, Devon Island): commander described as a French aerospace engineer serving as both Crew Commander and Crew Engineer for the mission. Role and nationality independently corroborated by Mars Society mission materials (mars160.marssociety.org/meet-the-crew/). No explicit gender pronoun found in the material reviewed; gender recorded as undisclosed.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C15-2023-EVT007",
+  "mission_id": "FMARS-C15-2023",
+  "sol": 1,
+  "event_type": "Failure",
+  "system_category": "Air Quality",
+  "significance": "Medium",
+  "description": "CO2 levels rose sharply overnight on the upper floor every night during simulation, raising concerns about crew safety and cognitive performance.",
+  "response": "A 6-inch fan was installed through the emergency exit, pulling fresh air from the lower hab, with internal hab doors left open. CO2 dropped to half its previous levels.",
+  "lesson": "CO2 monitoring must begin on Day 1, before the first night. Have a ventilation solution pre-planned — the fan-through-emergency-exit approach is proven and should be standard operating procedure from night 1.",
+  "pattern_tag": "CO2 buildup / ventilation",
+  "outcome": "Partially Resolved",
+  "confidence": "A",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 689-694. Register Crew tag: 'C15'. Sol: not stated precisely; 'every night during simulation' placed at sol 1 as the onset of the recurring pattern. Confidence (A) rationale: quantitative measurement description (levels 'dropped to half') reads as a formal engineering/science report.",
+  "verified_by": "ASG"
+}
