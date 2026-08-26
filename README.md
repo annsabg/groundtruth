@@ -67,6 +67,12 @@ python scripts/build_db.py        # rebuilds groundtruth.sqlite from data/
 Or just query `groundtruth.sqlite` directly with any SQLite client — it's
 committed and always current.
 
+## Current dataset
+
+Run `python scripts/stats.py` for a snapshot of what's actually in
+`groundtruth.sqlite` right now — record counts, event type breakdown,
+most common recurring patterns, and crew data coverage.
+
 ## Contributing
 
 See `CONTRIBUTING.md`. Short version: cite a real source, never include a
