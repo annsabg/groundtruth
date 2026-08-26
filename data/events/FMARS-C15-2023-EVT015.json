@@ -13,5 +13,6 @@
   "related_events": ["FMARS-C15-2023-EVT007", "FMARS-C15-2023-EVT008"],
   "confidence": "B",
   "source_citation": "SRC-flashline-crew-reports, FMARS-15 XO REPORT 29-07-2023, lines 2227-2251. Sol: explicit 'Sol: 6' header. Confidence (B) rationale: first-person daily/XO-report narrative account, not an instrumented engineering log.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-flashline-crew-reports"
 }

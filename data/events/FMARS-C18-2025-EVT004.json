@@ -13,5 +13,6 @@
   "related_events": ["FMARS-C15-2023-EVT006"],
   "confidence": "B",
   "source_citation": "SRC-flashline-crew-reports, AMARUQ (CREW 18) SOL 8 REPORT (31-7-2025), lines 2-15. Sol: explicit from report header. Confidence (B) rationale: paraphrased daily-report narrative including a direct quote.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-flashline-crew-reports"
 }

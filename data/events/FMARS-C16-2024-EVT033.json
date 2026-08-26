@@ -12,5 +12,6 @@
   "outcome": "Unresolved",
   "confidence": "C",
   "source_citation": "SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 13 & 14-07-2024, lines 306-310. Sol: calculated from report date (13-07-2024) against Sol 1 = 02-07-2024. Confidence (C) rationale: brief offhand narrative remark, not a structural inspection report.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-flashline-crew-reports"
 }

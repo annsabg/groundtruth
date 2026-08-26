@@ -12,5 +12,6 @@
   "outcome": "Resolved",
   "confidence": "C",
   "source_citation": "SRC-flashline-crew-reports, AMARUQ (CREW 18) SOL 6 REPORT (29-7-2025), lines 64-73. Sol: explicit from report header. Confidence (C) rationale: subjective narrative quotes attributed to crew roles, not a measured psychological instrument.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-flashline-crew-reports"
 }

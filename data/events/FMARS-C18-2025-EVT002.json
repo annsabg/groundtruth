@@ -12,5 +12,6 @@
   "outcome": "Adopted",
   "confidence": "B",
   "source_citation": "SRC-flashline-crew-reports, AMARUQ (CREW 18) SOL 5 REPORT (28-7-2025), lines 98-107, and SOL 7 REPORT (30-7-2025), lines 50-63. Sol: explicit from report header. Confidence (B) rationale: daily-report narrative style, not a formal engineering log with metered readings.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-flashline-crew-reports"
 }

@@ -12,5 +12,6 @@
   "outcome": "Adopted",
   "confidence": "B",
   "source_citation": "SRC-flashline-crew-reports, SILALIQ (CREW 17) SOL 2 REPORT (22-7-2025), lines 270-278. Sol: explicit from report header. Confidence (B) rationale: daily-report narrative style.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-flashline-crew-reports"
 }

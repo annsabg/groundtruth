@@ -12,5 +12,6 @@
   "outcome": "Worked Around",
   "confidence": "B",
   "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 554-559. Register Crew tag: 'C16'. Sol: not stated; placed mid-mission as a plausible point for cumulative gray-water capacity to be reached. Confidence (B) rationale: brief operational-narrative entry, no formal measurement data given. Addition (SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 08-07-2024, lines 869-877): corroborates the incident with an explicit date, pinning sol to 7 (02-07-2024 = Sol 1), and adds the wheelbarrow-reservoir response detail and the unresolved winter-disposal question.",
-  "verified_by": "ASG"
+  "verified_by": "ASG",
+  "source_id": "SRC-hypatia-iii-brief"
 }
