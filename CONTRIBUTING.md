@@ -21,6 +21,11 @@ valid submission looks like and how it gets reviewed.
    `source_citation`, not in `description`, not in any free-text field.
    Crew Member records are pseudonymous by design (see the design spec,
    §5); an Event's `description` that names someone defeats that.
+   **This rule applies to the entire repository, not just `data/`.** Test
+   fixtures, documentation, scripts, examples — anywhere a real name could
+   appear is in scope. A real researcher's name once leaked into
+   `tests/fixtures/valid_research_project.json`, invisible to reviews
+   scoped only to `data/` (see `decisions.md`, 2026-08-26 entry on this).
 3. **Validate locally before opening a PR:**
    ```bash
    pip install -r requirements-dev.txt
@@ -28,9 +33,13 @@ valid submission looks like and how it gets reviewed.
    ```
    (swap `event`/`events` for whichever entity type you're adding)
 4. **Check that any ID you referenced actually resolves:** if your record
-   sets `mission_id`, `related_events`, or `comparable_studies`, run
-   `python scripts/validate.py --check-refs data` — schema validation
-   alone doesn't catch a typo'd or nonexistent ID.
+   sets `mission_id`, `mission_ids`, `related_events`, `comparable_studies`,
+   or `principal_investigators`, run `python scripts/validate.py
+   --check-refs data` — schema validation alone doesn't catch a typo'd or
+   nonexistent ID. `principal_investigators` is only checked when a value
+   looks like it's trying to be a `crew_member_id` (matches
+   `{mission_id}-CM{NN}`) — plain external-researcher names aren't flagged,
+   since not every PI is a documented Crew Member.
 5. **Rebuild the database and commit the result:**
    ```bash
    python scripts/build_db.py
