@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT016",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 1,
+  "event_type": "Failure",
+  "system_category": "Logistics",
+  "significance": "Medium",
+  "description": "The urine barrel from Crew 15 weighed 400+ lbs and had to be offloaded onto the Twin Otter within the 2-hour arrival window.",
+  "response": "Engineer Robbins developed an ergonomic rolling method to manoeuvre the barrel into the trailer while upright. The barrel and 3 trailers of trash were loaded successfully.",
+  "lesson": "Pre-plan the urine barrel offload as a named step in the arrival logistics brief. Assign an owner and rehearse the method. It is the heaviest single outbound item and cannot be left behind.",
+  "pattern_tag": "urine barrel offload logistics",
+  "outcome": "Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 650-655. Register Crew tag: 'C16'. Sol: occurred 'within the 2-hour arrival window'; sol 1 used for arrival day. Confidence (B) rationale: named-individual logistics narrative (Robbins' method); daily-report style, not a formal engineering log.",
+  "verified_by": "ASG"
+}

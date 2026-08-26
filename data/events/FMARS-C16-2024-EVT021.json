@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT021",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 9,
+  "event_type": "Failure",
+  "system_category": "Scientific",
+  "significance": "Low",
+  "description": "The 3D scanner for in-situ rock imaging required more refinement than available mission time allowed — it could not reliably scan all rock sizes and types.",
+  "response": "Test files were generated; follow-up was deferred to the next year.",
+  "lesson": "Test all field technology before departure in analogous rocky outdoor conditions. Allocate time for technology trials in the pre-sim work days — not the first time you try it on Devon.",
+  "pattern_tag": "field technology readiness / pre-departure testing",
+  "outcome": "Unresolved",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 719-724. Register Crew tag: 'C16'. Sol: not stated; placed later in the mission, consistent with 'more refinement than available mission time allowed'. Confidence (B) rationale: narrative summary without specific technical measurements; daily-report style.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT026",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 1,
+  "event_type": "Near-Miss",
+  "system_category": "Logistics",
+  "significance": "High",
+  "description": "The team LifeStraw (communal water filtration backup) did not arrive via Yellowknife cargo in time.",
+  "response": "Most crew members had personal LifeStraws — this individual redundancy saved the objective. The missing item was mission-important but not mission-critical.",
+  "lesson": "For all safety and water-related equipment, maintain personal redundancy for communal kit. Build a 'critical redundancy list' of items where individual backups are warranted regardless of communal supply.",
+  "pattern_tag": "critical-item redundancy for individual safety gear",
+  "outcome": "Worked Around",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 803-808. Register Crew tag: 'C16'. Sol: not stated; inferred to be discovered during arrival gear unpacking. Confidence (B) rationale: logistics-narrative entry; classified Near-Miss since personal redundancy prevented the missing item from becoming an actual mission failure.",
+  "verified_by": "ASG"
+}

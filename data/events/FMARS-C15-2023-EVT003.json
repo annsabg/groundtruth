@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C15-2023-EVT003",
+  "mission_id": "FMARS-C15-2023",
+  "sol": 2,
+  "event_type": "Failure",
+  "system_category": "EVA Suits & Comms",
+  "significance": "Medium",
+  "description": "Mismatched helmet-to-backpack air vent diameters were found across the suit inventory — not all combinations are compatible.",
+  "response": "Engineers tested each combination to map compatibility before the first EVA.",
+  "lesson": "Maintain and distribute a compatibility matrix of all suit, helmet, and backpack sets. Confirm with the Mars Society before departure.",
+  "pattern_tag": "suit component compatibility",
+  "outcome": "Worked Around",
+  "confidence": "A",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 530-535. Register Crew tag: 'C15'. Sol: not stated; placed within the same Sols 1-2 suit-rehabilitation window as the preceding entry, since compatibility testing preceded the first EVA. Confidence (A) rationale: same engineering-rehabilitation context as the preceding suit entry; formal diagnostic in nature.",
+  "verified_by": "ASG"
+}

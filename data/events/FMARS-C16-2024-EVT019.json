@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT019",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 5,
+  "event_type": "Failure",
+  "system_category": "Logistics",
+  "significance": "Low",
+  "description": "Accumulated undocumented items from previous crews had unknown provenance and no disposal record. Commander Cinelli (Crew 16) described surprise at the number of items and the effort required to sort them.",
+  "response": "Crew 16 spent significant rainy-day time cataloguing the items and began a formal electronic inventory.",
+  "lesson": "Request Crew 16's electronic inventory from the Mars Society before departure. Every crew must make a leave/discard/return decision for every item at mission close and document it.",
+  "pattern_tag": "undocumented legacy inventory accumulation",
+  "outcome": "Partially Resolved",
+  "confidence": "C",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 668-673. Register Crew tag: 'All (register tag; content specifically names Crew 16 Commander Cinelli)'. Sol: not stated; 'rainy-day time' cataloguing placed at a representative early-to-mid mission rainy day. Confidence (C) rationale: register tags this entry 'All' but names Commander Cinelli specifically; assigned to FMARS-C16-2024; Commander-narrative account, XO/Commander-report style.",
+  "verified_by": "ASG"
+}

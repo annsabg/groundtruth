@@ -1,0 +1,16 @@
+{
+  "event_id": "MARS160-2017-EVT004",
+  "mission_id": "MARS160-2017",
+  "sol": 14,
+  "event_type": "Failure",
+  "system_category": "Psychological",
+  "significance": "Medium",
+  "description": "Extended bad weather (rain, fog, no sun for over a week) had a measurable negative effect on crew morale. The Commander remarked: 'It feels like the greyest day of winter.'",
+  "response": "The Commander acknowledged the morale impact explicitly; indoor work days were used productively. Weather eventually cleared.",
+  "lesson": "Pre-plan morale activities for multi-day confined periods: communal meals, films, music, games, personal project time. Do not treat rest as wasted time during confinement.",
+  "pattern_tag": "extended weather / morale impact",
+  "outcome": "Resolved",
+  "confidence": "C",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.5 Psychological and team dynamics, lines 740-745. Register Crew tag: 'Mars160'. Sol: not stated; no sol structure given for Mars160 in this source — arbitrary mid-mission placeholder. Confidence (C) rationale: direct Commander quote — journalistic/Commander-report style account, not a formal engineering log.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,16 @@
+{
+  "event_id": "MARS160-2017-EVT002",
+  "mission_id": "MARS160-2017",
+  "sol": 16,
+  "event_type": "Near-Miss",
+  "system_category": "Meteorological",
+  "significance": "Medium",
+  "description": "Sustained rain caused the landing strip to become saturated, raising serious questions about whether the Twin Otter could extract the crew.",
+  "response": "The Commander monitored and photographed the strip from mid-mission; images were sent to the charter. The strip remained marginally usable and extraction was successful.",
+  "lesson": "From mid-mission, assign someone to check and photograph the landing strip every 2 days. Send images proactively to the charter operator. Know the ground condition threshold below which they will refuse to land.",
+  "pattern_tag": "landing strip weather-condition monitoring",
+  "outcome": "Resolved",
+  "confidence": "C",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.2 Meteorological incidents, lines 605-610. Register Crew tag: 'Mars160'. Sol: qualitative cue only ('from mid-mission'); no sol structure given for Mars160 in this source — placeholder. Confidence (C) rationale: Commander-narrative account (monitoring/photography actions); risk was averted rather than materializing, classified Near-Miss on that basis.",
+  "verified_by": "ASG"
+}

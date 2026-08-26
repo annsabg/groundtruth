@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C15-2023-EVT011",
+  "mission_id": "FMARS-C15-2023",
+  "sol": 1,
+  "event_type": "Near-Miss",
+  "system_category": "Psychological",
+  "significance": "Low",
+  "description": "CO2 and TVOC exposure (see the related Air Quality entries for this mission) created a low-level health risk that was managed; crew remained alert to potential headaches as an early warning indicator throughout the mission.",
+  "response": "Crew maintained daily monitoring; no headaches were reported. The vigilance itself may have contributed to early intervention.",
+  "lesson": "The HSO should conduct a brief daily health check. CO2 and VOC levels are a shared crew responsibility — fatigue or headache must be reported immediately, not dismissed.",
+  "pattern_tag": "air quality vigilance as early-warning practice",
+  "outcome": "Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.5 Psychological and team dynamics, lines 758-763. Register Crew tag: 'C15'. Sol: not stated precisely; described as ongoing 'throughout the mission' — sol 1 used as onset. Confidence (B) rationale: daily-monitoring narrative; classified Near-Miss since no adverse health outcome (headache) actually occurred, distinct from the related Air Quality Failure entries for the same mission.",
+  "verified_by": "ASG"
+}

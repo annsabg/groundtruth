@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT023",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 8,
+  "event_type": "Near-Miss",
+  "system_category": "Medical/Safety",
+  "significance": "Medium",
+  "description": "Solar UV exposure near the poles is significantly elevated due to ozone depletion — normal SPF habits are insufficient.",
+  "response": "Crew 16 noted this explicitly before the crater expedition and applied sunscreen to all seven participants.",
+  "lesson": "Include high-SPF sunscreen in the medical kit and brief the crew. UV risk is easy to underestimate when air temperature is cold — lack of perceived heat masks cumulative dose.",
+  "pattern_tag": "polar UV exposure underestimated",
+  "outcome": "Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 785-790. Register Crew tag: 'C16'. Sol: not stated; 'before the crater expedition' placed at a representative mid-mission point. Confidence (B) rationale: daily-narrative entry; classified Near-Miss since this documents a proactive preventive action with no reported sunburn/adverse outcome.",
+  "verified_by": "ASG"
+}

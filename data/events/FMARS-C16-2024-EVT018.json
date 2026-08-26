@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT018",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 0,
+  "event_type": "Failure",
+  "system_category": "Operational/Process",
+  "significance": "Low",
+  "description": "Simulation rules were re-negotiated from scratch at the start of each mission and not consistently documented across crews.",
+  "response": "Each Commander sets rules; rigour varies. Crew 16's Commander noted the high-fidelity environment itself encourages discipline even without strict rules.",
+  "lesson": "Agree and publish simulation rules before arrival on Devon: airlock protocol (5-min hold), who can break sim and for what reasons, comms delay setting, EVA request and approval chain. Do not improvise these on-site.",
+  "pattern_tag": "simulation rules undocumented across crews",
+  "outcome": "Unresolved",
+  "confidence": "C",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 662-667. Register Crew tag: 'All (register tag; content specifically discusses Crew 16's Commander)'. Sol: pre-simulation rule-setting; sol 0 placeholder. Confidence (C) rationale: register tags this entry 'All' (cross-crew pattern) but the specific example cited is Crew 16's Commander, so assigned to FMARS-C16-2024; reads as a Commander-reflection/XO-report style account rather than formal engineering documentation.",
+  "verified_by": "ASG"
+}

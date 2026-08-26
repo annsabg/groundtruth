@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C15-2023-EVT010",
+  "mission_id": "FMARS-C15-2023",
+  "sol": 2,
+  "event_type": "Failure",
+  "system_category": "Scientific",
+  "significance": "Low",
+  "description": "Reagents stored at FMARS over winter were far outside their specified storage temperature range (15-30 degrees C vs. Arctic winter at -55 degrees C). Coliform powder had solidified and pH strip reliability was uncertain.",
+  "response": "Crew tested all reagents with controls before use. Results were treated with appropriate uncertainty. Coliform powder was recovered with vigorous agitation.",
+  "lesson": "Do not rely on on-site reagents for safety-critical or publication-quality measurements. Bring all critical reagents from home in temperature-protected packaging. Always run controls before use.",
+  "pattern_tag": "reagent storage temperature exposure over winter",
+  "outcome": "Resolved",
+  "confidence": "A",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 713-718. Register Crew tag: 'C15'. Sol: not stated; placed early in mission since reagent condition would be assessed before science operations begin. Confidence (A) rationale: specific temperature figures and a documented control-testing methodology — formal science report.",
+  "verified_by": "ASG"
+}

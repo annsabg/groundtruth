@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT001",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 4,
+  "event_type": "Failure",
+  "system_category": "Power",
+  "significance": "High",
+  "description": "Generator Gen A ('Jenny') seized completely on Day 4. Initially appeared catastrophic.",
+  "response": "Root cause was a long-overdue oil change; the air filter had not been changed since 2009. Engine recovered fully once serviced.",
+  "lesson": "Service all generators on arrival regardless of apparent status. Include matched air filters, oil, and filter in the pre-mission spare parts kit.",
+  "pattern_tag": "generator maintenance deferred",
+  "outcome": "Resolved",
+  "confidence": "A",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 500-505. Register Crew tag: 'C16'. Sol: explicit: 'seized completely on Day 4'. Confidence (A) rationale: detailed root-cause diagnosis (specific part, dated to 2009) reads as a formal engineering assessment.",
+  "verified_by": "ASG"
+}

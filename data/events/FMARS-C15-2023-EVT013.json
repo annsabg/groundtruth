@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C15-2023-EVT013",
+  "mission_id": "FMARS-C15-2023",
+  "sol": 1,
+  "event_type": "Near-Miss",
+  "system_category": "Medical/Safety",
+  "significance": "High",
+  "description": "Polar bear signs were consistently observed near FMARS across all missions. A bear previously entered the hab storage area during Crew 15's mission. (A suspected bear track was also found near Trinity Lakes during Crew 16's mission.) No direct encounters occurred during Crews 15-18.",
+  "response": "Bear watch protocol was maintained on all EVAs. An armed out-of-sim gunner was present at all times outside the hab. Bear bangers were carried and RCMP was notified of the mission.",
+  "lesson": "Bear protocols are non-negotiable. The bear guard cannot be someone unfamiliar with the shotgun. Arrange firearms familiarisation in Resolute if needed. Check storage areas for animal entry signs on Day 1 arrival.",
+  "pattern_tag": "polar bear proximity / bear watch protocol",
+  "outcome": "Resolved",
+  "confidence": "D",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 779-784. Register Crew tag: 'All (register tag; most severe concrete instance is Crew 15's hab storage entry)'. Sol: not stated precisely for the C15 hab-storage entry event itself; sol 1 used since the lesson recommends checking storage areas for animal entry on Day 1 arrival. Confidence (D) rationale: register tags this entry 'All' (cross-crew aggregation spanning Crews 15-18, no single dated report); assigned to FMARS-C15-2023 as the mission with the most severe concrete instance (bear entering hab storage), with Crew 16's track sighting noted in the description; classified Near-Miss since no direct encounter occurred despite the risk.",
+  "verified_by": "ASG"
+}

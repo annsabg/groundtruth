@@ -1,0 +1,16 @@
+{
+  "event_id": "MARS160-2017-EVT003",
+  "mission_id": "MARS160-2017",
+  "sol": 27,
+  "event_type": "Failure",
+  "system_category": "Psychological",
+  "significance": "High",
+  "description": "Crew tensions and 'glitches' were reported by the Commander across multiple days in the final week, attributed to cumulative fatigue, isolation, and end-of-mission pressure (heavy reporting and EVA load simultaneously).",
+  "response": "The Commander consciously assumed a stronger directive role and prioritised a genuine rest day. Crew morale recovered by the final week.",
+  "lesson": "Plan a formal rest day at the midpoint of simulation — this is not indulgent. The Commander must monitor and act on morale signals proactively, before tensions escalate. FMARS isolation is more intense and longer than MDRS.",
+  "pattern_tag": "end-of-mission fatigue and crew tension",
+  "outcome": "Resolved",
+  "confidence": "C",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.5 Psychological and team dynamics, lines 734-739. Register Crew tag: 'Mars160'. Sol: qualitative cue only ('final week'); no sol structure given for Mars160 in this source — placed near the end of the placeholder mission window. Confidence (C) rationale: Commander-reflection narrative; reads as a Commander/XO-report style account.",
+  "verified_by": "ASG"
+}

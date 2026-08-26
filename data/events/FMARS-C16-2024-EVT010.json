@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT010",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 0,
+  "event_type": "Failure",
+  "system_category": "Meteorological",
+  "significance": "High",
+  "description": "A 3-day weather delay in Resolute Bay occurred before landing on Devon Island. Cloud ceiling and incoming rain blocked the Twin Otter on three successive days.",
+  "response": "Crew used the time for local science expeditions, weight triage, crew training, and community outreach. The mission timeline was compressed by 3 days on the island.",
+  "lesson": "Budget 3-5 extra days in Resolute as a weather buffer. Pre-plan contingency activities for delay days. Do not schedule mission-critical tasks for Days 1-2 on Devon.",
+  "pattern_tag": "Resolute weather buffer / charter delay",
+  "outcome": "Worked Around",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.2 Meteorological incidents, lines 581-586. Register Crew tag: 'C16'. Sol: occurred in Resolute before landing on Devon Island, i.e. before mission sol-clock start; sol 0 used as a placeholder for pre-landing events. Confidence (B) rationale: narrative account of schedule impact and crew activity; daily-report style.",
+  "verified_by": "ASG"
+}

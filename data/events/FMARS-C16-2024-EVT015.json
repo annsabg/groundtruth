@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT015",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 9,
+  "event_type": "Failure",
+  "system_category": "Operational/Process",
+  "significance": "Medium",
+  "description": "Report documentation fell behind during busy simulation days, accumulating a backlog by Day 9.",
+  "response": "All reports were eventually filed before departure.",
+  "lesson": "Set a fixed daily reporting window (e.g., 1700-1800) and protect it from task bleed. The XO should chase all role reports before the comms window closes each evening.",
+  "pattern_tag": "reporting backlog under operational pressure",
+  "outcome": "Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 644-649. Register Crew tag: 'C16'. Sol: explicit: 'accumulating a backlog by Day 9'. Confidence (B) rationale: narrative process observation, matches the brief's own cross-cutting note (line 826) on documentation degrading under pressure.",
+  "verified_by": "ASG"
+}

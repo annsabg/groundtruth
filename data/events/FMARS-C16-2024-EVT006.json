@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT006",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 3,
+  "event_type": "Failure",
+  "system_category": "ATVs/Transport",
+  "significance": "Medium",
+  "description": "ATV fleet on arrival: 1 working, 1 with a flat tyre, 1 with failed ignition, and 2 that never started this mission. Only one vehicle was operational to begin with.",
+  "response": "Over 3 pre-sim days the team cannibalized tyres, swapped fuses, used starter fluid, replaced spark plugs, and charged batteries overnight. All 5 ATVs started by Day 3.",
+  "lesson": "Budget 3 full days for ATV triage in pre-sim. Bring spark plugs matched to models, starter fluid, spare fuses, a tyre repair kit, and fuel conditioner. Do not start simulation until a minimum of 2 ATVs are confirmed operational.",
+  "pattern_tag": "ATV winter-storage triage backlog",
+  "outcome": "Resolved",
+  "confidence": "A",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 542-547. Register Crew tag: 'C16'. Sol: explicit: 'All 5 started by Day 3'. Confidence (A) rationale: detailed multi-day mechanical triage log reads as a formal engineering report.",
+  "verified_by": "ASG"
+}

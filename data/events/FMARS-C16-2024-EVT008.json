@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT008",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 8,
+  "event_type": "Failure",
+  "system_category": "Water",
+  "significance": "Low",
+  "description": "Gray water container reached capacity with a 7-person crew — more than the standard container holds.",
+  "response": "Crew improvised a second reservoir from a wheelbarrow found under the hab.",
+  "lesson": "For crews of 5+, plan secondary gray water storage in advance. Consider bringing a dedicated collapsible container.",
+  "pattern_tag": "gray water capacity undersized for crew size",
+  "outcome": "Worked Around",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 554-559. Register Crew tag: 'C16'. Sol: not stated; placed mid-mission as a plausible point for cumulative gray-water capacity to be reached. Confidence (B) rationale: brief operational-narrative entry, no formal measurement data given.",
+  "verified_by": "ASG"
+}

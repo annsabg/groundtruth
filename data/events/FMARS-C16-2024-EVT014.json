@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C16-2024-EVT014",
+  "mission_id": "FMARS-C16-2024",
+  "sol": 6,
+  "event_type": "Failure",
+  "system_category": "EVA Suits & Comms",
+  "significance": "Medium",
+  "description": "Starlink terminal takes ~15 minutes to reacquire signal after being disconnected and repositioned — discovered mid-EVA during a planned field comms test.",
+  "response": "The EVA team waited; Starlink eventually connected and real-time comms were successfully demonstrated.",
+  "lesson": "Power up Starlink at least 20 minutes before any EVA that relies on real-time hab-field comms. For departure winterisation: disconnect Starlink last, after Mission Support has been notified.",
+  "pattern_tag": "Starlink signal reacquisition lead time",
+  "outcome": "Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.3 Operational incidents, lines 638-643. Register Crew tag: 'C16'. Sol: not stated; 'discovered mid-EVA during a planned field comms test' placed at a representative mid-mission point. Confidence (B) rationale: EVA-narrative account of a comms delay; daily-report style. system_category note: Starlink is the hab's field-comms system supporting EVA communication; mapped to EVA Suits & Comms rather than Logistics or Operational/Process since the impact is specifically on hab-to-field EVA comms.",
+  "verified_by": "ASG"
+}
