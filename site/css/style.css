@@ -65,6 +65,13 @@ main#app {
   cursor: default;
 }
 
+.chart-container {
+  position: relative;
+  height: 400px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .filters-sidebar {
   width: 220px;
   flex-shrink: 0;

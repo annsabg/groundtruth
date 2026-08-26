@@ -63,20 +63,34 @@ function renderChart(canvasEl, type, data) {
       labels: data.labels,
       datasets: [{ data: data.values, backgroundColor: ["#2b6cb0", "#c0392b", "#27ae60", "#b8860b", "#8e44ad", "#16a085", "#d35400"] }],
     },
+    options: {
+      // Without this, Chart.js sizes the canvas from its own aspect ratio
+      // against the expanded tile's full grid width (~950px), producing a
+      // ~918x918px chart. maintainAspectRatio: false lets the fixed-height
+      // .chart-container (CSS) govern size instead.
+      maintainAspectRatio: false,
+    },
   });
 }
 
-function expandTile(container, tileKey) {
+function expandTile(container, tileKey, updateHash = true) {
   const gridEl = container.querySelector(".card-grid");
   const meta = TILE_DATA[tileKey];
+  if (!meta) return renderGrid(container);
+  if (updateHash) window.navigateTo("patterns", tileKey);
   gridEl.innerHTML = `
     <div class="tile expanded">
       <button class="mock-button" data-back>← back to grid</button>
       <h3>${meta.title}</h3>
-      <canvas id="pattern-chart" height="300"></canvas>
+      <div class="chart-container">
+        <canvas id="pattern-chart"></canvas>
+      </div>
     </div>
   `;
-  gridEl.querySelector("[data-back]").addEventListener("click", () => renderGrid(container));
+  gridEl.querySelector("[data-back]").addEventListener("click", () => {
+    window.navigateTo("patterns", null);
+    renderGrid(container);
+  });
   renderChart(gridEl.querySelector("#pattern-chart"), meta.chart, meta.fn());
 }
 
@@ -97,7 +111,13 @@ function renderGrid(container) {
   });
 }
 
-export function renderPatterns(container) {
+export function renderPatterns(container, param) {
   container.innerHTML = `<h1>Patterns</h1><div class="card-grid"></div>`;
-  renderGrid(container);
+  if (param && TILE_DATA[param]) {
+    // Deep link, e.g. #/patterns/event-types — expand directly, no need to
+    // re-navigate since the hash already reflects this state.
+    expandTile(container, param, false);
+  } else {
+    renderGrid(container);
+  }
 }

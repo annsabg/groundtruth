@@ -12,3 +12,8 @@ venv/
 *.docx
 *.doc
 sources-local/
+
+# Subagent-driven-development workspace: ledgers, task briefs, review
+# packages, and brainstorming's visual-companion server state. Local
+# scratch, not part of the deliverable.
+.superpowers/
