@@ -7,6 +7,7 @@ Usage:
 Exits 0 if everything validates, 1 otherwise (with errors printed).
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -38,13 +39,17 @@ def validate_directory(schema_path, dir_path, pattern="*.json") -> dict[str, lis
     return results
 
 
+CREW_MEMBER_ID_LIKE = re.compile(r".+-CM\d{2}$")
+
+
 def check_references(data_dir) -> list[str]:
     """Cross-file referential-integrity check: does every ID referenced from
-    one record (mission_id, related_events, comparable_studies, mission_ids)
-    actually resolve to a record with that ID committed under data/? Schema
-    validation alone can't catch this — these fields are typed as plain
-    strings, not real foreign keys. Returns a list of human-readable error
-    strings; empty means every cross-reference resolves."""
+    one record (mission_id, related_events, comparable_studies, mission_ids,
+    principal_investigators) actually resolve to a record with that ID
+    committed under data/? Schema validation alone can't catch this — these
+    fields are typed as plain strings, not real foreign keys. Returns a list
+    of human-readable error strings; empty means every cross-reference
+    resolves."""
     data_dir = Path(data_dir)
 
     def _ids(subdir, id_field):
@@ -58,6 +63,7 @@ def check_references(data_dir) -> list[str]:
     mission_ids = _ids("missions", "mission_id")
     event_ids = _ids("events", "event_id")
     research_ids = _ids("research_projects", "research_project_id")
+    crew_member_ids = _ids("crew_members", "crew_member_id")
 
     errors = []
 
@@ -87,6 +93,20 @@ def check_references(data_dir) -> list[str]:
         record = json.loads(p.read_text())
         for value in record.get("comparable_studies") or []:
             _check("research_projects", p.name, "comparable_studies", value, research_ids, "Research Project")
+
+    # principal_investigators isn't a strict foreign key: some PIs are
+    # external researchers with no Crew Member record. Only flag a value
+    # that LOOKS like it's trying to be a crew_member_id (matches the
+    # {mission_id}-CM{NN} format) but doesn't resolve — that's a typo'd
+    # reference, not a plain external-researcher name.
+    for p in (data_dir / "research_projects").glob("*.json"):
+        record = json.loads(p.read_text())
+        for value in record.get("principal_investigators") or []:
+            if CREW_MEMBER_ID_LIKE.match(value) and value not in crew_member_ids:
+                errors.append(
+                    f"research_projects/{p.name}: principal_investigators '{value}' "
+                    f"looks like a crew_member_id but does not resolve to any committed Crew Member"
+                )
 
     return errors
 

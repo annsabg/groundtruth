@@ -57,6 +57,66 @@ def test_check_references_accepts_valid_cross_references(tmp_path):
     assert errors == []
 
 
+def test_check_references_detects_orphaned_principal_investigator(tmp_path):
+    import json
+    data_dir = tmp_path / "data"
+    for sub in ["missions", "events", "crew_members", "research_projects", "sources"]:
+        (data_dir / sub).mkdir(parents=True)
+    (data_dir / "missions" / "m1.json").write_text(json.dumps({"mission_id": "M1"}))
+    (data_dir / "research_projects" / "rp1.json").write_text(
+        json.dumps({
+            "research_project_id": "RP1",
+            "mission_ids": ["M1"],
+            "principal_investigators": ["M1-CM99"],  # crew_member_id-shaped, doesn't resolve
+        })
+    )
+
+    errors = check_references(data_dir)
+    assert any("M1-CM99" in e for e in errors)
+
+
+def test_check_references_accepts_valid_principal_investigator(tmp_path):
+    import json
+    data_dir = tmp_path / "data"
+    for sub in ["missions", "events", "crew_members", "research_projects", "sources"]:
+        (data_dir / sub).mkdir(parents=True)
+    (data_dir / "missions" / "m1.json").write_text(json.dumps({"mission_id": "M1"}))
+    (data_dir / "crew_members" / "cm1.json").write_text(
+        json.dumps({"crew_member_id": "M1-CM01", "mission_id": "M1"})
+    )
+    (data_dir / "research_projects" / "rp1.json").write_text(
+        json.dumps({
+            "research_project_id": "RP1",
+            "mission_ids": ["M1"],
+            "principal_investigators": ["M1-CM01"],
+        })
+    )
+
+    errors = check_references(data_dir)
+    assert errors == []
+
+
+def test_check_references_ignores_non_crew_member_shaped_principal_investigator(tmp_path):
+    # External researchers (not represented as Crew Member records) aren't
+    # flagged just because they aren't in crew_member_ids — only values that
+    # actually look like a crew_member_id reference are checked.
+    import json
+    data_dir = tmp_path / "data"
+    for sub in ["missions", "events", "crew_members", "research_projects", "sources"]:
+        (data_dir / sub).mkdir(parents=True)
+    (data_dir / "missions" / "m1.json").write_text(json.dumps({"mission_id": "M1"}))
+    (data_dir / "research_projects" / "rp1.json").write_text(
+        json.dumps({
+            "research_project_id": "RP1",
+            "mission_ids": ["M1"],
+            "principal_investigators": ["Some External Researcher"],
+        })
+    )
+
+    errors = check_references(data_dir)
+    assert errors == []
+
+
 def test_mission_schema_accepts_valid_record():
     errors = validate_file(SCHEMA / "mission.schema.json", FIXTURES / "valid_mission.json")
     assert errors == []
