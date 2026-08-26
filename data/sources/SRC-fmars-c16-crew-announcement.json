@@ -1,0 +1,11 @@
+{
+  "source_id": "SRC-fmars-c16-crew-announcement",
+  "mission_ids": ["FMARS-C16-2024"],
+  "url_or_reference": "https://www.marssociety.org/news/2024/06/19/arctic-flashline-mission-is-happening-again/ ; https://www.marssociety.org/news/2024/07/08/crew-16-begins-sim-at-flashline-station-on-devon-island/",
+  "source_type": "official_report",
+  "covers": ["crew"],
+  "date_range_or_sols": "Mars Society news announcements, June-July 2024, covering FMARS Crew 16 (Arctic Wolves) full 7-person roster with role and country of each member",
+  "discovery_method": "agent",
+  "approved_by": "ASG",
+  "approved_date": "2026-08-26"
+}

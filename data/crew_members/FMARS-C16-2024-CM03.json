@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C16-2024-CM03",
+  "mission_id": "FMARS-C16-2024",
+  "primary_role": "Engineer",
+  "gender": "undisclosed",
+  "nationality": "undisclosed",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Engineering",
+    "detail": "PhD, FRSA (Fellow of the Royal Society of Arts); Chief Engineer"
+  },
+  "source_citation": "SRC-fmars-c16-crew-announcement, marssociety.org 2024-06-19 'Arctic Flashline Mission is Happening Again!': 'Chief Engineer: [name redacted], Ph.D., FRSA (Scotland/American)'. Nationality recorded as undisclosed here because the source gives a compound, non-single-country designation ('Scotland/American') that cannot be mapped to one ISO code without guessing. No gender pronoun stated in the source.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,11 @@
+{
+  "source_id": "SRC-fmars-meet-the-crew-c17-c18",
+  "mission_ids": ["FMARS-C17-2025", "FMARS-C18-2025"],
+  "url_or_reference": "https://fmars.marssociety.org/meet-the-crew-2/",
+  "source_type": "official_report",
+  "covers": ["crew"],
+  "date_range_or_sols": "FMARS 'Meet the Crew' page (live/current as of Aug 2026), sections '2025 Season - Crew 17 (Silaliq)' (4 named members) and '2025 Season - Crew 18 (Amaruq)' (7 named members)",
+  "discovery_method": "agent",
+  "approved_by": "ASG",
+  "approved_date": "2026-08-26"
+}

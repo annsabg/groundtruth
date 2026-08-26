@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "MARS160-2017-CM05",
+  "mission_id": "MARS160-2017",
+  "primary_role": "Science Officer",
+  "gender": "undisclosed",
+  "nationality": "IN",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Biology",
+    "detail": "Crew Biologist; geomicrobiology research on Mars-analog hypersaline environments as part of the mission's science program"
+  },
+  "source_citation": "SRC-mars160-fmars-crew-arrival, SpaceFlight Insider, 'Mars 160: 6-person crew arrives at Arctic station', July 2017: Crew Biologist described as Indian, conducting geomicrobiological research on Mars-analog environments. Role and nationality independently corroborated by Mars Society mission materials (mars160.marssociety.org/meet-the-crew/) and academic-institution reporting on the crew member's Mars 160 fieldwork. No explicit gender pronoun found in the material reviewed; gender recorded as undisclosed.",
+  "verified_by": "ASG"
+}

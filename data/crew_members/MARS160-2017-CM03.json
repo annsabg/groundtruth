@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "MARS160-2017-CM03",
+  "mission_id": "MARS160-2017",
+  "primary_role": "Science Officer",
+  "gender": "undisclosed",
+  "nationality": "AU",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Geology",
+    "detail": "Crew Geologist for the FMARS leg"
+  },
+  "source_citation": "SRC-mars160-fmars-crew-arrival, SpaceFlight Insider, 'Mars 160: 6-person crew arrives at Arctic station', July 2017: one of two Crew Geologists described as Australian. Role and nationality independently corroborated by Mars Society mission materials (mars160.marssociety.org/meet-the-crew/). No explicit gender pronoun found in the material reviewed; gender recorded as undisclosed.",
+  "verified_by": "ASG"
+}

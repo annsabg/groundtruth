@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "MARS160-2017-CM06",
+  "mission_id": "MARS160-2017",
+  "primary_role": "Science Officer",
+  "gender": "undisclosed",
+  "nationality": "US",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Geology",
+    "detail": "Field operations manager and second Crew Geologist; prior field-geology experience monitoring groundwater and soil quality; studied permafrost and ice conditions near FMARS"
+  },
+  "source_citation": "SRC-mars160-fmars-crew-arrival, SpaceFlight Insider, 'Mars 160: 6-person crew arrives at Arctic station', July 2017: second Crew Geologist described as American, also serving as the mission's field operations manager, with prior field-geology experience monitoring groundwater and soil quality; tasked with studying permafrost and ice conditions near FMARS. Role and nationality independently corroborated by Mars Society mission materials (fmars.marssociety.org team page). No explicit gender pronoun found in the material reviewed; gender recorded as undisclosed.",
+  "verified_by": "ASG"
+}

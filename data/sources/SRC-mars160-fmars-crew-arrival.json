@@ -1,0 +1,11 @@
+{
+  "source_id": "SRC-mars160-fmars-crew-arrival",
+  "mission_ids": ["MARS160-2017"],
+  "url_or_reference": "https://www.spaceflightinsider.com/missions/mars-160-6-person-crew-arrives-at-arctic-station/",
+  "source_type": "official_report",
+  "covers": ["crew"],
+  "date_range_or_sols": "SpaceFlight Insider article, July 2017, naming all 6 crew members of the Mars160 FMARS-leg crew (arrival at Flashline station) with role and nationality for each",
+  "discovery_method": "agent",
+  "approved_by": "ASG",
+  "approved_date": "2026-08-26"
+}

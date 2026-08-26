@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C15-2023-CM03",
+  "mission_id": "FMARS-C15-2023",
+  "primary_role": "Science Officer",
+  "gender": "female",
+  "nationality": "GB",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Biology",
+    "detail": "Ph.D. candidate in Environmental Toxicology researching effects of radiation on the brain; B.S. in Physics (University of Oxford), MSc in Aerospace Engineering"
+  },
+  "source_citation": "SRC-fmars-c15-crew-announcements, marssociety.org 2023-07-06 'Multi-National Crew to Visit FMARS': 'Mission Science Lead & Crew Scientist... (U.K.)... a Ph.D. candidate in Environmental Toxicology' and 'she has trekked with an expedition to a Mount Everest base camp' (explicit 'she' pronoun).",
+  "verified_by": "ASG"
+}
