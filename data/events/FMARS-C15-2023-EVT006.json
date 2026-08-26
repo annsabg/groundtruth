@@ -6,7 +6,7 @@
   "system_category": "Scientific",
   "significance": "Medium",
   "description": "A microscope was packed away in a box that the crew did not know was there. No microscopy data was collected initially despite samples being available.",
-  "response": "Science Officer Drayson found and activated the microscope, including locating microscope oil for the 100x lens. Cyanobacteria were successfully imaged.",
+  "response": "The Science Officer found and activated the microscope, including locating microscope oil for the 100x lens. Cyanobacteria were successfully imaged.",
   "lesson": "Request a full lab equipment inventory from the Mars Society before departure. Plan a 'discover and activate' step on Day 1 of lab operations — do not assume equipment is set up or functional.",
   "pattern_tag": "lab equipment discovery / activation on arrival",
   "outcome": "Resolved",

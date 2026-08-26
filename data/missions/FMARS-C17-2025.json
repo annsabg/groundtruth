@@ -7,6 +7,6 @@
   "end_date": "2025-07-15",
   "location": "FMARS, Haynes Ridge, Devon Island, Nunavut, Canada (~75°25'N, 89°49'W)",
   "crew_size": 6,
-  "source_citation": "SRC-hypatia-iii-brief, Appendix – Sources and notes: 'FMARS Crew 17 (Silaliq) reports (July 2025): Sol reports 1–3' (line 459). Only named individual: Phnam, who fabricated custom helmet sun visors (line 293). Incident register: wall-heater installation entry tagged 'C17' but describing 'Crew 18's arrival' (lines 561-565), consistent with the 'Crew 17 → 18 hot-swap' handover model (line 372). crew_size and the first-half-of-July date split from C18 are NOT stated in the source and are best-available inference – see report for confidence flags.",
+  "source_citation": "SRC-hypatia-iii-brief, Appendix – Sources and notes: 'FMARS Crew 17 (Silaliq) reports (July 2025): Sol reports 1–3' (line 459). One crew member fabricated custom helmet sun visors (line 293). Incident register: wall-heater installation entry tagged 'C17' but describing 'Crew 18's arrival' (lines 561-565), consistent with the 'Crew 17 → 18 hot-swap' handover model (line 372). crew_size and the first-half-of-July date split from C18 are NOT stated in the source and are best-available inference – see report for confidence flags.",
   "verified_by": "ASG"
 }
