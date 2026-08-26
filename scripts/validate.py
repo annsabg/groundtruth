@@ -64,6 +64,7 @@ def check_references(data_dir) -> list[str]:
     event_ids = _ids("events", "event_id")
     research_ids = _ids("research_projects", "research_project_id")
     crew_member_ids = _ids("crew_members", "crew_member_id")
+    source_ids = _ids("sources", "source_id")
 
     errors = []
 
@@ -77,6 +78,12 @@ def check_references(data_dir) -> list[str]:
             value = record.get("mission_id")
             if value is not None:
                 _check(subdir, p.name, "mission_id", value, mission_ids, "Mission")
+
+    for p in (data_dir / "events").glob("*.json"):
+        record = json.loads(p.read_text())
+        value = record.get("source_id")
+        if value is not None:
+            _check("events", p.name, "source_id", value, source_ids, "Source")
 
     for subdir in ("research_projects", "sources"):
         for p in (data_dir / subdir).glob("*.json"):

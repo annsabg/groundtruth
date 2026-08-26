@@ -117,6 +117,35 @@ def test_check_references_ignores_non_crew_member_shaped_principal_investigator(
     assert errors == []
 
 
+def test_check_references_detects_orphaned_event_source_id(tmp_path):
+    import json
+    data_dir = tmp_path / "data"
+    for sub in ["missions", "events", "crew_members", "research_projects", "sources"]:
+        (data_dir / sub).mkdir(parents=True)
+    (data_dir / "missions" / "m1.json").write_text(json.dumps({"mission_id": "M1"}))
+    (data_dir / "events" / "e1.json").write_text(
+        json.dumps({"event_id": "E1", "mission_id": "M1", "source_id": "SRC-nonexistent"})
+    )
+
+    errors = check_references(data_dir)
+    assert any("SRC-nonexistent" in e for e in errors)
+
+
+def test_check_references_accepts_valid_event_source_id(tmp_path):
+    import json
+    data_dir = tmp_path / "data"
+    for sub in ["missions", "events", "crew_members", "research_projects", "sources"]:
+        (data_dir / sub).mkdir(parents=True)
+    (data_dir / "missions" / "m1.json").write_text(json.dumps({"mission_id": "M1"}))
+    (data_dir / "sources" / "s1.json").write_text(json.dumps({"source_id": "SRC-real"}))
+    (data_dir / "events" / "e1.json").write_text(
+        json.dumps({"event_id": "E1", "mission_id": "M1", "source_id": "SRC-real"})
+    )
+
+    errors = check_references(data_dir)
+    assert errors == []
+
+
 def test_mission_schema_accepts_valid_record():
     errors = validate_file(SCHEMA / "mission.schema.json", FIXTURES / "valid_mission.json")
     assert errors == []

@@ -28,6 +28,10 @@
       "type": "string",
       "description": "Open, extensible tag for recurring patterns (e.g. 'generator fuel line degradation'). Not a closed enum — vocabulary grows from clustering real data. See CONTRIBUTING.md for the current suggested list."
     },
+    "source_id": {
+      "type": "string",
+      "description": "References Source.source_id (schema/source.schema.json). Optional for backward compatibility, but should be set on every real record — see docs/extraction-workflow.md and CONTRIBUTING.md."
+    },
     "outcome": {
       "enum": ["Resolved", "Partially Resolved", "Worked Around", "Unresolved", "Adopted", "Not Applicable"]
     },

@@ -28,7 +28,7 @@ ENTITIES = {
         "events",
         ["event_id", "mission_id", "sol", "event_type", "system_category", "significance",
          "description", "response", "lesson", "pattern_tag", "outcome", "related_events",
-         "confidence", "source_citation", "verified_by"],
+         "confidence", "source_id", "source_citation", "verified_by"],
     ),
     "research_project": (
         "research_projects",
