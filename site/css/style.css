@@ -1,0 +1,129 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #666666;
+  --border: #dddddd;
+  --accent: #2b6cb0;
+  --card-bg: #f7f7f7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
+}
+
+nav.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+nav.main-nav .brand {
+  font-weight: 700;
+  margin-right: auto;
+}
+
+nav.main-nav a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+nav.main-nav a:hover,
+nav.main-nav a.active {
+  color: var(--accent);
+}
+
+main#app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.tile {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.tile.expanded {
+  grid-column: 1 / -1;
+  cursor: default;
+}
+
+.filters-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.missions-layout {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.event-list {
+  flex: 1;
+}
+
+.event-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+}
+
+.event-card .event-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.event-card .event-detail {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.source-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.source-panel {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: var(--card-bg);
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.sig-High { color: #c0392b; font-weight: 600; }
+.sig-Medium { color: #b8860b; }
+.sig-Low { color: var(--muted); }
+
+/* Mobile: sidebar collapses behind a toggle */
+@media (max-width: 700px) {
+  .missions-layout { flex-direction: column; }
+  .filters-sidebar { width: 100%; display: none; }
+  .filters-sidebar.open { display: block; }
+}
