@@ -69,6 +69,36 @@ def save_manifest(manifest_path, manifest):
     manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True))
 
 
+def fetch_page(url, session):
+    """Fetch one page's HTML, retrying transient failures with exponential
+    backoff (1s, 2s, 4s). Returns the response text, or None if the page
+    doesn't exist (404 — the archive's actual end, not a transient
+    failure) or every retry failed."""
+    for attempt in range(MAX_RETRIES):
+        try:
+            response = session.get(url, timeout=30)
+        except requests.RequestException:
+            if attempt < MAX_RETRIES - 1:
+                time.sleep(2 ** attempt)
+            continue
+        if response.status_code == 200:
+            return response.text
+        if response.status_code == 404:
+            return None
+        if attempt < MAX_RETRIES - 1:
+            time.sleep(2 ** attempt)
+    return None
+
+
+def save_page(output_dir, page_number, html, reports):
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir / f"page-{page_number:04d}.html").write_text(html)
+    (output_dir / f"page-{page_number:04d}-reports.json").write_text(
+        json.dumps(reports, indent=2)
+    )
+
+
 def main():
     if len(sys.argv) < 3:
         print(f"Usage: {sys.argv[0]} <start_page> <end_page> [output_dir]", file=sys.stderr)
