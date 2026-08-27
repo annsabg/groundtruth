@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C18-2025-EVT003",
   "mission_id": "FMARS-C18-2025",
+  "station": "FMARS",
   "sol": 6,
   "event_type": "Crew Dynamics",
   "system_category": "Psychological",

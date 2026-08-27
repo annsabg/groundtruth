@@ -1,6 +1,7 @@
 {
   "event_id": "MARS160-2017-EVT001",
   "mission_id": "MARS160-2017",
+  "station": "FMARS",
   "sol": 15,
   "event_type": "Failure",
   "system_category": "Meteorological",

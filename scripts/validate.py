@@ -66,6 +66,11 @@ def check_references(data_dir) -> list[str]:
     crew_member_ids = _ids("crew_members", "crew_member_id")
     source_ids = _ids("sources", "source_id")
 
+    mission_stations = {}
+    for p in (data_dir / "missions").glob("*.json"):
+        record = json.loads(p.read_text())
+        mission_stations[record["mission_id"]] = set(record.get("stations") or [])
+
     errors = []
 
     def _check(subdir, filename, field, value, valid_ids, label):
@@ -84,6 +89,21 @@ def check_references(data_dir) -> list[str]:
         value = record.get("source_id")
         if value is not None:
             _check("events", p.name, "source_id", value, source_ids, "Source")
+
+    # event.station must be one of its mission's mission.stations — this is
+    # the check that catches a multi-station mission's event being tagged
+    # with a leg it never actually occurred on (see MARS160-2017: mission
+    # .stations is [FMARS, MDRS], but every event so far is FMARS-leg only).
+    for p in (data_dir / "events").glob("*.json"):
+        record = json.loads(p.read_text())
+        station = record.get("station")
+        mission_id = record.get("mission_id")
+        if station is not None and mission_id in mission_stations:
+            if station not in mission_stations[mission_id]:
+                errors.append(
+                    f"events/{p.name}: station '{station}' is not in mission "
+                    f"'{mission_id}''s stations {sorted(mission_stations[mission_id])}"
+                )
 
     for subdir in ("research_projects", "sources"):
         for p in (data_dir / subdir).glob("*.json"):

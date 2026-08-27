@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C17-2025-EVT003",
   "mission_id": "FMARS-C17-2025",
+  "station": "FMARS",
   "sol": 3,
   "event_type": "Process Innovation",
   "system_category": "Operational/Process",

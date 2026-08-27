@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C16-2024-EVT032",
   "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
   "sol": 12,
   "event_type": "Success/Best Practice",
   "system_category": "Operational/Process",

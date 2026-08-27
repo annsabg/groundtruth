@@ -146,6 +146,38 @@ def test_check_references_accepts_valid_event_source_id(tmp_path):
     assert errors == []
 
 
+def test_check_references_detects_event_station_not_in_mission_stations(tmp_path):
+    import json
+    data_dir = tmp_path / "data"
+    for sub in ["missions", "events", "crew_members", "research_projects", "sources"]:
+        (data_dir / sub).mkdir(parents=True)
+    (data_dir / "missions" / "m1.json").write_text(
+        json.dumps({"mission_id": "M1", "stations": ["FMARS"]})
+    )
+    (data_dir / "events" / "e1.json").write_text(
+        json.dumps({"event_id": "E1", "mission_id": "M1", "station": "MDRS"})
+    )
+
+    errors = check_references(data_dir)
+    assert any("station" in e and "MDRS" in e for e in errors)
+
+
+def test_check_references_accepts_event_station_in_mission_stations(tmp_path):
+    import json
+    data_dir = tmp_path / "data"
+    for sub in ["missions", "events", "crew_members", "research_projects", "sources"]:
+        (data_dir / sub).mkdir(parents=True)
+    (data_dir / "missions" / "m1.json").write_text(
+        json.dumps({"mission_id": "M1", "stations": ["FMARS", "MDRS"]})
+    )
+    (data_dir / "events" / "e1.json").write_text(
+        json.dumps({"event_id": "E1", "mission_id": "M1", "station": "MDRS"})
+    )
+
+    errors = check_references(data_dir)
+    assert errors == []
+
+
 def test_mission_schema_accepts_valid_record():
     errors = validate_file(SCHEMA / "mission.schema.json", FIXTURES / "valid_mission.json")
     assert errors == []

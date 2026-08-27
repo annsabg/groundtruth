@@ -32,8 +32,12 @@ export function buildEventsQuery(filters) {
     params.push(filters.mission_id);
   }
   if (filters.station) {
-    clauses.push("mission_id IN (SELECT mission_id FROM mission WHERE stations LIKE ?)");
-    params.push(`%"${filters.station}"%`);
+    // Filters on the event's own station, not the mission's full stations
+    // list — a multi-leg mission (e.g. MARS160-2017: FMARS then MDRS) must
+    // not have every one of its events match every station it ever visited.
+    // See schema/event.schema.json's "station" field.
+    clauses.push("station = ?");
+    params.push(filters.station);
   }
   if (filters.system_category) {
     clauses.push("system_category = ?");

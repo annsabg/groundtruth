@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C16-2024-EVT023",
   "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
   "sol": 8,
   "event_type": "Success/Best Practice",
   "system_category": "Medical/Safety",

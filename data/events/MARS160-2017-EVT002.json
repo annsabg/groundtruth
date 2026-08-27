@@ -1,6 +1,7 @@
 {
   "event_id": "MARS160-2017-EVT002",
   "mission_id": "MARS160-2017",
+  "station": "FMARS",
   "sol": 16,
   "event_type": "Near-Miss",
   "system_category": "Meteorological",

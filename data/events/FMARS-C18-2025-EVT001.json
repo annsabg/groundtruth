@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C18-2025-EVT001",
   "mission_id": "FMARS-C18-2025",
+  "station": "FMARS",
   "sol": 1,
   "event_type": "Failure",
   "system_category": "Hab Structure",

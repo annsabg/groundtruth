@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C17-2025-EVT002",
   "mission_id": "FMARS-C17-2025",
+  "station": "FMARS",
   "sol": 2,
   "event_type": "Success/Best Practice",
   "system_category": "Psychological",

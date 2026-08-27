@@ -8,10 +8,10 @@ test("buildEventsQuery: no filters returns unfiltered query", () => {
   assert.deepEqual(params, []);
 });
 
-test("buildEventsQuery: station filter matches the JSON-encoded stations column", () => {
+test("buildEventsQuery: station filter matches the event's own station column", () => {
   const { sql, params } = buildEventsQuery({ station: "FMARS" });
-  assert.match(sql, /mission_id IN \(SELECT mission_id FROM mission WHERE stations LIKE \?\)/);
-  assert.deepEqual(params, ['%"FMARS"%']);
+  assert.match(sql, /WHERE station = \?/);
+  assert.deepEqual(params, ["FMARS"]);
 });
 
 test("buildEventsQuery: combines multiple filters with AND", () => {

@@ -26,7 +26,7 @@ ENTITIES = {
     ),
     "event": (
         "events",
-        ["event_id", "mission_id", "sol", "event_type", "system_category", "significance",
+        ["event_id", "mission_id", "station", "sol", "event_type", "system_category", "significance",
          "description", "response", "lesson", "pattern_tag", "outcome", "related_events",
          "confidence", "source_id", "source_citation", "verified_by"],
     ),

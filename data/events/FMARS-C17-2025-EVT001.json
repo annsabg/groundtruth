@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C17-2025-EVT001",
   "mission_id": "FMARS-C17-2025",
+  "station": "FMARS",
   "sol": 2,
   "event_type": "Process Innovation",
   "system_category": "EVA Suits & Comms",

@@ -10,6 +10,10 @@
       "description": "Format {mission_id}-EVT{NNN}."
     },
     "mission_id": {"type": "string"},
+    "station": {
+      "enum": ["FMARS", "MDRS", "LunAres", "HI-SEAS", "AMADEE", "Other"],
+      "description": "The single station this event actually occurred at. Most missions have exactly one station (mission.stations has one entry) so this is redundant with it — but a multi-leg mission like MARS160-2017 (mission.stations: [FMARS, MDRS]) needs each event tagged with the specific leg it happened on, not the mission's full station list. Must be one of mission.stations for this event's mission_id (checked by scripts/validate.py's check_references())."
+    },
     "sol": {"type": "integer", "minimum": 0},
     "event_type": {
       "enum": ["Failure", "Near-Miss", "Success/Best Practice", "Process Innovation", "Crew Dynamics", "Observation", "Other"]
@@ -47,7 +51,7 @@
     "verified_by": {"type": "string", "minLength": 1}
   },
   "required": [
-    "event_id", "mission_id", "sol", "event_type", "system_category",
+    "event_id", "mission_id", "station", "sol", "event_type", "system_category",
     "significance", "description", "confidence", "source_citation", "verified_by"
   ],
   "additionalProperties": false

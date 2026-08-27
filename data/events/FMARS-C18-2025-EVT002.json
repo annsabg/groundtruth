@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C18-2025-EVT002",
   "mission_id": "FMARS-C18-2025",
+  "station": "FMARS",
   "sol": 5,
   "event_type": "Process Innovation",
   "system_category": "Power",

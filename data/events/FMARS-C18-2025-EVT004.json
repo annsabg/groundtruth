@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C18-2025-EVT004",
   "mission_id": "FMARS-C18-2025",
+  "station": "FMARS",
   "sol": 8,
   "event_type": "Observation",
   "system_category": "Scientific",

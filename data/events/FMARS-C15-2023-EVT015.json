@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C15-2023-EVT015",
   "mission_id": "FMARS-C15-2023",
+  "station": "FMARS",
   "sol": 6,
   "event_type": "Observation",
   "system_category": "Air Quality",

@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C16-2024-EVT014",
   "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
   "sol": 6,
   "event_type": "Observation",
   "system_category": "EVA Suits & Comms",

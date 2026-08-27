@@ -1,6 +1,7 @@
 {
   "event_id": "MARS160-2017-EVT004",
   "mission_id": "MARS160-2017",
+  "station": "FMARS",
   "sol": 14,
   "event_type": "Crew Dynamics",
   "system_category": "Psychological",

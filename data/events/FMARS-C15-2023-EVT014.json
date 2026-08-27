@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C15-2023-EVT014",
   "mission_id": "FMARS-C15-2023",
+  "station": "FMARS",
   "sol": 5,
   "event_type": "Success/Best Practice",
   "system_category": "EVA Suits & Comms",

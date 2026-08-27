@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C15-2023-EVT003",
   "mission_id": "FMARS-C15-2023",
+  "station": "FMARS",
   "sol": 2,
   "event_type": "Failure",
   "system_category": "EVA Suits & Comms",

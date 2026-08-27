@@ -1,6 +1,7 @@
 {
   "event_id": "FMARS-C15-2023-EVT009",
   "mission_id": "FMARS-C15-2023",
+  "station": "FMARS",
   "sol": 1,
   "event_type": "Observation",
   "system_category": "Water",
