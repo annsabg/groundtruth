@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { escapeHtml, bracketAges } from "../site/js/util.js";
+import { escapeHtml, bracketAges, wrapLabel } from "../site/js/util.js";
 
 const AGE_BRACKETS = ["18-24", "25-34", "35-44", "45-54", "55-64", "65+", "Undisclosed"];
 
@@ -70,4 +70,31 @@ test("bracketAges: a numeric-string age buckets as a number, not Undisclosed", (
 
 test("bracketAges: an empty input array leaves all buckets at zero", () => {
   assert.deepEqual(bracketAges([]), { labels: AGE_BRACKETS, values: zeroCounts() });
+});
+
+test("wrapLabel: a short label under the line length is returned as a single line", () => {
+  assert.deepEqual(wrapLabel("mold testing on arrival"), ["mold testing on arrival"]);
+});
+
+test("wrapLabel: a long label wraps onto multiple lines, breaking on spaces", () => {
+  const result = wrapLabel("winter closure checklist gap (valve left closed)");
+  assert.ok(result.length > 1);
+  // no line exceeds the max length, and re-joining reconstructs the original
+  result.forEach((line) => assert.ok(line.length <= 24));
+  assert.equal(result.join(" "), "winter closure checklist gap (valve left closed)");
+});
+
+test("wrapLabel: never breaks in the middle of a word", () => {
+  const result = wrapLabel("lab equipment discovery / activation on arrival");
+  const words = "lab equipment discovery / activation on arrival".split(" ");
+  assert.deepEqual(result.join(" ").split(" "), words);
+});
+
+test("wrapLabel: a single word longer than maxLineLength is kept whole, not truncated", () => {
+  const longWord = "supercalifragilisticexpialidocious";
+  assert.deepEqual(wrapLabel(longWord), [longWord]);
+});
+
+test("wrapLabel: respects a custom maxLineLength", () => {
+  assert.deepEqual(wrapLabel("one two three four", 7), ["one two", "three", "four"]);
 });

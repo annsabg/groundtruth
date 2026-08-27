@@ -108,7 +108,9 @@ crew member's real name, validate before you open a PR.
 
 v0.2 — schema, seed data from FMARS Crews 15–18 and Mars160, and a
 browsable static site (`site/`) on top of `groundtruth.sqlite`: Missions
-with filterable events, a Patterns dashboard, and an About page. The site
-is deployed via GitHub Actions to GitHub Pages on every push to `main` —
-**merging to `main` now triggers a live public deployment**, not just a
-data-repo commit. See `.github/workflows/deploy-pages.yml`.
+(actual mission records — station, dates, crew size, goal — drilling into
+each one's own incidents), Incidents (a filterable cross-mission event
+list for pattern-hunting), a Patterns dashboard, and an About page. The
+site is deployed via GitHub Actions to GitHub Pages on every push to
+`main` — **merging to `main` now triggers a live public deployment**, not
+just a data-repo commit. See `.github/workflows/deploy-pages.yml`.

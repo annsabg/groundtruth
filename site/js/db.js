@@ -24,6 +24,17 @@ export function runQuery(sql, params = []) {
   return values.map((row) => Object.fromEntries(columns.map((col, i) => [col, row[i]])));
 }
 
+// mission.stations is stored as a JSON-encoded array (a mission can list
+// more than one, e.g. MARS160-2017: [FMARS, MDRS]) — this flattens and
+// dedupes across every mission. Shared by incidents-view.js's station
+// filter dropdown and landing-view.js's stats snapshot.
+export function getDistinctStations() {
+  const rows = runQuery("SELECT DISTINCT stations FROM mission");
+  const set = new Set();
+  rows.forEach((r) => JSON.parse(r.stations).forEach((s) => set.add(s)));
+  return Array.from(set).sort();
+}
+
 export function buildEventsQuery(filters) {
   const clauses = [];
   const params = [];

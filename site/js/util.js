@@ -18,6 +18,30 @@ export function escapeHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
+// Greedily wraps a label into lines no longer than maxLineLength
+// characters (breaking on spaces, never mid-word), returning an array of
+// lines. Chart.js renders an array-valued tick label as multiple lines —
+// this is how a long free-text pattern_tag becomes readable on a chart
+// axis instead of running off the edge or getting clipped. A label with
+// no spaces long enough to break (single long word) is returned whole,
+// unsplit, on one line.
+export function wrapLabel(label, maxLineLength = 24) {
+  const words = String(label).split(" ");
+  const lines = [];
+  let current = "";
+  for (const word of words) {
+    const candidate = current ? `${current} ${word}` : word;
+    if (candidate.length > maxLineLength && current) {
+      lines.push(current);
+      current = word;
+    } else {
+      current = candidate;
+    }
+  }
+  if (current) lines.push(current);
+  return lines;
+}
+
 const AGE_BRACKETS = ["18-24", "25-34", "35-44", "45-54", "55-64", "65+", "Undisclosed"];
 
 // Buckets an array of raw crew_member.age values (each either an integer,

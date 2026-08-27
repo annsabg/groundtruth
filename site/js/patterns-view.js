@@ -2,7 +2,7 @@
 // expand it full-width with a Chart.js chart. Sparse metrics (mission
 // count, research project count) stay as small static counters.
 import { runQuery } from "./db.js";
-import { bracketAges } from "./util.js";
+import { bracketAges, wrapLabel } from "./util.js";
 
 let chartInstance = null;
 
@@ -17,7 +17,7 @@ function patternTagData() {
      WHERE pattern_tag IS NOT NULL AND pattern_tag != ''
      GROUP BY pattern_tag ORDER BY n DESC LIMIT 8`
   );
-  return { labels: rows.map((r) => r.pattern_tag), values: rows.map((r) => r.n) };
+  return { labels: rows.map((r) => wrapLabel(r.pattern_tag)), values: rows.map((r) => r.n) };
 }
 
 function crewGenderData() {
@@ -37,12 +37,28 @@ function crewAgeData() {
 
 const TILE_DATA = {
   "event-types": { title: "Event types", fn: eventTypeData, chart: "pie" },
-  "pattern-tags": { title: "Top pattern tags", fn: patternTagData, chart: "bar" },
+  // indexAxis: "y" — pattern tags are free-text and can run long (e.g.
+  // "winter closure checklist gap (valve left closed)"); a vertical bar
+  // chart squeezes each label under a narrow bar and truncates it. A
+  // horizontal bar gives each tag its own full-width row instead, and
+  // patternTagData() wraps each label onto multiple lines (wrapLabel())
+  // so it fits the standard chart width without truncating either.
+  // autoSkip: false — with 2-line labels, Chart.js's default y-axis
+  // autoSkip decides it can't fit all 8 categories without overlap and
+  // silently drops every other tick label; force every label to draw.
+  // tall: true gives the .chart-container more height to match.
+  "pattern-tags": {
+    title: "Top pattern tags",
+    fn: patternTagData,
+    chart: "bar",
+    chartOptions: { indexAxis: "y", scales: { y: { ticks: { autoSkip: false } } } },
+    tall: true,
+  },
   "crew-gender": { title: "Crew gender", fn: crewGenderData, chart: "pie" },
   "crew-age": { title: "Crew age (brackets)", fn: crewAgeData, chart: "bar" },
 };
 
-function renderChart(canvasEl, type, data) {
+function renderChart(canvasEl, type, data, chartOptions = {}) {
   if (chartInstance) chartInstance.destroy();
   chartInstance = new Chart(canvasEl, {
     type,
@@ -56,6 +72,15 @@ function renderChart(canvasEl, type, data) {
       // ~918x918px chart. maintainAspectRatio: false lets the fixed-height
       // .chart-container (CSS) govern size instead.
       maintainAspectRatio: false,
+      plugins: {
+        // Chart.js's default legend for a single-series bar chart shows
+        // one swatch labeled "undefined" (no dataset.label was ever set)
+        // — meaningless noise since the axis labels already say what's
+        // being counted. Pie charts keep their default legend: there it's
+        // a real per-slice color key, not a per-dataset one.
+        legend: { display: type !== "bar" },
+      },
+      ...chartOptions,
     },
   });
 }
@@ -68,7 +93,7 @@ function expandTile(container, tileKey) {
     <div class="tile expanded">
       <button class="mock-button" data-back>← back to grid</button>
       <h3>${meta.title}</h3>
-      <div class="chart-container">
+      <div class="chart-container${meta.tall ? " chart-container--tall" : ""}">
         <canvas id="pattern-chart"></canvas>
       </div>
     </div>
@@ -76,7 +101,7 @@ function expandTile(container, tileKey) {
   gridEl.querySelector("[data-back]").addEventListener("click", () => {
     window.navigateTo("patterns", null);
   });
-  renderChart(gridEl.querySelector("#pattern-chart"), meta.chart, meta.fn());
+  renderChart(gridEl.querySelector("#pattern-chart"), meta.chart, meta.fn(), meta.chartOptions);
 }
 
 function renderGrid(container) {
