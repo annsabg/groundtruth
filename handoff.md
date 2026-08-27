@@ -3,130 +3,157 @@
 *Rewritten each session. Reflects current state, not history — see
 decisions.md for the why-log.*
 
-## Current state (v0.1 complete — all 19 tasks, plus a post-merge final-review fix wave)
+## Current state
 
-Full data layer, seed data, and tooling are all in place and validated
-end-to-end. Repo scaffolding, all five JSON schemas (Mission, Crew Member,
-Event, Research Project, Source), `validate.py` (schema validation +
-referential-integrity checking via `--check-refs`, including a
-`principal_investigators` -> `crew_member_id` check), `build_db.py`,
-`scripts/stats.py` (read-only summary/reporting over the built
-`groundtruth.sqlite` — counts, breakdowns by station/event_type/domain),
-`CONTRIBUTING.md`, CI (schema validation + `--check-refs` + a
-`groundtruth.sqlite`-matches-`data/` check + `pytest` on every PR),
-`README.md`, `docs/extraction-workflow.md`, and this file all exist and
-are committed. The full `pytest` suite (23 tests) passes.
+**`main`: v0.1 (data layer) + v0.2 (browsable site) complete and merged.
+`v0.3-mdrs-pilot`: fetch tooling built, tested, and piloted — not yet
+merged, and nothing from it has reached `data/` yet.**
 
-Task 19 (`scripts/stats.py`) is done — v0.1's 19-task plan is fully
-complete. A final whole-branch review after Task 19 found several
-pre-merge issues (a real name leaked into test fixtures, organization
-names in crew citation quotes creating re-identification risk, missing
-`principal_investigators` reference checking, no CI check that
-`groundtruth.sqlite` matches `data/`, no schema-drift guard on
-`build_db.py`'s `ENTITIES` dict, and a stale handoff doc) — all fixed in
-one follow-up pass; see `decisions.md`'s 2026-08-26 entries for what was
-found and why.
+### v0.1 — data layer (complete, on `main`)
 
-`data/` is populated with real, cited, human-verified records — sourced
-from the Hypatia III Mission Brief and the Flashline Crew Reports PDF via
-the two-pass extraction workflow, across two extraction rounds (Tasks
-14+15) plus a targeted crew-discovery pass (Task 16) and a hand-curated
-research-project pass (Task 17):
+Full data layer, seed data, and tooling: five JSON schemas (Mission, Crew
+Member, Event, Research Project, Source), `validate.py` (schema +
+`--check-refs` referential-integrity checking), `build_db.py`,
+`scripts/stats.py`, `CONTRIBUTING.md`, CI, `README.md`,
+`docs/extraction-workflow.md`.
 
 | Entity            | Count | Notes |
 |--------------------|------:|-------|
 | Mission            | 5     | FMARS Crews 15–18 (2023–2025) + MARS160-2017 |
-| Operational Event   | 60    | 46 from Task 14 (Hypatia brief) + 14 from Task 15 (Flashline reports) |
+| Operational Event   | 60    | Hypatia brief + Flashline reports |
 | Crew Member         | 29    | 5/7/4/7/6 across FMARS C15/C16/C17/C18, 6 for MARS160-2017 |
 | Research Project    | 3     | RP-001/RP-002 (FMARS C15), RP-003 (FMARS C16) — hand-curated |
 | Source              | 6     | citation registry, keyed by `source_id` + `mission_ids[]` |
 
-Missions span 2017-07-01 to 2025-07-31, all at FMARS (MARS160-2017 also
-touches MDRS). `event_type` breakdown confirms Task 15's broadened
-extraction actually diversified the data beyond Failure/Near-Miss:
+These counts are unchanged since v0.1 — neither v0.2 (site-only) nor the
+v0.3 pilot branch (fetch-tooling-only, still unmerged) has added to
+`data/`.
 
-```
-Crew Dynamics          5
-Failure                28
-Near-Miss               5
-Observation              7
-Process Innovation       9
-Success/Best Practice    6
-```
+### v0.2 — browsable site (complete, on `main`)
 
-`groundtruth.sqlite` is built fresh from `data/` (Task 18, Step 3) and
-spot-checked directly against the entity counts above. The "regenerable
-from git" backup claim has been proven, not just asserted: a clone into a
-genuinely separate `/tmp` directory, a fresh venv, `pip install -r
-requirements.txt`, and `python scripts/build_db.py` reproduced identical
-counts (mission=5, event=60, crew_member=29, research_project=3,
-source=6) with nothing manually copied in.
+`site/`: framework-free static app — hash router (`router.js`), sql.js
+(self-hosted `site/lib/sql-wasm.*`) + Chart.js for in-browser querying,
+`db.js` query helpers, landing page, Missions/Incidents tabs with sidebar
+filters, event detail expand-in-place with opt-in source verification,
+Patterns dashboard (expand-to-chart), About page. `event.station` was
+added (schema + data backfill) so a multi-site mission like
+`MARS160-2017` (`stations: [FMARS, MDRS]`) can have each event correctly
+matched to the one station it actually happened at, not both. Deployed
+via `.github/workflows/deploy-pages.yml` — builds a fresh
+`groundtruth.sqlite` from `data/` and publishes `site/` + that database to
+GitHub Pages on every push to `main`.
+
+### v0.3-mdrs-pilot — MDRS bulk-fetch tooling (this session, unmerged)
+
+Branch `v0.3-mdrs-pilot`, plan
+`docs/superpowers/plans/2026-08-27-groundtruth-mdrs-fetch-pilot-implementation.md`.
+Built `scripts/fetch_mdrs_reports.py` — mechanically fetches and splits
+MDRS crew-report archive pages (`reports.marssociety.org/crew-reports/`)
+into local, gitignored per-report JSON; deliberately does **not**
+interpret content (no date/sol/crew# parsing) — that stays Stage 2,
+run by Claude Code, not scripted. Resumable via a JSON manifest,
+respects `robots.txt`'s `Crawl-delay: 10` as a hard floor on every retry
+sleep (not just between pages), distinguishes a genuine 404
+(`NOT_FOUND` sentinel, permanent, skipped on resume) from exhausted
+retries (`None`, transient, retried on resume). 48 tests pass
+(`pytest -v` from repo root, after `pip install -r requirements-dev.txt`
+— `requests`/`beautifulsoup4` aren't in `requirements.txt`, so a fresh
+venv needs the dev file explicitly).
+
+Commits this session: the four build-out commits (`b64438f`..`51ae1fb`),
+then a final-review fix wave (`5a1226b`) — mkdir-before-manifest-write,
+retry-floor, `fetched_at` timestamps, the `NOT_FOUND` sentinel, and
+README/CONTRIBUTING docs. A scoped re-review of that fix-wave commit
+found no correctness issues (two very minor non-blocking notes only —
+see decisions.md if picking this back up).
+
+**Pilot run against the real site (pages 1–5) is done and verified:**
+5/5 pages fetched, 0 failures, 50 reports total (10/page), output at
+`sources-local/mdrs-crew-reports-raw/` (gitignored — `manifest.json` +
+`page-000N.html` + `page-000N-reports.json` per page). Confirmed real,
+readable content, not an error page. **This manifest predates the
+fix-wave commit** (fetched at 10:32–10:33, fix wave landed 14:27) — it
+still satisfies the plan's Task 5 success criteria since this range had
+zero failures either way, but the fix-wave's failure-path code (mkdir
+recovery, `NOT_FOUND` handling) hasn't actually been exercised against
+the live site yet, only against tests.
+
+**A live Stage 2 (extraction) walkthrough was run this session** against
+page 1's reports, per `docs/extraction-workflow.md`. Two findings:
+
+1. **Mission-boundary identification matters even within one archive
+   page** — page 1 is not one mission. 9 of its 10 reports are MDRS Crew
+   330 (sols 15–17, ~Feb 28–Mar 4 2026); the 10th is a Crew 335 Mission
+   Summary (Apr 19–May 2 2026) that happened to post the same day. Naively
+   treating "one archive page" as "one mission" would have been wrong.
+2. Drafted a full record set for **Crew 335** (rich single narrative
+   source, dates/crew-size/location all directly stated): one Mission
+   record (`MDRS-C335-2026`), five Crew Member records (pseudonymous,
+   real names in the source text never carried into any drafted field),
+   one Source record, and identified (not yet drafted) five Research
+   Project candidates named in the summary. **None of this was written to
+   `data/`** — it's Stage 2 output only, `verified_by`/`approved_by` left
+   as `PENDING_HUMAN_REVIEW` placeholders. Stage 3 (fresh-context
+   self-check) has not run on it yet.
+   Deliberately did **not** attempt a Mission record for Crew 330 — sols
+   15–17 alone don't bound a mission's start/end date; that needs an
+   earlier archive page (an announcement or Sol 1 report), not this page
+   alone.
 
 ## What's next
 
-v0.1 is done — no v0.1 plan tasks remain. Next work is v0.2-scoped. In
-priority order, per this fix wave's `decisions.md` entries and the Known
-Gaps below:
+Pick one of these up next session — the Crew 335 drafts above are ready
+to resume from immediately, nothing about them expires:
 
-1. **Process Flashline Crew Reports pages 83-95** (the Mars160/FMARS-leg
-   section) — the top v0.2 data-population priority. See decisions.md,
-   2026-08-26 "Mars160 pages 83-95... were never processed" — this is
-   real, unprocessed primary-source content (~430 lines), not a
-   previously-resolved item. Requires active attention to the no-real-names
-   discipline; see that entry for why.
-2. **Add an "unknown" option to Event's `sol` and/or a confidence field to
-   Mission** — see decisions.md, 2026-08-26 "structural
-   uncertainty-disclosure gap on `sol` and Mission-level facts." Currently
-   ~34/60 Event records carry an inferred `sol` that reads as fact to any
-   query.
-3. Extend seed data to LunAres/HI-SEAS/AMADEE stations.
-4. Revisit the Research Project sourcing strategy (decisions.md,
-   2026-08-26 "Research Project sourcing strategy left unsolved").
-5. Any future privacy check (automated or manual) must be whole-repository
-   in scope, not `data/`-scoped — see decisions.md, 2026-08-26 "the
-   real-name-leak pattern, and the rule it establishes."
+1. **Resume the Crew 335 draft**: run Stage 3 (fresh-context self-check
+   against the source), then Stage 4 (human review → commit to `data/`,
+   fill `verified_by`/`approved_by`, `validate.py`, `build_db.py`). This
+   would be `data/`'s first MDRS-sourced records and the first real test
+   of the full pipeline against this new source.
+2. **Decide on `v0.3-mdrs-pilot` → `main`**: the fetch script itself is
+   done, tested, and pilot-verified independent of whether any MDRS
+   report has been carried through to a committed record yet. Could merge
+   now (script + tests only, no data change) or wait until at least one
+   record closes the loop end-to-end — your call.
+3. **Decide on the full ~715-page crawl.** At `Crawl-delay: 10`, that's
+   ~2+ hours minimum — a background job, not interactive. No decision
+   made yet; the pilot was explicitly scoped to not presuppose this.
+4. Carried over from v0.1 (untouched this session, still open — see
+   decisions.md's 2026-08-26 entries for full context on each):
+   - **Process Flashline Crew Reports pages 83-95** (Mars160/FMARS-leg
+     section, ~430 unprocessed lines) — top v0.1-era data-population
+     priority, still outstanding.
+   - Add an "unknown" option to Event's `sol` and/or a confidence field
+     to Mission.
+   - Extend seed data to LunAres/HI-SEAS/AMADEE stations.
+   - Revisit the Research Project sourcing strategy.
 
 ## Known gaps
 
+- **MDRS extraction must re-run mission-boundary identification on every
+  page, not assume page-per-mission** — see "v0.3-mdrs-pilot" above. Only
+  discovered this session; applies to all future MDRS pages, including
+  any full-archive crawl.
 - **Research Project sourcing strategy is unsolved** (decisions.md,
-  2026-08-26 entry). v0.1's 3 records are thin and hand-curated, all from
-  the two sources already used for Events/Crew, not pipeline-sourced.
-  `domain` enum also has no "Environmental Science" option — RP-002/RP-003
-  are filed under `Biology` as the closest fit (Task 17).
+  2026-08-26 entry). v0.1's 3 records are thin and hand-curated.
+  `domain` enum also has no "Environmental Science" option.
 - **Controlled vocabularies (stations, roles, domains) only reflect
-  FMARS/MDRS/Mars160** — will need extension for LunAres/HI-SEAS/AMADEE
-  once seed data covers those stations.
+  FMARS/MDRS/Mars160** — will need extension for LunAres/HI-SEAS/AMADEE.
 - **RP-001 `sample_size.n_crew` (5) doesn't match `FMARS-C15-2023`'s
-  `crew_size` (6).** Not yet explained (could be legitimate non-universal
-  study participation, or a sourcing gap) — unresolved, found during Task
-  18's final review.
-- **Flashline Crew Reports pages 83-95 (the Mars160/FMARS-leg section)
-  were never extracted** — not a deliberate scope decision but a Task 15
-  dispatch scoping error (the controller incorrectly stated this content
-  didn't exist in the source; it does, ~430 lines of primary daily
-  reports). Mars160 currently has thinner coverage (5 events, 6 crew
-  members) than the FMARS-only missions as a direct result. Top v0.2
-  data-population priority — see decisions.md, 2026-08-26 "Mars160 pages
+  `crew_size` (6).** Unresolved.
+- **Flashline Crew Reports pages 83-95 were never extracted** — top
+  data-population priority; see decisions.md, 2026-08-26 "Mars160 pages
   83-95... were never processed."
 - **`sol` (Event) and Mission-level facts have no structured
-  uncertainty/confidence option** — ~34/60 Event records carry an
-  inferred `sol` that reads as fact to any query; Mission has no
-  confidence field analogous to Event's A-D. v0.2 schema candidate — see
-  decisions.md, 2026-08-26 "structural uncertainty-disclosure gap on
-  `sol` and Mission-level facts."
-- **Resolved:** `FMARS-C15-2023-EVT010` (reagent/coliform-kit storage
-  incident) was found mis-tagged — primary-source evidence showed it
-  actually belongs to Crew 16, not Crew 15 — and was retagged to
-  `FMARS-C16-2024-EVT034` during Task 15 (commit `509671c`). No longer an
-  open item; noted here only for the historical record.
+  uncertainty/confidence option** — v0.2 schema candidate; see
+  decisions.md, 2026-08-26 "structural uncertainty-disclosure gap."
 - **`FMARS-C17-2025` `crew_size` (6) exceeds its 4 documented Crew Member
-  records.** Task 16 flagged this; the coordinator left it as-is since 4
-  documented crew doesn't prove the true total is only 4 (roster may be
-  incomplete). Unresolved.
-- **Privacy checks must be whole-repository in scope, not `data/`-scoped.**
-  Two real-name leaks (Task 14's crew-name leak into free-text fields, and
-  this final-review fix wave's leak into `tests/fixtures/`) were both
-  caught only by a human reading actual content, not by any scoped
-  automated check. `CONTRIBUTING.md`'s privacy rule is now explicit that
-  it applies repo-wide — see decisions.md, 2026-08-26 "the real-name-leak
-  pattern, and the rule it establishes."
+  records.** Left as-is (Task 16); unresolved.
+- **Privacy checks must be whole-repository in scope, not `data/`-scoped**
+  (decisions.md, 2026-08-26 "the real-name-leak pattern"). Reaffirmed this
+  session: the Crew 335 source text contains five real names in prose;
+  none were carried into any drafted field (schema has no `name` field on
+  Crew Member by design) — verify this discipline holds if this draft is
+  picked back up by a different session/tool.
+- **Resolved:** `FMARS-C15-2023-EVT010` mis-tag — see prior handoff
+  entries; no longer open, noted for the historical record only.

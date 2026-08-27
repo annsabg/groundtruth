@@ -235,3 +235,53 @@ and when) — the same reason a bibliography credits its compiler. The
 design spec (§6.1) and the v0.2 implementation plan (Task 3 Step 3) both
 explicitly considered and preserved this line when the field was
 otherwise rewritten to add a clickable URL. Kept as-is.
+
+## 2026-08-27 — MDRS bulk-fetch built as a script, not run turn-by-turn through Claude Code
+
+715 archive pages at `Crawl-delay: 10` is ~2+ hours of enforced sleep
+alone. Running that interactively (one Claude Code turn per page, the
+pattern used for source *discovery* — see the 2026-08-26 "Source
+discovery runs through Claude Code, not a coded search script" entry)
+would burn an enormous amount of interactive session time on pure
+waiting, for a task with zero judgment calls per page (same URL pattern,
+same HTML structure, same rate limit, every time). This does not
+contradict that earlier decision: discovery varies enough per source to
+resist scripting; paginating one known, uniform site does not. The
+script (`scripts/fetch_mdrs_reports.py`) is scoped hard to mechanical
+fetch-and-split only — see design spec §10.1's "mechanical retrieval is
+scriptable; narrative interpretation is not" — Stage 2 (turning a fetched
+report into a Mission/Event/Crew Member record) still runs through Claude
+Code, unscripted, same as every other source.
+
+## 2026-08-27 — Fix wave: retry backoff floored at Crawl-delay, deliberately no longer meaningfully exponential
+
+`fetch_page`'s retry sleep is `max(2 ** attempt, CRAWL_DELAY_SECONDS)`.
+With `MAX_RETRIES = 3`, `2 ** attempt` is 1 or 2 — always smaller than the
+10-second floor — so in practice every retry now sleeps exactly 10s, not
+a real exponential ramp. This is a conscious trade: the original
+exponential backoff (1s, 2s, 4s) could let a fast-failing retry (e.g.
+immediate connection refused) re-hit the host sooner than
+`robots.txt`'s `Crawl-delay: 10` allows, since that constraint is a floor
+on requests to the host generally, not just a fixed pause between
+successfully-fetched pages. Etiquette wins over faster failure recovery.
+If `MAX_RETRIES` is ever raised enough for `2 ** attempt` to exceed 10s,
+the exponential term becomes live again automatically — no code change
+needed, just noting the current value makes it dormant.
+
+## 2026-08-27 — MDRS archive pages are not one-mission-per-page; mission-boundary identification is not optional even for a single page
+
+Discovered while running Stage 2 live against archive page 1 (see
+handoff.md for the full walkthrough): 9 of that page's 10 reports belong
+to MDRS Crew 330 (sols 15–17, dated late Feb–early March 2026); the 10th
+is a Crew 335 Mission Summary (dated April–May 2026) that simply happened
+to post on the same day. The archive's pagination is by *post publish
+date*, not by mission — nothing about "this is one archive listing page"
+implies "this is one mission's reports." `docs/extraction-workflow.md`'s
+Stage 2 instruction already says to "first identify mission boundaries
+within it" before extracting — this is now a confirmed, not theoretical,
+requirement specifically for this source, and applies to every future
+page of the ~715-page archive, not just page 1. A Mission record should
+never be drafted from a partial sol range (e.g. Crew 330's sols 15-17
+here) without a page that actually states or bounds start/end dates —
+forcing one from insufficient data was avoided this session and should
+be avoided going forward.
