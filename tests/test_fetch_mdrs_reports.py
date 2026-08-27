@@ -6,7 +6,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
 import requests
 
-from fetch_mdrs_reports import parse_reports, load_manifest, save_manifest, fetch_page, save_page, crawl
+from fetch_mdrs_reports import parse_reports, load_manifest, save_manifest, fetch_page, save_page, crawl, NOT_FOUND
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -48,9 +48,10 @@ def test_save_then_load_manifest_round_trips(tmp_path):
 
 
 class FakeResponse:
-    def __init__(self, status_code, text=""):
+    def __init__(self, status_code, text="", encoding=None):
         self.status_code = status_code
         self.text = text
+        self.encoding = encoding
 
 
 class FakeSession:
@@ -76,15 +77,16 @@ def test_fetch_page_returns_text_on_first_success(monkeypatch):
     assert len(session.calls) == 1
 
 
-def test_fetch_page_returns_none_immediately_on_404(monkeypatch):
+def test_fetch_page_returns_not_found_sentinel_on_404(monkeypatch):
     monkeypatch.setattr("fetch_mdrs_reports.time.sleep", lambda seconds: None)
     session = FakeSession([FakeResponse(404)])
-    assert fetch_page("http://example.test/x", session) is None
+    assert fetch_page("http://example.test/x", session) is NOT_FOUND
     assert len(session.calls) == 1  # no retries for a real 404
 
 
 def test_fetch_page_retries_transient_failures_then_succeeds(monkeypatch):
-    monkeypatch.setattr("fetch_mdrs_reports.time.sleep", lambda seconds: None)
+    sleep_calls = []
+    monkeypatch.setattr("fetch_mdrs_reports.time.sleep", lambda seconds: sleep_calls.append(seconds))
     session = FakeSession([
         requests.RequestException("boom"),
         requests.RequestException("boom again"),
@@ -92,17 +94,30 @@ def test_fetch_page_retries_transient_failures_then_succeeds(monkeypatch):
     ])
     assert fetch_page("http://example.test/x", session) == "<html>recovered</html>"
     assert len(session.calls) == 3
+    assert sleep_calls == [10, 10]  # floored at CRAWL_DELAY_SECONDS, not 1/2
 
 
 def test_fetch_page_returns_none_after_exhausting_retries(monkeypatch):
-    monkeypatch.setattr("fetch_mdrs_reports.time.sleep", lambda seconds: None)
+    sleep_calls = []
+    monkeypatch.setattr("fetch_mdrs_reports.time.sleep", lambda seconds: sleep_calls.append(seconds))
     session = FakeSession([
         requests.RequestException("boom"),
         requests.RequestException("boom"),
         requests.RequestException("boom"),
     ])
     assert fetch_page("http://example.test/x", session) is None
-    assert len(session.calls) == 3  # MAX_RETRIES, no more
+    assert len(session.calls) == 3
+    assert sleep_calls == [10, 10]
+
+
+def test_fetch_page_retries_5xx_status_then_succeeds(monkeypatch):
+    monkeypatch.setattr("fetch_mdrs_reports.time.sleep", lambda seconds: None)
+    session = FakeSession([
+        FakeResponse(503),
+        FakeResponse(200, "<html>recovered</html>"),
+    ])
+    assert fetch_page("http://example.test/x", session) == "<html>recovered</html>"
+    assert len(session.calls) == 2
 
 
 def test_save_page_writes_html_and_reports_json(tmp_path):
@@ -168,6 +183,35 @@ def test_crawl_records_failure_and_continues_to_next_page(tmp_path):
     assert manifest["2"]["status"] == "fetched"
     assert not (tmp_path / "page-0001.html").exists()
     assert (tmp_path / "page-0002.html").exists()
+
+
+def test_crawl_creates_output_dir_when_first_page_fails(tmp_path):
+    fresh_dir = tmp_path / "does-not-exist-yet"
+
+    def fake_fetch(url, session):
+        return None  # every fetch fails
+
+    manifest = crawl(1, 1, fresh_dir, fetch_fn=fake_fetch, delay=0)
+
+    assert fresh_dir.exists()
+    assert manifest["1"]["status"] == "failed"
+
+
+def test_crawl_records_not_found_and_skips_it_on_resume(tmp_path):
+    def fake_fetch_not_found(url, session):
+        return NOT_FOUND
+
+    manifest = crawl(1, 1, tmp_path, fetch_fn=fake_fetch_not_found, delay=0)
+    assert manifest["1"]["status"] == "not_found"
+
+    calls = []
+
+    def fake_fetch_should_not_be_called(url, session):
+        calls.append(url)
+        return NOT_FOUND
+
+    crawl(1, 1, tmp_path, fetch_fn=fake_fetch_should_not_be_called, delay=0)
+    assert calls == []  # already-not_found page 1 must not be re-fetched
 
 
 def test_crawl_respects_the_injected_delay(tmp_path, monkeypatch):

@@ -32,6 +32,10 @@ valid submission looks like and how it gets reviewed.
    python scripts/validate.py schema/event.schema.json data/events/YOUR-NEW-FILE.json
    ```
    (swap `event`/`events` for whichever entity type you're adding)
+
+   `scripts/fetch_mdrs_reports.py` is separate, maintainer-only
+   bulk-ingestion tooling for pulling raw source pages — it's not part of
+   this validation flow and most contributors will never need to run it.
 4. **Check that any ID you referenced actually resolves:** if your record
    sets `mission_id`, `mission_ids`, `related_events`, `comparable_studies`,
    or `principal_investigators`, run `python scripts/validate.py

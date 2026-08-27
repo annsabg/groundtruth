@@ -67,6 +67,14 @@ python scripts/build_db.py        # rebuilds groundtruth.sqlite from data/
 Or just query `groundtruth.sqlite` directly with any SQLite client — it's
 committed and always current.
 
+`scripts/fetch_mdrs_reports.py` mechanically fetches MDRS crew-report
+archive pages and saves them locally, one page at a time — it never
+interprets report content itself (see the script's own docstring and
+design spec §10 for why that split matters). It needs `requests` and
+`beautifulsoup4`, so run `pip install -r requirements-dev.txt` (not just
+`requirements.txt`) before using it. Its output goes under
+`sources-local/`, which is gitignored and never committed.
+
 ## Running the site locally
 
 The site (`site/`) is a static, framework-free app that loads

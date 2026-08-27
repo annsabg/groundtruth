@@ -18,6 +18,7 @@ Defaults: output_dir=sources-local/mdrs-crew-reports-raw
 import json
 import sys
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
@@ -34,6 +35,18 @@ USER_AGENT = (
 )
 
 MAX_RETRIES = 3
+
+
+class _NotFound:
+    """Sentinel distinguishing a real 404 (the page doesn't exist — a
+    permanent condition) from a fetch that failed after exhausting
+    retries (transient — worth retrying on a future resume). The two
+    need different manifest treatment; see crawl()."""
+    def __repr__(self):
+        return "NOT_FOUND"
+
+
+NOT_FOUND = _NotFound()
 
 
 def parse_reports(html, page_number):
@@ -70,23 +83,32 @@ def save_manifest(manifest_path, manifest):
 
 
 def fetch_page(url, session):
-    """Fetch one page's HTML, retrying transient failures with exponential
-    backoff (1s, 2s, 4s). Returns the response text, or None if the page
-    doesn't exist (404 — the archive's actual end, not a transient
-    failure) or every retry failed."""
+    """Fetch one page's HTML, retrying transient failures. Sleeps at
+    least CRAWL_DELAY_SECONDS between attempts — robots.txt's Crawl-delay
+    is a floor on requests to this host generally, not just between
+    pages, so a fast-failing retry (e.g. connection refused) must not
+    re-hit the server sooner than that even though 2**attempt alone
+    would allow it. In practice, with MAX_RETRIES=3, this means every
+    retry sleeps exactly CRAWL_DELAY_SECONDS, not a real exponential
+    ramp — etiquette takes priority over faster backoff here. Returns
+    the response text, or NOT_FOUND if the page doesn't exist (404 — the
+    archive's actual end, a permanent condition, not a transient
+    failure), or None if every retry failed."""
     for attempt in range(MAX_RETRIES):
         try:
             response = session.get(url, timeout=30)
         except requests.RequestException:
             if attempt < MAX_RETRIES - 1:
-                time.sleep(2 ** attempt)
+                time.sleep(max(2 ** attempt, CRAWL_DELAY_SECONDS))
             continue
         if response.status_code == 200:
+            if response.encoding is None:
+                response.encoding = "utf-8"
             return response.text
         if response.status_code == 404:
-            return None
+            return NOT_FOUND
         if attempt < MAX_RETRIES - 1:
-            time.sleep(2 ** attempt)
+            time.sleep(max(2 ** attempt, CRAWL_DELAY_SECONDS))
     return None
 
 
@@ -101,6 +123,7 @@ def save_page(output_dir, page_number, html, reports):
 
 def crawl(start_page, end_page, output_dir, fetch_fn=fetch_page, delay=CRAWL_DELAY_SECONDS):
     output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
     manifest_path = output_dir / "manifest.json"
     manifest = load_manifest(manifest_path)
 
@@ -109,22 +132,43 @@ def crawl(start_page, end_page, output_dir, fetch_fn=fetch_page, delay=CRAWL_DEL
 
     for page_number in range(start_page, end_page + 1):
         key = str(page_number)
-        if manifest.get(key, {}).get("status") == "fetched":
-            print(f"page {page_number}: already fetched, skipping")
+        # "fetched" and "not_found" are both terminal states — resuming
+        # a run should never re-hit a page confirmed not to exist, same
+        # as it never re-fetches one already successfully captured.
+        if manifest.get(key, {}).get("status") in ("fetched", "not_found"):
+            print(f"page {page_number}: already {manifest[key]['status']}, skipping")
             continue
 
         url = BASE_URL.format(page=page_number)
         html = fetch_fn(url, session)
+
+        if html is NOT_FOUND:
+            print(f"page {page_number}: not found (archive end), skipping")
+            manifest[key] = {
+                "status": "not_found",
+                "fetched_at": datetime.now(timezone.utc).isoformat(),
+            }
+            save_manifest(manifest_path, manifest)
+            time.sleep(delay)
+            continue
+
         if html is None:
             print(f"page {page_number}: failed to fetch, skipping")
-            manifest[key] = {"status": "failed"}
+            manifest[key] = {
+                "status": "failed",
+                "fetched_at": datetime.now(timezone.utc).isoformat(),
+            }
             save_manifest(manifest_path, manifest)
             time.sleep(delay)
             continue
 
         reports = parse_reports(html, page_number)
         save_page(output_dir, page_number, html, reports)
-        manifest[key] = {"status": "fetched", "report_count": len(reports)}
+        manifest[key] = {
+            "status": "fetched",
+            "fetched_at": datetime.now(timezone.utc).isoformat(),
+            "report_count": len(reports),
+        }
         save_manifest(manifest_path, manifest)
         print(f"page {page_number}: fetched, {len(reports)} reports")
 
