@@ -24,6 +24,7 @@ export function renderLanding(container) {
     </div>
     <p>
       <a href="#/missions">Browse missions →</a> &nbsp;|&nbsp;
+      <a href="#/incidents">Explore incidents →</a> &nbsp;|&nbsp;
       <a href="#/patterns">Explore patterns →</a>
     </p>
   `;
