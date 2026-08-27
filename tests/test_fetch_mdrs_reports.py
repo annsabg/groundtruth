@@ -1,9 +1,10 @@
+import json
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
-from fetch_mdrs_reports import parse_reports
+from fetch_mdrs_reports import parse_reports, load_manifest, save_manifest
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -28,3 +29,17 @@ def test_parse_reports_extracts_title_url_and_body():
 def test_parse_reports_returns_empty_list_when_no_articles():
     html = "<main id=\"main\"></main>"
     assert parse_reports(html, page_number=1) == []
+
+
+def test_load_manifest_returns_empty_dict_when_file_does_not_exist(tmp_path):
+    manifest_path = tmp_path / "manifest.json"
+    assert load_manifest(manifest_path) == {}
+
+
+def test_save_then_load_manifest_round_trips(tmp_path):
+    manifest_path = tmp_path / "manifest.json"
+    data = {"1": {"status": "fetched", "report_count": 10}}
+    save_manifest(manifest_path, data)
+
+    assert json.loads(manifest_path.read_text()) == data
+    assert load_manifest(manifest_path) == data

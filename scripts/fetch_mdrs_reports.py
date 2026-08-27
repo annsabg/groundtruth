@@ -59,6 +59,16 @@ def parse_reports(html, page_number):
     return reports
 
 
+def load_manifest(manifest_path):
+    if manifest_path.exists():
+        return json.loads(manifest_path.read_text())
+    return {}
+
+
+def save_manifest(manifest_path, manifest):
+    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True))
+
+
 def main():
     if len(sys.argv) < 3:
         print(f"Usage: {sys.argv[0]} <start_page> <end_page> [output_dir]", file=sys.stderr)
