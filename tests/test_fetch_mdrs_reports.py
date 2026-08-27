@@ -6,7 +6,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
 import requests
 
-from fetch_mdrs_reports import parse_reports, load_manifest, save_manifest, fetch_page, save_page
+from fetch_mdrs_reports import parse_reports, load_manifest, save_manifest, fetch_page, save_page, crawl
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -119,3 +119,64 @@ def test_save_page_creates_output_dir_if_missing(tmp_path):
     output_dir = tmp_path / "does-not-exist-yet"
     save_page(output_dir, 1, "<html></html>", [])
     assert (output_dir / "page-0001.html").exists()
+
+
+def test_crawl_fetches_each_page_in_range_and_writes_manifest(tmp_path):
+    calls = []
+
+    def fake_fetch(url, session):
+        calls.append(url)
+        page_num = int(url.rstrip("/").split("/")[-1])
+        return f"<main><article class=\"type-post\"><h2 class=\"entry-title\"><a href=\"http://x\">T{page_num}</a></h2><div class=\"entry-content\">c</div></article></main>"
+
+    manifest = crawl(1, 3, tmp_path, fetch_fn=fake_fetch, delay=0)
+
+    assert len(calls) == 3
+    assert manifest["1"]["status"] == "fetched"
+    assert manifest["1"]["report_count"] == 1
+    assert manifest["3"]["status"] == "fetched"
+    assert (tmp_path / "page-0001.html").exists()
+    assert (tmp_path / "page-0003-reports.json").exists()
+
+
+def test_crawl_skips_pages_already_marked_fetched_in_manifest(tmp_path):
+    from fetch_mdrs_reports import save_manifest
+    save_manifest(tmp_path / "manifest.json", {"1": {"status": "fetched", "report_count": 5}})
+
+    calls = []
+
+    def fake_fetch(url, session):
+        calls.append(url)
+        return "<main></main>"
+
+    manifest = crawl(1, 2, tmp_path, fetch_fn=fake_fetch, delay=0)
+
+    assert calls == ["https://reports.marssociety.org/crew-reports/page/2/"]
+    assert manifest["1"]["report_count"] == 5  # untouched, still the pre-seeded value
+    assert manifest["2"]["status"] == "fetched"
+
+
+def test_crawl_records_failure_and_continues_to_next_page(tmp_path):
+    def fake_fetch(url, session):
+        if url.endswith("/1/"):
+            return None  # simulates exhausted retries or a real 404
+        return "<main></main>"
+
+    manifest = crawl(1, 2, tmp_path, fetch_fn=fake_fetch, delay=0)
+
+    assert manifest["1"]["status"] == "failed"
+    assert manifest["2"]["status"] == "fetched"
+    assert not (tmp_path / "page-0001.html").exists()
+    assert (tmp_path / "page-0002.html").exists()
+
+
+def test_crawl_respects_the_injected_delay(tmp_path, monkeypatch):
+    sleep_calls = []
+    monkeypatch.setattr("fetch_mdrs_reports.time.sleep", lambda seconds: sleep_calls.append(seconds))
+
+    def fake_fetch(url, session):
+        return "<main></main>"
+
+    crawl(1, 2, tmp_path, fetch_fn=fake_fetch, delay=10)
+
+    assert sleep_calls == [10, 10]

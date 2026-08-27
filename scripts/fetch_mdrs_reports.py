@@ -99,10 +99,48 @@ def save_page(output_dir, page_number, html, reports):
     )
 
 
+def crawl(start_page, end_page, output_dir, fetch_fn=fetch_page, delay=CRAWL_DELAY_SECONDS):
+    output_dir = Path(output_dir)
+    manifest_path = output_dir / "manifest.json"
+    manifest = load_manifest(manifest_path)
+
+    session = requests.Session()
+    session.headers["User-Agent"] = USER_AGENT
+
+    for page_number in range(start_page, end_page + 1):
+        key = str(page_number)
+        if manifest.get(key, {}).get("status") == "fetched":
+            print(f"page {page_number}: already fetched, skipping")
+            continue
+
+        url = BASE_URL.format(page=page_number)
+        html = fetch_fn(url, session)
+        if html is None:
+            print(f"page {page_number}: failed to fetch, skipping")
+            manifest[key] = {"status": "failed"}
+            save_manifest(manifest_path, manifest)
+            time.sleep(delay)
+            continue
+
+        reports = parse_reports(html, page_number)
+        save_page(output_dir, page_number, html, reports)
+        manifest[key] = {"status": "fetched", "report_count": len(reports)}
+        save_manifest(manifest_path, manifest)
+        print(f"page {page_number}: fetched, {len(reports)} reports")
+
+        time.sleep(delay)
+
+    return manifest
+
+
 def main():
     if len(sys.argv) < 3:
         print(f"Usage: {sys.argv[0]} <start_page> <end_page> [output_dir]", file=sys.stderr)
         sys.exit(2)
+    start_page = int(sys.argv[1])
+    end_page = int(sys.argv[2])
+    output_dir = sys.argv[3] if len(sys.argv) > 3 else "sources-local/mdrs-crew-reports-raw"
+    crawl(start_page, end_page, output_dir)
 
 
 if __name__ == "__main__":
