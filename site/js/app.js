@@ -23,12 +23,23 @@ function setActiveNav(view) {
 
 async function main() {
   appEl.innerHTML = "<p>Loading database…</p>";
-  await initDatabase("lib/sql-wasm.wasm", "data/groundtruth.sqlite");
+  try {
+    await initDatabase("lib/sql-wasm.wasm", "data/groundtruth.sqlite");
+  } catch (err) {
+    console.error("Groundtruth failed to load its database:", err);
+    appEl.innerHTML = "<p>Something went wrong loading Groundtruth's data. Please reload the page, or try again later.</p>";
+    return;
+  }
 
   onRouteChange((route) => {
     setActiveNav(route.view);
     const renderer = views[route.view] || renderLanding;
-    renderer(appEl, route.param);
+    try {
+      renderer(appEl, route.param);
+    } catch (err) {
+      console.error(`Groundtruth failed to render the "${route.view}" view:`, err);
+      appEl.innerHTML = "<p>Something went wrong displaying this page. Please try navigating again.</p>";
+    }
   });
 }
 

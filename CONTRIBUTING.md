@@ -77,6 +77,17 @@ defense against a silent, schema-valid edit to a record you didn't mean
 to touch. If it ever shows a file you didn't intend to change, stop and
 find out why before committing.
 
+## The site (`site/`) needs no separate build step
+
+`site/` is a separate, unbundled static frontend that reads
+`groundtruth.sqlite` directly at runtime (via `fetch()`, no bundler, no
+build tooling of its own). A data change that passes validation and
+correctly rebuilds `groundtruth.sqlite` (step 5 above) needs no separate
+"frontend build" step on top — the site picks up the new data
+automatically at the next deploy. See `README.md`'s "Running the site
+locally" section if you want to preview it against your change before
+opening a PR.
+
 ## Controlled vocabularies
 
 Fields like `pattern_tag` and `field_of_expertise.detail` are intentionally

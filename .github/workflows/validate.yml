@@ -13,8 +13,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
       - run: pip install -r requirements-dev.txt
       - run: pytest -v
+      - name: Run site JS tests
+        run: node --test site-tests/*.test.js
       - name: Validate all committed data against schema
         run: |
           for entity in mission crew_member event research_project source; do

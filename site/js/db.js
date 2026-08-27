@@ -9,6 +9,9 @@ let db = null;
 export async function initDatabase(wasmPath, sqlitePath) {
   const SQL = await initSqlJs({ locateFile: () => wasmPath });
   const response = await fetch(sqlitePath);
+  if (!response.ok) {
+    throw new Error(`Failed to load database file (${sqlitePath}): HTTP ${response.status}`);
+  }
   const buffer = await response.arrayBuffer();
   db = new SQL.Database(new Uint8Array(buffer));
 }
@@ -24,6 +27,10 @@ export function runQuery(sql, params = []) {
 export function buildEventsQuery(filters) {
   const clauses = [];
   const params = [];
+  if (filters.mission_id) {
+    clauses.push("mission_id = ?");
+    params.push(filters.mission_id);
+  }
   if (filters.station) {
     clauses.push("mission_id IN (SELECT mission_id FROM mission WHERE stations LIKE ?)");
     params.push(`%"${filters.station}"%`);

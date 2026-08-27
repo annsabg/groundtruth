@@ -2,6 +2,7 @@
 // expand it full-width with a Chart.js chart. Sparse metrics (mission
 // count, research project count) stay as small static counters.
 import { runQuery } from "./db.js";
+import { bracketAges } from "./util.js";
 
 let chartInstance = null;
 
@@ -31,21 +32,7 @@ function crewGenderData() {
 // directly in groundtruth.sqlite for anyone who wants it).
 function crewAgeData() {
   const rows = runQuery("SELECT age FROM crew_member");
-  const buckets = { "18-24": 0, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 0, "65+": 0, "Undisclosed": 0 };
-  rows.forEach((r) => {
-    if (r.age === "undisclosed" || r.age === null || r.age === undefined) {
-      buckets["Undisclosed"]++;
-      return;
-    }
-    const n = Number(r.age);
-    if (n < 25) buckets["18-24"]++;
-    else if (n < 35) buckets["25-34"]++;
-    else if (n < 45) buckets["35-44"]++;
-    else if (n < 55) buckets["45-54"]++;
-    else if (n < 65) buckets["55-64"]++;
-    else buckets["65+"]++;
-  });
-  return { labels: Object.keys(buckets), values: Object.values(buckets) };
+  return bracketAges(rows.map((r) => r.age));
 }
 
 const TILE_DATA = {
@@ -73,11 +60,10 @@ function renderChart(canvasEl, type, data) {
   });
 }
 
-function expandTile(container, tileKey, updateHash = true) {
+function expandTile(container, tileKey) {
   const gridEl = container.querySelector(".card-grid");
   const meta = TILE_DATA[tileKey];
   if (!meta) return renderGrid(container);
-  if (updateHash) window.navigateTo("patterns", tileKey);
   gridEl.innerHTML = `
     <div class="tile expanded">
       <button class="mock-button" data-back>← back to grid</button>
@@ -89,12 +75,15 @@ function expandTile(container, tileKey, updateHash = true) {
   `;
   gridEl.querySelector("[data-back]").addEventListener("click", () => {
     window.navigateTo("patterns", null);
-    renderGrid(container);
   });
   renderChart(gridEl.querySelector("#pattern-chart"), meta.chart, meta.fn());
 }
 
 function renderGrid(container) {
+  if (chartInstance) {
+    chartInstance.destroy();
+    chartInstance = null;
+  }
   const missionCount = runQuery("SELECT COUNT(*) as n FROM mission")[0].n;
   const researchCount = runQuery("SELECT COUNT(*) as n FROM research_project")[0].n;
   const gridEl = container.querySelector(".card-grid");
@@ -107,16 +96,14 @@ function renderGrid(container) {
     <div class="tile">${researchCount} Research Projects</div>
   `;
   gridEl.querySelectorAll("[data-tile]").forEach((el) => {
-    el.addEventListener("click", () => expandTile(container, el.dataset.tile));
+    el.addEventListener("click", () => window.navigateTo("patterns", el.dataset.tile));
   });
 }
 
 export function renderPatterns(container, param) {
   container.innerHTML = `<h1>Patterns</h1><div class="card-grid"></div>`;
-  if (param && TILE_DATA[param]) {
-    // Deep link, e.g. #/patterns/event-types — expand directly, no need to
-    // re-navigate since the hash already reflects this state.
-    expandTile(container, param, false);
+  if (param && Object.prototype.hasOwnProperty.call(TILE_DATA, param)) {
+    expandTile(container, param);
   } else {
     renderGrid(container);
   }

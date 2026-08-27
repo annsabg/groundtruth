@@ -28,3 +28,9 @@ test("buildEventsQuery: event_type filter", () => {
   assert.match(sql, /event_type = \?/);
   assert.deepEqual(params, ["Crew Dynamics"]);
 });
+
+test("buildEventsQuery: mission_id filter", () => {
+  const { sql, params } = buildEventsQuery({ mission_id: "FMARS-C16-2024" });
+  assert.match(sql, /WHERE mission_id = \?/);
+  assert.deepEqual(params, ["FMARS-C16-2024"]);
+});

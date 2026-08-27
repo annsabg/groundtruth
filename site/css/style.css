@@ -57,6 +57,9 @@ main#app {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1rem;
+}
+
+.tile[data-tile] {
   cursor: pointer;
 }
 
@@ -75,6 +78,10 @@ main#app {
 .filters-sidebar {
   width: 220px;
   flex-shrink: 0;
+}
+
+#filter-toggle {
+  display: none;
 }
 
 .missions-layout {
@@ -124,6 +131,15 @@ main#app {
   font-size: 0.85rem;
 }
 
+.mock-button {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  font: inherit;
+  cursor: pointer;
+}
+
 .sig-High { color: #c0392b; font-weight: 600; }
 .sig-Medium { color: #b8860b; }
 .sig-Low { color: var(--muted); }
@@ -133,4 +149,5 @@ main#app {
   .missions-layout { flex-direction: column; }
   .filters-sidebar { width: 100%; display: none; }
   .filters-sidebar.open { display: block; }
+  #filter-toggle { display: inline-block; }
 }

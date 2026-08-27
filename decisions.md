@@ -213,3 +213,25 @@ gets written are equally in scope. `CONTRIBUTING.md`'s privacy rule has
 been widened accordingly (see the "Never include a crew member's real
 name anywhere" section, which now states explicitly that it applies
 repo-wide, not just to `data/`).
+
+## 2026-08-26 — Final-review fix wave: author self-attribution in a Source record is not a name leak
+
+`data/sources/SRC-flashline-crew-reports.json`'s `url_or_reference` field
+contains "compiled locally into Flashline Crew Reports.pdf by Anna
+Sabaté Garcia, May 2025" — the project author's own name, self-attributed
+as the compiler of that derivative document. The final v0.2 review
+flagged this for a deliberate decision rather than a silent pass, given
+this project's history of two real name-leak incidents (Task 14; the
+tests/fixtures/ leak documented in the entry above).
+
+Ruling: this is not a name-leak in the sense CONTRIBUTING.md's rule
+addresses. Both prior incidents involved a *crew member's* name — someone
+whose Crew Member record exists specifically to be pseudonymous, and who
+never consented to being identifiable in citation text. This field is
+the opposite case: it's the project's own compiler self-attributing
+authorship of a derivative work, for citation-trust purposes (so a
+reviewer checking this Source record's provenance knows who compiled it
+and when) — the same reason a bibliography credits its compiler. The
+design spec (§6.1) and the v0.2 implementation plan (Task 3 Step 3) both
+explicitly considered and preserved this line when the field was
+otherwise rewritten to add a clickable URL. Kept as-is.

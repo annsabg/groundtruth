@@ -67,6 +67,27 @@ python scripts/build_db.py        # rebuilds groundtruth.sqlite from data/
 Or just query `groundtruth.sqlite` directly with any SQLite client — it's
 committed and always current.
 
+## Running the site locally
+
+The site (`site/`) is a static, framework-free app that loads
+`groundtruth.sqlite` via `fetch()` — this requires a real HTTP server,
+opening `index.html` directly via `file://` will not work.
+
+```bash
+python scripts/build_db.py                          # ensure it's current
+cp groundtruth.sqlite site/data/groundtruth.sqlite \
+  2>/dev/null || (mkdir -p site/data && cp groundtruth.sqlite site/data/groundtruth.sqlite)
+cd site && python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000/`. `site/data/` is local-only — never
+commit it (it's gitignored); the deployed site assembles its own fresh
+copy at deploy time (see `.github/workflows/deploy-pages.yml`).
+
+To run the site's own JS tests: `node --test site-tests/*.test.js` (the
+bare-directory form, `node --test site-tests/`, does not work on all Node
+versions — always glob the files explicitly).
+
 ## Current dataset
 
 Run `python scripts/stats.py` for a snapshot of what's actually in
@@ -85,6 +106,9 @@ crew member's real name, validate before you open a PR.
 
 ## Status
 
-v0.1 — schema and initial seed data from FMARS Crews 15–18 and Mars160.
-Not a website yet; see the design spec for why that's a deliberate,
-scoped-for choice rather than an oversight.
+v0.2 — schema, seed data from FMARS Crews 15–18 and Mars160, and a
+browsable static site (`site/`) on top of `groundtruth.sqlite`: Missions
+with filterable events, a Patterns dashboard, and an About page. The site
+is deployed via GitHub Actions to GitHub Pages on every push to `main` —
+**merging to `main` now triggers a live public deployment**, not just a
+data-repo commit. See `.github/workflows/deploy-pages.yml`.

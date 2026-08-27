@@ -2,6 +2,7 @@
 // Event detail expand-in-place and the "see source" affordance are
 // added in Task 9, on top of this file's renderEventList.
 import { runQuery, buildEventsQuery } from "./db.js";
+import { escapeHtml } from "./util.js";
 
 const CATEGORIES = [
   "Power", "Water", "ATVs/Transport", "EVA Suits & Comms", "Hab Structure",
@@ -21,9 +22,14 @@ function getStations() {
   return Array.from(set).sort();
 }
 
+function getMissionIds() {
+  return runQuery("SELECT mission_id FROM mission").map((r) => r.mission_id);
+}
+
 function currentFilters(container) {
   const get = (sel) => container.querySelector(sel)?.value || undefined;
   return {
+    mission_id: container.dataset.missionId || undefined,
     station: get("#filter-station"),
     system_category: get("#filter-category"),
     significance: get("#filter-significance"),
@@ -42,17 +48,17 @@ function renderResults(container) {
 
 function eventCardHtml(ev) {
   return `
-    <div class="event-card" data-event-id="${ev.event_id}">
+    <div class="event-card" data-event-id="${escapeHtml(ev.event_id)}">
       <div class="event-summary" data-toggle-detail>
-        <span>${ev.mission_id} · Sol ${ev.sol} · ${ev.system_category}</span>
-        <span class="sig-${ev.significance}">${ev.significance}</span>
+        <span>${escapeHtml(ev.mission_id)} · Sol ${escapeHtml(ev.sol)} · ${escapeHtml(ev.system_category)}</span>
+        <span class="sig-${ev.significance}">${escapeHtml(ev.significance)}</span>
       </div>
-      <div>${ev.description}</div>
+      <div>${escapeHtml(ev.description)}</div>
       <div class="event-detail" style="display:none;">
-        <p><strong>Response:</strong> ${ev.response || "—"}</p>
-        <p><strong>Lesson:</strong> ${ev.lesson || "—"}</p>
-        <p><strong>Pattern:</strong> ${ev.pattern_tag || "—"} &nbsp; <strong>Outcome:</strong> ${ev.outcome || "—"}</p>
-        <button class="source-toggle" data-event-id="${ev.event_id}">See source</button>
+        <p><strong>Response:</strong> ${escapeHtml(ev.response) || "—"}</p>
+        <p><strong>Lesson:</strong> ${escapeHtml(ev.lesson) || "—"}</p>
+        <p><strong>Pattern:</strong> ${escapeHtml(ev.pattern_tag) || "—"} &nbsp; <strong>Outcome:</strong> ${escapeHtml(ev.outcome) || "—"}</p>
+        <button class="source-toggle" data-event-id="${escapeHtml(ev.event_id)}">See source</button>
         <div class="source-panel" style="display:none;"></div>
       </div>
     </div>
@@ -84,7 +90,7 @@ function attachEventListListeners(listEl) {
       if (panel.style.display === "none") {
         const info = sourceInfoFor(sourceBtn.dataset.eventId);
         panel.innerHTML = info
-          ? `<p>${info.source_citation}</p>` + linkHtmlFor(info.url_or_reference)
+          ? `<p>${escapeHtml(info.source_citation)}</p>` + linkHtmlFor(info.url_or_reference)
           : "<p>No linked source on record.</p>";
         panel.style.display = "block";
       } else {
@@ -104,18 +110,18 @@ function linkHtmlFor(urlOrReference) {
   if (!urlOrReference) return "";
   const firstToken = urlOrReference.split(" ")[0];
   if (!/^https?:\/\//.test(firstToken)) return "";
-  return `<p><a href="${firstToken}" target="_blank" rel="noopener">View source</a></p>`;
+  return `<p><a href="${escapeHtml(firstToken)}" target="_blank" rel="noopener">View source</a></p>`;
 }
 
 function optionsHtml(values) {
-  return values.map((v) => `<option value="${v}">${v}</option>`).join("");
+  return values.map((v) => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("");
 }
 
 export function renderMissions(container, param) {
   const stations = getStations();
   container.innerHTML = `
     <div class="missions-layout">
-      <button class="mock-button" id="filter-toggle" style="display:none;">Filters</button>
+      <button class="mock-button" id="filter-toggle">Filters</button>
       <aside class="filters-sidebar" id="filters-sidebar">
         <label>Station<br>
           <select id="filter-station"><option value="">All</option>${optionsHtml(stations)}</select>
@@ -136,17 +142,28 @@ export function renderMissions(container, param) {
 
   const toggleBtn = container.querySelector("#filter-toggle");
   const sidebar = container.querySelector("#filters-sidebar");
-  if (window.matchMedia("(max-width: 700px)").matches) {
-    toggleBtn.style.display = "inline-block";
-  }
   toggleBtn.addEventListener("click", () => sidebar.classList.toggle("open"));
 
   container.querySelectorAll(".filters-sidebar select").forEach((sel) => {
     sel.addEventListener("change", () => renderResults(container));
   });
 
+  delete container.dataset.missionId;
   if (param) {
-    container.querySelector("#filter-station").value = param;
+    const missionIds = getMissionIds();
+    if (missionIds.includes(param)) {
+      // Spec's literal example: #/missions/FMARS-C16-2024 — filter to just
+      // that mission's events. No <select> exists for this; it's carried
+      // on the container's dataset and read by currentFilters().
+      container.dataset.missionId = param;
+    } else if (stations.includes(param)) {
+      // Backward-compatible with Task 8's original station-level deep
+      // link (e.g. #/missions/FMARS).
+      container.querySelector("#filter-station").value = param;
+    }
+    // Any other param value is ignored rather than corrupting the select
+    // — an unrecognized param should degrade to "show everything", not
+    // to a visibly broken blank dropdown.
   }
 
   attachEventListListeners(container.querySelector(".event-list"));

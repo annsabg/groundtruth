@@ -17,3 +17,8 @@ sources-local/
 # packages, and brainstorming's visual-companion server state. Local
 # scratch, not part of the deliverable.
 .superpowers/
+
+# The site's local copy of the database, used only for `python3 -m
+# http.server` local testing (see README's "Running the site locally").
+# The deployed site assembles its own fresh copy at deploy time.
+site/data/
