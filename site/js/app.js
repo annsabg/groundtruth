@@ -37,7 +37,7 @@ async function main() {
     setActiveNav(route.view);
     const renderer = views[route.view] || renderLanding;
     try {
-      renderer(appEl, route.param);
+      renderer(appEl, route.param, route.query);
     } catch (err) {
       console.error(`Groundtruth failed to render the "${route.view}" view:`, err);
       appEl.innerHTML = "<p>Something went wrong displaying this page. Please try navigating again.</p>";

@@ -4,13 +4,32 @@
 
 export function parseHash(hash) {
   const clean = (hash || "").replace(/^#\/?/, "");
-  if (!clean) return { view: "landing", param: null };
-  const parts = clean.split("/").filter(Boolean);
-  return { view: parts[0], param: parts[1] || null };
+  if (!clean) return { view: "landing", param: null, query: {} };
+  const [pathPart, queryPart] = clean.split("?");
+  const parts = pathPart.split("/").filter(Boolean);
+  const query = {};
+  if (queryPart) {
+    for (const [key, value] of new URLSearchParams(queryPart)) {
+      if (value) query[key] = value;
+    }
+  }
+  return { view: parts[0], param: parts[1] || null, query };
 }
 
-export function routeToHash(view, param) {
-  return param ? `#/${view}/${param}` : `#/${view}`;
+// query lets a view (e.g. incidents-view.js's filters) round-trip its
+// current selections through the URL, so a filtered view is a shareable
+// link rather than state that only exists in the DOM.
+export function routeToHash(view, param, query) {
+  let hash = param ? `#/${view}/${param}` : `#/${view}`;
+  if (query) {
+    const params = new URLSearchParams();
+    for (const [key, value] of Object.entries(query)) {
+      if (value) params.set(key, value);
+    }
+    const qs = params.toString();
+    if (qs) hash += `?${qs}`;
+  }
+  return hash;
 }
 
 export function onRouteChange(callback) {
