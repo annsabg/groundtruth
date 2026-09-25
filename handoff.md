@@ -6,10 +6,16 @@ decisions.md for the why-log.*
 ## Current state
 
 **`main`: v0.1 (data layer) + v0.2 (browsable site) + v0.3-mdrs-pilot
-(fetch tooling) all merged and pushed. This session also shipped a small
-Incidents-view feature (shareable filtered links) directly to `main`.
+(fetch tooling) all merged and pushed. This session also shipped the
+Incidents-view shareable-links feature, and — the session's main
+event — pulled, extracted, self-checked, and committed FMARS's 2026
+mission (Crew 19, "Tiriganiaq") end to end: the first source this
+dataset has fully round-tripped through Stages 1-5 in one sitting.
 Nothing from the MDRS pilot has reached `data/` yet — the Crew 335 draft
-from the prior session is still the resume point.**
+from two sessions ago was never saved to disk and no longer exists
+except as a summary in this file's history; picking MDRS back up means
+re-extracting from `sources-local/mdrs-crew-reports-raw/`, not resuming
+a saved draft.**
 
 ### v0.1 — data layer (complete, on `main`)
 
@@ -21,15 +27,18 @@ Member, Event, Research Project, Source), `validate.py` (schema +
 
 | Entity            | Count | Notes |
 |--------------------|------:|-------|
-| Mission            | 5     | FMARS Crews 15–18 (2023–2025) + MARS160-2017 |
-| Operational Event   | 60    | Hypatia brief + Flashline reports |
-| Crew Member         | 29    | 5/7/4/7/6 across FMARS C15/C16/C17/C18, 6 for MARS160-2017 |
-| Research Project    | 3     | RP-001/RP-002 (FMARS C15), RP-003 (FMARS C16) — hand-curated |
-| Source              | 6     | citation registry, keyed by `source_id` + `mission_ids[]` |
+| Mission            | 6     | FMARS Crews 15–19 (2023–2026) + MARS160-2017 |
+| Operational Event   | 71    | Hypatia brief + Flashline reports + FMARS-C19-2026 sol reports |
+| Crew Member         | 34 of 37 known slots | 5/7/4/7/5 across FMARS C15–C19, 6 for MARS160-2017 |
+| Research Project    | 6     | RP-001–003 (FMARS C15/C16, hand-curated) + RP-004–006 (FMARS C19) |
+| Source              | 8     | citation registry, keyed by `source_id` + `mission_ids[]` |
 
-These counts are unchanged since v0.1 — neither v0.2 (site-only) nor the
-v0.3 pilot branch (fetch-tooling-only, still unmerged) has added to
-`data/`.
+v0.1's original 5/60/29/3/6 counts held through v0.2 and the v0.3-pilot
+merge (both were tooling/site-only, no `data/` change) — this session's
+FMARS-C19-2026 addition (below) is the first change to these numbers
+since v0.1 itself. Run `python scripts/stats.py` for the live snapshot,
+including the "34 of 37" gap — see `FMARS-C17-2025`'s known
+crew_size/crew_member-count mismatch in Known Gaps.
 
 ### v0.2 — browsable site (complete, on `main`)
 
@@ -139,6 +148,76 @@ sessions, which had been MDRS-pilot-driven.
 Only the Incidents view got shareable links this session. Missions and
 Patterns views don't have this yet — not asked for, not built.
 
+### This session — FMARS Crew 19 (Tiriganiaq, July 2026): full pipeline round-trip, Stages 1-5
+
+User asked to pull FMARS's 2026 mission reports "from the site." Found
+and fetched all 8 available sol reports (sols 1-6, 8, 9 — sol 7 was
+never published under any listing checked) from
+`fmars.marssociety.org/flashline-station-misson-updates/`, plus a "Meet
+the Crew" bio page that resolved most crew-expertise ambiguity the sol
+reports alone couldn't. Saved raw + extracted-text copies to
+`sources-local/FMARS-C19-2026/` (gitignored) with a fetch-provenance
+manifest, same pattern as the MDRS pilot.
+
+**Stage 2 (extraction)** drafted 22 records — 1 Mission
+(`FMARS-C19-2026`, crew of 5, 2026-07-15 to 2026-07-23), 2 Sources, 5
+Crew Members, 11 Operational Events, 3 Research Projects — as JSON files
+under a local `drafts/` staging directory (not written to `data/` yet).
+Notable calls made during extraction, not silently glossed over:
+- The bio page lists 6 people under "Crew 19," but the sol reports are
+  explicit only 5 were physically on-site (the 6th ran a Mars-dust
+  experiment remotely) — documented, only 5 Crew Member records made.
+- Sol 7's ATV-mud-miring incident has no primary report; reconstructed
+  from a Sol 8 retrospective mention, confidence marked accordingly.
+- One crew member's stated pronouns conflict within the source itself
+  (she/her then they/them for the same person, likely a templated-bio
+  copy artifact) — gender left `undisclosed` rather than picked
+  arbitrarily.
+
+**Stage 3 (fresh-context self-check)**, dispatched as an independent
+subagent with zero prior context, found real, non-trivial problems —
+this is exactly what the two-pass design exists to catch:
+1. **Systemic real-name leak, 16 of 22 files.** Every *structured* field
+   correctly kept real names out (bios on this source, unlike most prior
+   FMARS sources, used real full names throughout) — but real names were
+   still being reproduced verbatim inside *quoted* `source_citation`/
+   `citation`/`methodology_notes` text, on the mistaken assumption that
+   quoting a source exempts it from the no-real-names rule. It does not.
+   Worst instance: `RP-005`'s `methodology_notes` claimed a name "is not
+   reproduced here" while that same name appeared, unredacted, in the
+   same file's `citation` field two fields earlier — a self-contradiction
+   caught by the review, not by the extractor. Fixed across all 16 files
+   by redacting every quoted name to `[name redacted]` or a role tag.
+   **New, sharper form of the 2026-08-26 "real-name-leak pattern" rule:
+   quoting a source is not an exemption — see decisions.md.**
+2. **A fabricated causal claim** in one event (`EVT003`): drafted as "a
+   GPS malfunction caused the team to misjudge the distance," when the
+   source actually describes these as two separate, uncorrelated facts.
+   Rewrote to stop asserting causation the source doesn't support; also
+   reclassified `Near-Miss` → `Failure` since the source explicitly says
+   "no compromise to crew safety."
+3. **A date misattribution**: the ATV tire puncture was drafted as
+   happening Sol 7 (same day as the mud-miring); the source's own "went
+   flat yesterday" (relative to the Sol 9 report) places it Sol 8.
+   Re-anchored the event and fixed the dependent event's description.
+
+**Stage 4 (human review)** was an explicitly light pass, not a deep
+one — the user said so directly and approved committing on that basis
+rather than have it wait. Recorded here as-is, not overstated:
+`verified_by`/`approved_by` on these 22 records reflect that level of
+review, not a from-scratch independent check of every field. The user
+also asked for a faster/friendlier review format for future batches —
+raw JSON file browsing was "not very user friendly" — noted as an open
+item below.
+
+**Stage 5**: `build_db.py` rebuilt `groundtruth.sqlite`, `--check-refs`
+passed clean across the whole `data/` tree, all 81 tests still pass,
+committed and pushed to `main` (commit `7e9f252`). The staging
+`drafts/` directory was deleted after commit; the raw fetched
+sources (`sol-*.html`/`.txt`, `meet-the-crew.html`/`.txt`,
+`manifest.json`) remain under `sources-local/FMARS-C19-2026/` for any
+future re-check.
+
 ## What's next
 
 Pick one of these up next session. Reordered this session to put FMARS
@@ -146,22 +225,31 @@ data-completeness first — the user's confirmed, immediate use case is
 FMARS crew-engineer prep, with MDRS (and further stations) explicitly a
 "grow it later" goal, not the current priority:
 
-1. **Process Flashline Crew Reports pages 83-95** (Mars160/FMARS-leg
-   section, ~430 unprocessed lines) — this is FMARS/Mars160 content
-   already in scope for the immediate use case, and has been the top
-   v0.1-era data-population priority since 2026-08-26. Directly grows the
-   dataset the crew-engineer search feature (this session) now makes
-   shareable.
-2. **Resume the Crew 335 (MDRS) draft** when MDRS coverage becomes the
-   priority again: run Stage 3 (fresh-context self-check against the
-   source), then Stage 4 (human review → commit to `data/`). Nothing
-   about this draft expires — safe to leave parked.
-3. **Decide on the full ~715-page MDRS crawl** (same "when MDRS becomes
+1. **Build a faster human-review format for draft records** — explicitly
+   requested this session. Raw JSON file browsing across 22 files was
+   "not very user friendly." Next batch (e.g. the Flashline pages 83-95
+   below) should have a compact, skimmable summary ready alongside the
+   draft JSON, not just the JSON itself.
+2. **Give FMARS-C19-2026's drafted records a real deep review**,
+   whenever there's time for one — this session's Stage 4 was
+   explicitly light, not deep (see above). Nothing blocks this from
+   happening later; corrections would just be ordinary edits + re-run
+   `validate.py`/`build_db.py`.
+3. **Process Flashline Crew Reports pages 83-95** (Mars160/FMARS-leg
+   section, ~430 unprocessed lines) — FMARS/Mars160 content already in
+   scope for the crew-engineer use case, and the top v0.1-era
+   data-population priority since 2026-08-26.
+4. **Resume the Crew 335 (MDRS) draft** when MDRS coverage becomes the
+   priority again — note this now means re-running Stage 2 from
+   `sources-local/mdrs-crew-reports-raw/`, not resuming a saved draft
+   (see "Current state" above — the prior draft was never written to
+   disk and no longer exists).
+5. **Decide on the full ~715-page MDRS crawl** (same "when MDRS becomes
    priority" caveat). At `Crawl-delay: 10`, that's ~2+ hours minimum — a
    background job, not interactive.
-4. Extend the shareable-filtered-links pattern (this session, Incidents
-   view only) to Missions/Patterns if useful once used in practice.
-5. Carried over from v0.1 (untouched this session, still open — see
+6. Extend the shareable-filtered-links pattern (Incidents view only so
+   far) to Missions/Patterns if useful once used in practice.
+7. Carried over from v0.1 (untouched this session, still open — see
    decisions.md's 2026-08-26 entries for full context on each):
    - Add an "unknown" option to Event's `sol` and/or a confidence field
      to Mission.
@@ -189,11 +277,20 @@ FMARS crew-engineer prep, with MDRS (and further stations) explicitly a
   decisions.md, 2026-08-26 "structural uncertainty-disclosure gap."
 - **`FMARS-C17-2025` `crew_size` (6) exceeds its 4 documented Crew Member
   records.** Left as-is (Task 16); unresolved.
-- **Privacy checks must be whole-repository in scope, not `data/`-scoped**
-  (decisions.md, 2026-08-26 "the real-name-leak pattern"). Reaffirmed this
-  session: the Crew 335 source text contains five real names in prose;
-  none were carried into any drafted field (schema has no `name` field on
-  Crew Member by design) — verify this discipline holds if this draft is
-  picked back up by a different session/tool.
+- **Privacy checks must be whole-repository in scope, not `data/`-scoped,
+  AND quoted text is not exempt from the no-real-names rule** (decisions.md,
+  2026-08-26 "the real-name-leak pattern"; sharpened this session — see
+  the 2026-09-25 entry). The FMARS-C19-2026 extraction correctly kept
+  real names out of every structured field but reproduced them verbatim
+  inside quoted citation text in 16 of 22 draft files, caught only by the
+  Stage 3 fresh-context self-check, not by the extractor itself. Fixed,
+  but the underlying trap — "I'm just quoting the source" — will recur
+  on any future source (like this one) that uses real names instead of
+  titles/pseudonyms in its own prose. Check for it explicitly.
+- **FMARS-C19-2026-CM05's gender is `undisclosed` due to a genuine
+  source conflict** (she/her and they/them both used for the same person
+  in the same bio paragraph, likely a templated-bio copy artifact) — not
+  an oversight, a deliberate non-guess. See that record's
+  `source_citation` for the full reasoning if revisited.
 - **Resolved:** `FMARS-C15-2023-EVT010` mis-tag — see prior handoff
   entries; no longer open, noted for the historical record only.

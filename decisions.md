@@ -317,3 +317,57 @@ Scoped to the Incidents view only, since that's the view the stated use
 case actually needs — Missions and Patterns don't have shareable filter
 links (Patterns arguably doesn't need them; Missions might later, not
 built pre-emptively without a stated need).
+
+## 2026-09-25 — Sharpened rule: quoting a source is not an exemption from the no-real-names rule
+
+Extracting FMARS Crew 19 (Tiriganiaq, July 2026) from `fmars.marssociety.org`
+was the first FMARS source in this dataset where the crew's own bio page
+uses real full names throughout, rather than titles/roles (contrast the
+Hypatia brief and prior Flashline reports, both role-only in practice).
+Extracting from it produced a genuine, previously-undocumented variant
+of the 2026-08-26 "real-name-leak pattern" entry: every *structured*
+field (description, response, field_of_expertise, etc.) correctly kept
+real names out, matching the discipline this project already had — but
+real names were still reproduced verbatim inside *quoted*
+`source_citation`/`citation`/`methodology_notes` text, on the reasoning
+that faithfully quoting a source is different from asserting a fact
+about a person. It is not, for this project's purposes: 16 of 22 draft
+records for this mission had at least one such leak. The worst instance
+was self-contradicting — one record's `methodology_notes` field claimed
+a name "is not reproduced here" while that same name appeared,
+unredacted, in the same file's `citation` field.
+
+This was caught by Stage 3 (an independent, fresh-context self-check
+subagent with zero context from the extraction itself), not by the
+extractor — direct validation that the two-pass design (2026-08-25
+entry) earns its cost: the extractor was demonstrably careful about this
+exact rule everywhere *except* inside quotes, and needed a second,
+independent read to catch the blind spot.
+
+Rule, sharpened going forward: a real name inside a direct quote must
+still be redacted (e.g. `[name redacted]` or a role tag, mid-quote) — the
+no-real-names rule has no quoting exception. This will recur on any
+future source that uses real names in its own prose rather than
+titles/pseudonyms, which is source-dependent and not predictable in
+advance — check for it explicitly on every new source, don't assume the
+previous sources' role-only convention will hold.
+
+## 2026-09-25 — Stage 4 human review was an explicit light pass, not a deep one, for FMARS-C19-2026
+
+Recorded plainly rather than glossed over: the user reviewed the 22
+FMARS-C19-2026 draft records with an explicitly stated "first look... I
+didn't have time to look too deeply," and, when asked whether to wait
+for a deeper review or proceed, chose to commit now on that basis. Per
+`docs/extraction-workflow.md`'s Stage 4, `verified_by`/`approved_by`
+exist to represent actual human review — committing them as `ASG` here
+reflects that instruction and the user's explicit choice, not a claim
+that a from-scratch deep review happened. Flagged in handoff.md's "What's
+next" as a real, open follow-up (a genuine deep review of this batch is
+still worth doing when there's time), not silently treated as closed.
+
+Separately, the user gave clear, generalizable feedback: reviewing 22
+raw JSON files directly was "not very user friendly," and asked for a
+faster/easier review format for future batches. No format was built yet
+this session (out of scope for finishing this batch) — noted in
+handoff.md's "What's next" as the top item for whenever the next
+extraction batch (e.g. Flashline pages 83-95) is ready for review.
