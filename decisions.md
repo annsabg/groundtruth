@@ -285,3 +285,35 @@ never be drafted from a partial sol range (e.g. Crew 330's sols 15-17
 here) without a page that actually states or bounds start/end dates —
 forcing one from insufficient data was avoided this session and should
 be avoided going forward.
+
+## 2026-09-25 — Incidents-view filters sync to the URL via history.replaceState, not location.hash
+
+User need: prepping as FMARS crew engineer, wants to search recorded
+incidents by system/category and share a specific filtered view (e.g.
+"all Power failures at FMARS") with another crew member. The filter UI
+and underlying data already supported the search half of this (station/
+category/significance/event_type filters; each event already carries
+Response/Lesson/Outcome) — the missing piece was purely that filter
+state lived only in the DOM, so it couldn't be handed to someone else as
+a link.
+
+`router.js`'s `parseHash`/`routeToHash` gained a query-string component
+(`{view, param, query}`) alongside the existing path param, so a view's
+filter state round-trips through the URL. `incidents-view.js` pushes its
+current filters into the URL on every change via
+`history.replaceState(null, "", ...)`, deliberately not by setting
+`window.location.hash` directly — the latter fires `hashchange`, which
+`router.js`'s `onRouteChange` listens to and would re-run the entire view
+render on every filter click, collapsing the mobile filter-sidebar toggle
+and losing scroll position for no reason. `replaceState` updates the
+address bar (and back-button history) without re-triggering routing.
+
+The old single-station path deep link (`#/incidents/FMARS`) was kept as
+a fallback read path rather than migrated/removed — no reason to break
+any link built against the old form, and query-string values take
+precedence when both are present.
+
+Scoped to the Incidents view only, since that's the view the stated use
+case actually needs — Missions and Patterns don't have shareable filter
+links (Patterns arguably doesn't need them; Missions might later, not
+built pre-emptively without a stated need).

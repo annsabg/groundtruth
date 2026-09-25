@@ -5,9 +5,11 @@ decisions.md for the why-log.*
 
 ## Current state
 
-**`main`: v0.1 (data layer) + v0.2 (browsable site) complete and merged.
-`v0.3-mdrs-pilot`: fetch tooling built, tested, and piloted — not yet
-merged, and nothing from it has reached `data/` yet.**
+**`main`: v0.1 (data layer) + v0.2 (browsable site) + v0.3-mdrs-pilot
+(fetch tooling) all merged and pushed. This session also shipped a small
+Incidents-view feature (shareable filtered links) directly to `main`.
+Nothing from the MDRS pilot has reached `data/` yet — the Crew 335 draft
+from the prior session is still the resume point.**
 
 ### v0.1 — data layer (complete, on `main`)
 
@@ -100,29 +102,67 @@ page 1's reports, per `docs/extraction-workflow.md`. Two findings:
    earlier archive page (an announcement or Sol 1 report), not this page
    alone.
 
+### This session — v0.3-mdrs-pilot merged; Incidents view gets shareable filtered links
+
+`v0.3-mdrs-pilot` fast-forward-merged into `main` and pushed (no `data/`
+change — fetch tooling and tests only, same as it was on the branch).
+
+User's stated need: preparing as crew engineer for an FMARS mission,
+wants to search prior missions for weak points (by system — Power,
+ATVs/Transport, EVA Suits & Comms, Hab Structure, etc.) and what
+solutions worked or didn't, and share specific findings with another
+crew member. The Incidents view's filters and each event's
+Response/Lesson/Outcome fields already covered the "search for problems
+and solutions" need — confirmed by inspecting `schema/event.schema.json`
+and the existing filter UI before building anything. The one real gap
+was sharing: filter selections lived only in the DOM, so there was no
+way to hand someone a link to, say, "all Power failures at FMARS."
+
+Closed that gap: `router.js`'s `parseHash`/`routeToHash` now carry a
+query-string component alongside the existing view/path-param, and
+`incidents-view.js` syncs its four filters into the URL on every change
+via `history.replaceState` (not `location.hash`, to avoid a full
+hashchange re-render collapsing the sidebar on every filter click), plus
+a "Copy link to this view" button. A shared link fully restores both the
+filter selections and the result list on load. The old single-station
+path deep link (`#/incidents/FMARS`) still works as a fallback. 7 new
+router tests + verified live in a real browser (Playwright against a
+locally-built `groundtruth.sqlite`) — filter-then-copy-link and
+load-a-filtered-link were both exercised end to end, not just unit
+tested. 81 tests total pass (33 JS + 48 Python).
+
+**Confirmed user priority for data coverage: FMARS first** (that's what
+they're actually preparing for), MDRS and other stations to grow in
+later — this re-orders the "what's next" list below relative to prior
+sessions, which had been MDRS-pilot-driven.
+
+Only the Incidents view got shareable links this session. Missions and
+Patterns views don't have this yet — not asked for, not built.
+
 ## What's next
 
-Pick one of these up next session — the Crew 335 drafts above are ready
-to resume from immediately, nothing about them expires:
+Pick one of these up next session. Reordered this session to put FMARS
+data-completeness first — the user's confirmed, immediate use case is
+FMARS crew-engineer prep, with MDRS (and further stations) explicitly a
+"grow it later" goal, not the current priority:
 
-1. **Resume the Crew 335 draft**: run Stage 3 (fresh-context self-check
-   against the source), then Stage 4 (human review → commit to `data/`,
-   fill `verified_by`/`approved_by`, `validate.py`, `build_db.py`). This
-   would be `data/`'s first MDRS-sourced records and the first real test
-   of the full pipeline against this new source.
-2. **Decide on `v0.3-mdrs-pilot` → `main`**: the fetch script itself is
-   done, tested, and pilot-verified independent of whether any MDRS
-   report has been carried through to a committed record yet. Could merge
-   now (script + tests only, no data change) or wait until at least one
-   record closes the loop end-to-end — your call.
-3. **Decide on the full ~715-page crawl.** At `Crawl-delay: 10`, that's
-   ~2+ hours minimum — a background job, not interactive. No decision
-   made yet; the pilot was explicitly scoped to not presuppose this.
-4. Carried over from v0.1 (untouched this session, still open — see
+1. **Process Flashline Crew Reports pages 83-95** (Mars160/FMARS-leg
+   section, ~430 unprocessed lines) — this is FMARS/Mars160 content
+   already in scope for the immediate use case, and has been the top
+   v0.1-era data-population priority since 2026-08-26. Directly grows the
+   dataset the crew-engineer search feature (this session) now makes
+   shareable.
+2. **Resume the Crew 335 (MDRS) draft** when MDRS coverage becomes the
+   priority again: run Stage 3 (fresh-context self-check against the
+   source), then Stage 4 (human review → commit to `data/`). Nothing
+   about this draft expires — safe to leave parked.
+3. **Decide on the full ~715-page MDRS crawl** (same "when MDRS becomes
+   priority" caveat). At `Crawl-delay: 10`, that's ~2+ hours minimum — a
+   background job, not interactive.
+4. Extend the shareable-filtered-links pattern (this session, Incidents
+   view only) to Missions/Patterns if useful once used in practice.
+5. Carried over from v0.1 (untouched this session, still open — see
    decisions.md's 2026-08-26 entries for full context on each):
-   - **Process Flashline Crew Reports pages 83-95** (Mars160/FMARS-leg
-     section, ~430 unprocessed lines) — top v0.1-era data-population
-     priority, still outstanding.
    - Add an "unknown" option to Event's `sol` and/or a confidence field
      to Mission.
    - Extend seed data to LunAres/HI-SEAS/AMADEE stations.
