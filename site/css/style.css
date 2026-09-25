@@ -122,6 +122,10 @@ main#app {
   cursor: pointer;
 }
 
+.event-card:hover {
+  border-color: var(--accent);
+}
+
 .event-card .event-summary {
   display: flex;
   justify-content: space-between;

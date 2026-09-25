@@ -8,7 +8,7 @@ import { escapeHtml } from "./util.js";
 export function eventCardHtml(ev) {
   return `
     <div class="event-card" data-event-id="${escapeHtml(ev.event_id)}">
-      <div class="event-summary" data-toggle-detail>
+      <div class="event-summary">
         <span>${escapeHtml(ev.mission_id)} · Sol ${escapeHtml(ev.sol)} · ${escapeHtml(ev.system_category)}</span>
         <span class="sig-${ev.significance}">${escapeHtml(ev.significance)}</span>
       </div>
@@ -50,12 +50,6 @@ function linkHtmlFor(urlOrReference) {
 
 export function attachEventListListeners(listEl) {
   listEl.addEventListener("click", (e) => {
-    const summary = e.target.closest("[data-toggle-detail]");
-    if (summary) {
-      const detail = summary.closest(".event-card").querySelector(".event-detail");
-      detail.style.display = detail.style.display === "none" ? "block" : "none";
-      return;
-    }
     const sourceBtn = e.target.closest(".source-toggle");
     if (sourceBtn) {
       const panel = sourceBtn.nextElementSibling;
@@ -68,6 +62,22 @@ export function attachEventListListeners(listEl) {
       } else {
         panel.style.display = "none";
       }
+      return;
+    }
+    // Once expanded, clicks inside the detail panel (the "See source"
+    // button's own toggle is handled above; everything else in there —
+    // response/lesson text, the source link) should sit inert rather than
+    // re-collapsing the card out from under the user's click.
+    if (e.target.closest(".event-detail")) return;
+
+    // The whole card is styled cursor:pointer (see .event-card in
+    // style.css), so the whole card must be clickable, not just the
+    // narrow mission/sol/category summary line — clicking the incident's
+    // own description text is the natural first click and must work too.
+    const card = e.target.closest(".event-card");
+    if (card) {
+      const detail = card.querySelector(".event-detail");
+      detail.style.display = detail.style.display === "none" ? "block" : "none";
     }
   });
 }
