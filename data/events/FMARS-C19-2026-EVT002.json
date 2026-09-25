@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C19-2026-EVT002",
+  "mission_id": "FMARS-C19-2026",
+  "station": "FMARS",
+  "sol": 2,
+  "event_type": "Failure",
+  "system_category": "Logistics",
+  "significance": "Medium",
+  "description": "The crew's usual solid-waste-handling methods failed/malfunctioned on Sol 2, requiring an improvised workaround compatible with the surrounding natural environment.",
+  "response": "Crew 'made creative use of accumulated jack-of-all-trades skillsets to find workarounds' -- specific technical details are not given in the source ('We will spare you the messy details').",
+  "lesson": "Not stated explicitly in the source beyond the general observation that waste management is a persistent, universal challenge for any human habitat off Earth.",
+  "outcome": "Worked Around",
+  "confidence": "B",
+  "source_citation": "SRC-fmars-c19-2026-mission-updates, sol-2 report: 'Today our usual methods for handling our solid waste refused to cooperate, and we had to make creative use of our accumulated jack-of-all-trades skillsets to find workarounds that also worked with the sensitive and not-always-cooperative natural environment...We will spare you the messy details.'",
+  "verified_by": "ASG"
+}

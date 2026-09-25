@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C19-2026-EVT006",
+  "mission_id": "FMARS-C19-2026",
+  "station": "FMARS",
+  "sol": 8,
+  "event_type": "Failure",
+  "system_category": "ATVs/Transport",
+  "significance": "Medium",
+  "description": "An ATV that had become mired in mud in the crater center on Sol 7 (per a Sol-8 retrospective mention -- Sol 7 itself has no published report) was recovered from the mud on Sol 8, at which point the crew discovered the vehicle also had a punctured tire.",
+  "response": "Crew recovered the ATV from the mud on Sol 8. The source does not state the tire was repaired -- only that the ATV (described on Sol 9 as 'the rover whose tire went flat yesterday', i.e. Sol 8) was retrieved and returned to the hab on Sol 9 (see FMARS-C19-2026-EVT009). 'Repair' should not be asserted beyond what the source supports.",
+  "outcome": "Partially Resolved",
+  "related_events": ["FMARS-C19-2026-EVT007", "FMARS-C19-2026-EVT009"],
+  "confidence": "B",
+  "source_citation": "SRC-fmars-c19-2026-mission-updates, sol-8 report, mission specialist's 'thorn' (the geologist crew member, FMARS-C19-2026-CM04): 'Getting to the site where we'd mired the ATV in mud yesterday, successfully recovering it, and then realizing we'd punctured a tire.' Sol dating: 'mired...yesterday' places the ORIGINAL miring on Sol 7 (21 July 2026, no report published for that sol), but 'getting to the site', 'recovering it', and 'realizing we'd punctured a tire' are described as this thorn's own day's events -- i.e. Sol 8 (22 July), consistent with the daily petals-and-thorns format ('a highlight and a challenge that made the day memorable'). This is independently corroborated by the sol-9 report (23 July), which refers to 'the rover whose tire went flat yesterday' -- 'yesterday' relative to Sol 9's dateline is Sol 8, not Sol 7 -- confirming the tire puncture was discovered/reported on Sol 8, not Sol 7. This event is therefore anchored to Sol 8 (the recovery-and-discovery), not Sol 7 (the original, unreported miring). confidence B: the Sol-8 portion (recovery, puncture discovery) is a same-day narrative account; only the originating Sol-7 miring itself is secondhand/retrospective.",
+  "verified_by": "ASG"
+}

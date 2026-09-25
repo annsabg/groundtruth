@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C19-2026-EVT004",
+  "mission_id": "FMARS-C19-2026",
+  "station": "FMARS",
+  "sol": 4,
+  "event_type": "Observation",
+  "system_category": "Scientific",
+  "significance": "Low",
+  "description": "During the same Sol 4 EVA (see FMARS-C19-2026-EVT003), the team observed dozens of distinctive circular ground features near Trinity Creek -- convex ovals of permafrost ringed by yellowish rocks, fringed by larger gray rocks -- nicknamed 'Trinity crop circles'. Cause undetermined at time of report (possible candidates discussed on-site included permafrost melt patterns or animal activity).",
+  "lesson": "Logged/geotagged for future reference rather than resolved on the spot.",
+  "outcome": "Unresolved",
+  "related_events": ["FMARS-C19-2026-EVT003"],
+  "confidence": "B",
+  "source_citation": "SRC-fmars-c19-2026-mission-updates, sol-4 report: '[name redacted] stopped short and pointed to a distinctive shape on the ground: a convex oval of permafrost surrounded by a raised ring of yellowish rocks fringed by larger, gray rocks. Dozens such features dotted the landscape next to the creek...The EVA team made abundant, wholly necessary jokes about evidence of extraterrestrials, geotagged the site as \"Trinity crop circles\" for future reference, and discussed possible causes on the way back to the hab. Could these have been created by the permafrost as it melted? Or made by animals? We aren't sure yet...'",
+  "verified_by": "ASG"
+}

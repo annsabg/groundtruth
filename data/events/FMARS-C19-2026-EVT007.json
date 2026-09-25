@@ -1,0 +1,15 @@
+{
+  "event_id": "FMARS-C19-2026-EVT007",
+  "mission_id": "FMARS-C19-2026",
+  "station": "FMARS",
+  "sol": 8,
+  "event_type": "Failure",
+  "system_category": "ATVs/Transport",
+  "significance": "Medium",
+  "description": "During the same EVA sent to recover the Sol 7 mud-mired ATV (FMARS-C19-2026-EVT006), a second, separate ATV broke down at the same location.",
+  "outcome": "Unresolved",
+  "related_events": ["FMARS-C19-2026-EVT006", "FMARS-C19-2026-EVT009"],
+  "confidence": "B",
+  "source_citation": "SRC-fmars-c19-2026-mission-updates, sol-8 report. Commander's 'thorn': 'Finding out that we rescued an ATV just to lose another ATV, in the exact same place.' Corroborated by the Science Officer's (FMARS-C19-2026-CM03) petal/thorn the same day: 'We recovered a rover, that was pretty good... We lost a rover, that was pretty bad.'",
+  "verified_by": "ASG"
+}

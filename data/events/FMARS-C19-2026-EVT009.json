@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C19-2026-EVT009",
+  "mission_id": "FMARS-C19-2026",
+  "station": "FMARS",
+  "sol": 9,
+  "event_type": "Success/Best Practice",
+  "system_category": "ATVs/Transport",
+  "significance": "Medium",
+  "description": "Both previously-disabled ATVs (the one mired in mud on Sol 7, whose flat tire was discovered on Sol 8 -- see FMARS-C19-2026-EVT006 -- and the separate breakdown from Sol 8, FMARS-C19-2026-EVT007) were successfully retrieved and returned to the hab on the mission's last full sim day.",
+  "response": "Morning team retrieved the flat-tired ATV from the crater center; the second, nearer broken-down ATV was retrieved by the full crew later in the day.",
+  "outcome": "Resolved",
+  "related_events": ["FMARS-C19-2026-EVT006", "FMARS-C19-2026-EVT007"],
+  "confidence": "B",
+  "source_citation": "SRC-fmars-c19-2026-mission-updates, sol-9 report: 'we successfully resolved the multi-day saga of the wayward ATVs...At the end of the day we all came together as a crew to finish rescuing the last rover. All rovers are now back safely in the hab, thanks to problem solving, creativity, elbow grease, and as always, lots of teamwork.'",
+  "verified_by": "ASG"
+}

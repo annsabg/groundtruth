@@ -1,0 +1,17 @@
+{
+  "research_project_id": "RP-006",
+  "mission_ids": ["FMARS-C19-2026"],
+  "domain": "Psychology",
+  "title": "Crew Dynamics and Individual Acuity Across Mission Tasks (FMARS Crew 19, XO-led study)",
+  "principal_investigators": ["FMARS-C19-2026-CM02"],
+  "sample_size": {
+    "n_crew": 5,
+    "n_missions": 1
+  },
+  "duration": "Ongoing across the mission; explicitly mentioned as active on Sol 4 (18 July 2026), collecting from both hab-based and EVA-team members that day.",
+  "methods": "Not specified in the sol reports beyond 'collected information from both the hab and EVA teams'. No specific instrument, survey, or data-collection method is named in the reviewed material.",
+  "publication_status": "Unpublished",
+  "citation": "SRC-fmars-c19-2026-mission-updates, sol-4 report: '[The XO] collected information from both the hab and EVA teams that will build upon her ongoing study of crew dynamics and individual acuity exerted across a wide range of mission tasks.'",
+  "methodology_notes": "principal_investigators attributed to the Executive Officer by direct textual statement ('her ongoing study'), a higher-confidence attribution than RP-001/RP-002's authorship-based inference. Domain classified as 'Psychology' matching this crew member's stated professional credential (Chartered Psychologist) per SRC-fmars-meet-the-crew-c19; 'Human Factors' would also be defensible given the performance/task-acuity framing, and the crew member's own bio describes closely related ongoing research on 'performance and adaptation in isolated and extreme environments'. instruments and key_findings are omitted rather than guessed -- neither is stated in the two sol reports (sol-4) that mention this study.",
+  "verified_by": "ASG"
+}

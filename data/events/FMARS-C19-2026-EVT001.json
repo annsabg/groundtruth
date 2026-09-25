@@ -1,0 +1,15 @@
+{
+  "event_id": "FMARS-C19-2026-EVT001",
+  "mission_id": "FMARS-C19-2026",
+  "station": "FMARS",
+  "sol": 1,
+  "event_type": "Success/Best Practice",
+  "system_category": "Logistics",
+  "significance": "Low",
+  "description": "On the crew's first full day in simulation, an EVA successfully retrieved a fuel barrel dropped by the resupply aircraft two days earlier (using ATVs) and refilled water stores from the nearby river.",
+  "response": "Standard resupply EVA executed without complication.",
+  "outcome": "Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-fmars-c19-2026-mission-updates, sol-1 report: 'We took care of some practical tasks, such as taking our ATV rovers to collect a barrel of fuel from where the airplane dropped us off two days ago and visiting the river to refill our water stores.'",
+  "verified_by": "ASG"
+}

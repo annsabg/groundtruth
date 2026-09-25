@@ -1,0 +1,11 @@
+{
+  "source_id": "SRC-fmars-meet-the-crew-c19",
+  "mission_ids": ["FMARS-C19-2026"],
+  "url_or_reference": "https://fmars.marssociety.org/meet-the-crew/",
+  "source_type": "official_report",
+  "covers": ["crew"],
+  "date_range_or_sols": "FMARS 'Meet the Crew' page (live/current as of Sept 2026), section 'CREW 19 - Tiriganiaq'. Lists 6 named individuals under this section; sol reports (SRC-fmars-c19-2026-mission-updates) consistently describe only 5 people physically present in the habitat during simulation ('we are a crew of five', sol-1) with the 6th (the dust-deposition experiment's off-site PI) explicitly described as remote mission support, not part of the on-station crew (sol-5). Treated here as the source for the 5 on-station Crew Member records only.",
+  "discovery_method": "agent",
+  "approved_by": "ASG",
+  "approved_date": "2026-09-25"
+}

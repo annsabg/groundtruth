@@ -1,0 +1,11 @@
+{
+  "source_id": "SRC-fmars-c19-2026-mission-updates",
+  "mission_ids": ["FMARS-C19-2026"],
+  "url_or_reference": "https://fmars.marssociety.org/flashline-station-misson-updates/ (archive listing; individual reports at https://fmars.marssociety.org/2026/07/15/tiriganiaq-crew-19-sol-1-report-15-7-2026/ through .../07/23/tiriganiaq-crew-19-sol-9-report-23-7-2026/)",
+  "source_type": "crew_blog",
+  "covers": ["events", "crew", "research"],
+  "date_range_or_sols": "Sol reports 1-6, 8, 9 (15-23 July 2026). Sol 7 has no published report under this or any other listing checked (archive page, /category/journalist-report/, /2026/07/ monthly archive) as of fetch time. Sol 9 (23 July 2026) is stated in its own text as 'our last full day on sim'; the August 2026 monthly archive has zero posts, consistent with no sol 10+.",
+  "discovery_method": "agent",
+  "approved_by": "ASG",
+  "approved_date": "2026-09-25"
+}

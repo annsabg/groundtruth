@@ -1,0 +1,15 @@
+{
+  "event_id": "FMARS-C19-2026-EVT005",
+  "mission_id": "FMARS-C19-2026",
+  "station": "FMARS",
+  "sol": 5,
+  "event_type": "Failure",
+  "system_category": "Hab Structure",
+  "significance": "Low",
+  "description": "Ahead of dropping temperatures and rising winds, interior crew-quarter doors were found swollen and not staying shut, which would have made the generator-powered heaters work harder to keep the habitat warm.",
+  "response": "Crew leveled/planed the tops of the swollen doors so they would stay closed.",
+  "outcome": "Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-fmars-c19-2026-mission-updates, sol-5 report: 'We woke up to dropping temperatures and rising winds. Preparing for the cold requires ongoing maintenance tasks, like keeping the generators happy and humming. It also means lower tech jobs like leveling the top of swollen interior hab doors so that they stay shut, making less work for the heaters (powered by the generators) to keep the air inside warm enough...'",
+  "verified_by": "ASG"
+}

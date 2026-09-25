@@ -1,0 +1,13 @@
+{
+  "mission_id": "FMARS-C19-2026",
+  "stations": ["FMARS"],
+  "crew_designation": "Crew 19 (Tiriganiaq)",
+  "institutional_or_volunteer": "volunteer",
+  "start_date": "2026-07-15",
+  "end_date": "2026-07-23",
+  "location": "FMARS, Devon Island, Nunavut, Canada",
+  "mission_goal": "Not explicitly stated as a single goal in the reviewed reports. Activities described include EVA-based geology fieldwork (fracture lines, shatter cones, algae/water sampling near Trinity Lake), a University of Colorado Boulder EVA-suit psychological/spatial-reasoning study, an off-site collaborator's Mars-dust-deposition monitoring experiment, an XO-led crew-dynamics/performance study, habitat maintenance, and STEM community outreach.",
+  "crew_size": 5,
+  "source_citation": "SRC-fmars-c19-2026-mission-updates, sol-1 report (15 July 2026): 'We are a crew of five, the 19th so far to visit FMARS... an engineer, a psychologist, a behavioral scientist, a geologist, and a humanist' -- crew_size and callsign 'Tiriganiaq' (Inuktitut, self-described by the crew as 'Arctic Foxes') both explicit. Crew designation cross-confirmed by SRC-fmars-meet-the-crew-c19 header 'CREW 19 - Tiriganiaq'. start_date (2026-07-15) is the date of the sol-1 report, explicitly stated as 'our first day in full simulation'; the same report also states a prior day was spent on 'mission critical maintenance tasks that remained after the departure of the... Advance Team', implying physical arrival at the station was on or before 14 July 2026, but no exact arrival date is stated -- start_date is set to sim-start (sol 1), not arrival, for consistency with how other FMARS missions in this dataset anchor to sol numbering. end_date (2026-07-23) is the sol-9 report's own date, and that report states 'Today was our last full day on sim' -- this is the last day of SIMULATION explicitly confirmed by the source, not a confirmed physical-departure/flight-out date, which is not stated anywhere in the 8 available reports; end_date may understate the true departure date by a day or more (see e.g. FMARS-C16-2024's weather-delayed departures as a precedent for this gap between last-sol and actual departure at this station). location: station name only; the reports do not repeat the precise coordinates used in other missions' records here, so none are asserted.",
+  "verified_by": "ASG"
+}

@@ -1,0 +1,16 @@
+{
+  "event_id": "FMARS-C19-2026-EVT003",
+  "mission_id": "FMARS-C19-2026",
+  "station": "FMARS",
+  "sol": 4,
+  "event_type": "Failure",
+  "system_category": "EVA Suits & Comms",
+  "significance": "Medium",
+  "description": "During a Sol 4 EVA to Trinity Lake, the team encountered two separate issues: the site turned out to be significantly farther from the hab than expected (a few kilometers in the opposite of the anticipated direction -- cause of the initial distance/direction misjudgment not stated), and separately, a GPS device data-download malfunction ('buggy data download') occurred en route. The source does not state that the GPS malfunction caused the distance misjudgment -- these are reported as two distinct circumstances of the same EVA, not a single cause and effect. Combined, they contributed to the team returning to the hab hours later than planned.",
+  "response": "The geologist mission specialist (FMARS-C19-2026-CM04) navigated the team to the first geotagged sample site despite the GPS data issue; all planned science objectives were still met with no compromise to crew safety.",
+  "lesson": "Per the Commander's own after-action note, the EVA provided 'lots of new information we could use to improve preparation for EVAs moving forward', though the specific preparation changes are not detailed in the source.",
+  "outcome": "Worked Around",
+  "confidence": "B",
+  "source_citation": "SRC-fmars-c19-2026-mission-updates, sol-4 report: 'Trinity Lake, it turns out, was not a short distance due northeast from the hab but a few kilometers in the other direction. After some difficulties with a buggy data download to our GPS device, [name redacted] determinedly navigated the team to the first geotagged site...The away team returned to the hab hours later than originally planned.' Commander's after-action assessment: 'despite some unexpected twists this was a successful EVA. All science objectives were met, with no compromise to crew safety, and we were all back together with lots of new information we could use to improve preparation for EVAs moving forward.' event_type set to 'Failure' (equipment malfunction) rather than 'Near-Miss' -- the source explicitly states 'no compromise to crew safety' and describes nothing that was nearly a worse outcome, only a genuine GPS-equipment glitch and a separate, uncaused distance misjudgment.",
+  "verified_by": "ASG"
+}

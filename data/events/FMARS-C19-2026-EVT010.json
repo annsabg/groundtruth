@@ -1,0 +1,15 @@
+{
+  "event_id": "FMARS-C19-2026-EVT010",
+  "mission_id": "FMARS-C19-2026",
+  "station": "FMARS",
+  "sol": 8,
+  "event_type": "Success/Best Practice",
+  "system_category": "Operational/Process",
+  "significance": "Low",
+  "description": "Commander conducted a live virtual community/STEM outreach event with students during the mission.",
+  "response": "N/A -- a standing outreach activity, not a problem requiring resolution.",
+  "outcome": "Not Applicable",
+  "confidence": "B",
+  "source_citation": "SRC-fmars-c19-2026-mission-updates, sol-8 report, Commander's petal: 'I loved getting to do a community outreach event online with students...I was able to communicate how exciting working in spaceflight is, and that kids shouldn't give up if they don't have a knack for things at first.'",
+  "verified_by": "ASG"
+}

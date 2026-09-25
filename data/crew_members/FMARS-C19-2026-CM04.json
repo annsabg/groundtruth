@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C19-2026-CM04",
+  "mission_id": "FMARS-C19-2026",
+  "primary_role": "Crew Member (unspecified)",
+  "gender": "male",
+  "nationality": "undisclosed",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Geology",
+    "detail": "Exploration geologist and field scientist; Bachelor's degree in Geology; fieldwork across Canada, Australia, and New Zealand (mountainous terrain, outback, tundra); expertise in geological mapping, satellite remote sensing, GIS, and geological modeling software."
+  },
+  "source_citation": "SRC-fmars-meet-the-crew-c19, 'CREW 19' section, bio titled 'Mission Specialist' (this schema's role enum has no 'Mission Specialist' option, so primary_role is left as 'Crew Member (unspecified)' with the actual specialty carried in field_of_expertise rather than force-mapped to 'Science Officer', which this mission's sol reports consistently reserve for a different named crew member). Gender: explicit 'he' pronoun ('he is a keen rock climber'). Nationality: not stated. Corroborating activity: SRC-fmars-c19-2026-mission-updates sol-3, sol-4, sol-8, and sol-9 repeatedly describe 'mission specialist [name redacted]' leading all the mission's geology fieldwork (fracture lines, shatter cones, permafrost-depth measurement, control-sample collection) -- directly consistent with this bio. The bio's own name is a real name and is not reproduced here, consistent with this dataset's pseudonymization practice.",
+  "verified_by": "ASG"
+}

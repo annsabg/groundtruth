@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C19-2026-CM05",
+  "mission_id": "FMARS-C19-2026",
+  "primary_role": "Crew Member (unspecified)",
+  "gender": "undisclosed",
+  "nationality": "undisclosed",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Other",
+    "detail": "Historian of technology, science, and the environment; PhD in history and sociology of science; research on the environmental history of near-Earth space, maintenance/repair in the space industry, and the politics of planetary analog habitats. This schema's field_of_expertise enum has no History/Humanities category -- 'Other' used, with the specific field preserved here. Consistent with this mission's sol-1 self-description of the crew as including 'a humanist' among its five members."
+  },
+  "source_citation": "SRC-fmars-meet-the-crew-c19, 'CREW 19' section, bio titled 'Mission Specialist' (the third of that title on this roster; role left as 'Crew Member (unspecified)' for the same reason as FMARS-C19-2026-CM04 -- see that record's note). Gender: the bio itself is internally inconsistent, using 'She'/'her' in one sentence ('She is a Research Assistant Professor...') and 'They'/'their' later in the same paragraph ('They held a Landhaus Fellowship...') for the same person -- several bios on this page appear to reuse near-identical templated paragraphs across different listings (e.g. two other crew members' bios are each duplicated verbatim elsewhere on the same page), so this may be a copy/edit artifact rather than a deliberate pronoun statement. Given the direct conflict within the source itself, gender is left 'undisclosed' rather than picking one of the two stated pronouns arbitrarily. Nationality: not stated. Corroborating activity: SRC-fmars-c19-2026-mission-updates repeatedly refers to 'mission specialist [name redacted]' (a surname match to this bio's subject) conducting EVA support, comms/GPS tracking (sol-8), and 'the valuable research I've had the opportunity to conduct' (sol-9, domain not stated in the sol reports themselves). The bio's own name is a real name and is not reproduced here, consistent with this dataset's pseudonymization practice.",
+  "verified_by": "ASG"
+}

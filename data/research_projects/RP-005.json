@@ -1,0 +1,14 @@
+{
+  "research_project_id": "RP-005",
+  "mission_ids": ["FMARS-C19-2026"],
+  "domain": "Other",
+  "title": "Mars-Analog Dust Deposition Monitoring, Comparative to Perseverance Rover / Mastcam-Z Data at Jezero Crater (FMARS Crew 19)",
+  "principal_investigators": ["FMARS-C19-2026-CM03"],
+  "duration": "Deployed and monitoring begun Sol 5 (19 July 2026); described in the source as ongoing at time of report, exact end/teardown date not stated.",
+  "methods": "A dust-deposition sensor apparatus was set up outside the habitat by the on-site crew scientist and monitored over time, measuring wind-driven dust deposition and removal at the FMARS site for comparison against dust-sensor data the study's off-site PI separately analyzes from the Perseverance rover (operating near Jezero Crater on Mars).",
+  "instruments": ["Portable dust-deposition monitoring apparatus (specific make/model not stated in source)"],
+  "publication_status": "Unpublished",
+  "citation": "SRC-fmars-c19-2026-mission-updates, sol-5 report: '...an off-site collaborator, who trained as part of Crew 19, has been serving on the mission support team keeping things running smoothly from afar. [She] is a specialist on Mars dust, and we brought her experiment on dust deposition to deploy here on her behalf. Today CSO [name redacted] set up the apparatus outside the hab and will continue to monitor it...[The off-site collaborator]'s ongoing dust research uses sensors on the Perseverance rover, currently operating west of Jezero Crater on Mars.'",
+  "methodology_notes": "The study's actual principal investigator is an off-site Mars Society mission-support-team researcher who, per SRC-fmars-meet-the-crew-c19, is a Data Analyst on the Perseverance rover's Mastcam-Z camera system and a NASA Mars2020 Science Team collaborator. She 'trained as part of Crew 19' but is explicitly described in the sol-5 report as working 'from afar', not physically on-station, and is therefore not one of the five crew members this dataset documents as FMARS-C19-2026's Crew Member records (see FMARS-C19-2026's Mission source_citation for the same crew_size/roster note) -- no crew_member_id exists for her, so principal_investigators instead lists the on-site crew scientist who deployed and monitors the apparatus on her behalf. Her name is not reproduced here, consistent with this dataset's pseudonymization practice, applied here even though the source itself uses her real first name openly. Domain: no 'Planetary/Atmospheric Science' option exists in this schema's domain enum; 'Other' used rather than force-fitting 'Geology', which this dataset reserves for surface/mineral/crater-geology work (see FMARS-C19-2026-CM04). sample_size omitted -- this is environmental-sensor monitoring, not a study with human crew subjects (same reasoning as RP-002/RP-003 in this dataset, which also omit sample_size).",
+  "verified_by": "ASG"
+}

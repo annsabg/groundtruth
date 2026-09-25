@@ -1,0 +1,15 @@
+{
+  "crew_member_id": "FMARS-C19-2026-CM02",
+  "mission_id": "FMARS-C19-2026",
+  "primary_role": "Executive Officer",
+  "secondary_roles": ["Other"],
+  "gender": "female",
+  "nationality": "undisclosed",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Psychology",
+    "detail": "Chartered Psychologist (UK); certified organizational/executive coach and human-performance specialist; applied research on performance and adaptation in isolated/extreme environments (salutogenesis, digital phenotyping, multi-modal performance assessment); prior fieldwork on analog missions in the Arctic and Mojave Desert and on polar expeditions."
+  },
+  "source_citation": "SRC-fmars-meet-the-crew-c19, 'CREW 19' section, bio titled 'Crew Executive Officer (XO), and Health and Safety Officer (HSO)'. primary_role mapped to 'Executive Officer'; the bio's second title, 'Health and Safety Officer', has no matching option in this schema's role enum (closest neighbors -- 'Medical Officer' implies clinical/physician duties not stated here -- so secondary_roles uses 'Other' rather than force a clinical-role match; the HSO title itself is preserved here in full). Gender: explicit 'She'/'her' pronouns. Nationality: 'Chartered Psychologist (UK)' describes a UK professional credential/register, not a stated nationality -- following this dataset's practice of not inferring nationality from institution or credentialing body (see e.g. FMARS-C18-2025-CM01's Commander, marked undisclosed despite a clearly US-based career), left undisclosed. Corroborating role confirmation: SRC-fmars-c19-2026-mission-updates repeatedly refers to 'XO [name redacted]', and sol-4 attributes her an 'ongoing study of crew dynamics and individual acuity' consistent with this bio's stated research focus (see also Research Project draft referencing this crew member as PI). The bio's own name is a real name and is not reproduced here, consistent with this dataset's pseudonymization practice.",
+  "verified_by": "ASG"
+}

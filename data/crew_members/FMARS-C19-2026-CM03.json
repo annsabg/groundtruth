@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C19-2026-CM03",
+  "mission_id": "FMARS-C19-2026",
+  "primary_role": "Science Officer",
+  "gender": "male",
+  "nationality": "undisclosed",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Psychology",
+    "detail": "PhD student studying Industrial/Organizational Psychology and Human Factors; research interest in human behavior in extreme environments (polar expeditions, military, astronauts); prior graduate work in space studies, cognitive psychology, and aviation human factors. This schema's field_of_expertise enum has no 'Human Factors' category (unlike Research Project's domain enum, which does) -- 'Psychology' used as the closest available fit; the Human Factors/I-O specialization is preserved in this detail field."
+  },
+  "source_citation": "SRC-fmars-meet-the-crew-c19, 'CREW 19' section, bio titled 'Crew Scientist'. primary_role mapped to 'Science Officer', matching this mission's own reports' repeated 'crew science officer [name redacted]' / 'CSO [name redacted]'. Gender: explicit 'His'/'He' pronouns throughout. Nationality: not stated. Corroborating activity: SRC-fmars-c19-2026-mission-updates sol-4 (part of the EVA science team; notices unusual permafrost features -- the source does not establish this crew member was leading that EVA, only the geologist mission specialist's (FMARS-C19-2026-CM04) navigation is described that way) and sol-5 (sets up a dust-deposition apparatus on behalf of an off-site collaborator) are both consistent with a Science-Officer/research-facilitation role. The bio's own name is a real name and is not reproduced here, consistent with this dataset's pseudonymization practice.",
+  "verified_by": "ASG"
+}

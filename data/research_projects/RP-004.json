@@ -1,0 +1,18 @@
+{
+  "research_project_id": "RP-004",
+  "mission_ids": ["FMARS-C19-2026"],
+  "domain": "Human Factors",
+  "title": "Spatial Reasoning and Tactile Logic Under Suited EVA Time Pressure (FMARS Crew 19, University of Colorado Boulder collaboration)",
+  "principal_investigators": ["FMARS-C19-2026-CM01"],
+  "sample_size": {
+    "n_crew": 5,
+    "n_missions": 1
+  },
+  "duration": "Sol 2 (16 July 2026), all five crew members in pairs across multiple EVAs that day.",
+  "methods": "Crew worked in pairs, donning EVA suits and exiting the habitat through the airlock (simulating full depressurization each time). Each pair performed a task requiring spatial reasoning and tactile logic under time pressure -- constructing a small structure from a provided schematic -- while suited, then returned through repressurization to doff suits.",
+  "instruments": ["A small-structure construction task performed from a provided schematic, while suited"],
+  "publication_status": "Unpublished",
+  "citation": "SRC-fmars-c19-2026-mission-updates, sol-2 report: 'All five crew members participated in EVAs to complete the baseline activities for a psychological study conducted by Commander [name redacted] on behalf of researchers at the University of Colorado Boulder...The experiment required each of us to exercise spatial reasoning and tactile logic under time pressure, which included the task of constructing a small structure from a provided schematic.'",
+  "methodology_notes": "The actual principal investigator(s) are external researchers at the University of Colorado Boulder, not named in the source and not part of this mission's on-station crew -- principal_investigators here instead lists the on-site crew member who administered the protocol (Commander, per the source: 'conducted by Commander [name redacted] on behalf of researchers at...'), matching this dataset's precedent of listing the on-site conducting officer when the study's origin is an external institution (see RP-001/RP-002 for report-authorship-based PI attribution under similar uncertainty, though there the inference concerned an on-site PI rather than an explicit external-institution split). Domain classified as 'Human Factors' per the task's own suited-EVA cognitive/motor-performance framing; 'Psychology' (the source's own word, 'a psychological study') would also be defensible. publication_status is 'Unpublished' rather than 'Internal report' because this is an external university's study using FMARS as a field site, not a Mars-Society-internal report -- actual publication status by the university is not stated anywhere in the source.",
+  "verified_by": "ASG"
+}

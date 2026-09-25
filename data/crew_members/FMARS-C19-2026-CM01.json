@@ -1,0 +1,14 @@
+{
+  "crew_member_id": "FMARS-C19-2026-CM01",
+  "mission_id": "FMARS-C19-2026",
+  "primary_role": "Commander",
+  "gender": "male",
+  "nationality": "undisclosed",
+  "age": "undisclosed",
+  "field_of_expertise": {
+    "category": "Engineering",
+    "detail": "Engineering Specialist; Bachelor's and Master's degrees in Aeronautical and Astronautical Engineering; government contractor supporting national security and national space-agency program offices, currently a space-systems-integration role for a national space force. Prior analog-mission experience: Crew Technology Officer at MDRS (a different crew), and Executive Officer on FMARS Crew 18 the prior year -- consistent with and corroborated by this mission's own sol-3 report ('commander [name redacted] discovered [a site] last year when he served as executive officer on Crew 18')."
+  },
+  "source_citation": "SRC-fmars-meet-the-crew-c19, 'CREW 19' section, first bio ('Crew Commander'): engineering degrees, government-contractor and space-systems-integration career, prior MDRS and FMARS Crew 18 XO analog experience, all as stated. Gender: explicit 'He'/'his' pronouns throughout the bio. Nationality: no country stated anywhere in the bio; not inferred from employer or institution. Corroborating role confirmation: SRC-fmars-c19-2026-mission-updates refers to 'Commander [name redacted]' throughout the narrative-format sol reports (sol-1 through sol-6); the sol-8/sol-9 petals-and-thorns entries use the crew member's first name alone rather than the 'Commander' title, but the identity match is unambiguous. The bio's own name is a real name and is not reproduced here, consistent with this dataset's pseudonymization practice.",
+  "verified_by": "ASG"
+}

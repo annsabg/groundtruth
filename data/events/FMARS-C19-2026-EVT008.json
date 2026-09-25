@@ -1,0 +1,15 @@
+{
+  "event_id": "FMARS-C19-2026-EVT008",
+  "mission_id": "FMARS-C19-2026",
+  "station": "FMARS",
+  "sol": 8,
+  "event_type": "Success/Best Practice",
+  "system_category": "Medical/Safety",
+  "significance": "Low",
+  "description": "During an EVA, the team found scat of uncertain origin and, out of bear-safety precaution, radioed the hab-based crew member to help identify whether it could be from a polar bear.",
+  "response": "Hab-based crew member (mission specialist, FMARS-C19-2026-CM05) researched the question in real time and relayed findings back over radio.",
+  "outcome": "Resolved",
+  "confidence": "B",
+  "source_citation": "SRC-fmars-c19-2026-mission-updates, sol-8 report, mission specialist's (FMARS-C19-2026-CM05) petal: '...I also got the opportunity to help them sleuth out one mystery in particular. For safety reasons they wanted to know if some poop they had stumbled upon might have been left by a polar bear but didn't know exactly what polar bear poop looks like...'",
+  "verified_by": "ASG"
+}
