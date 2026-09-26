@@ -92,6 +92,16 @@ automatically at the next deploy. See `README.md`'s "Running the site
 locally" section if you want to preview it against your change before
 opening a PR.
 
+### Visitor analytics
+
+`site/index.html` loads [GoatCounter](https://www.goatcounter.com/)
+(privacy-friendly: no cookies, no tracking that requires a consent
+banner) for basic visitor counts. To activate it: create a free
+GoatCounter account, note the site code it gives you, and replace
+`REPLACE-ME-GOATCOUNTER-CODE` in `site/index.html`'s `data-goatcounter`
+URL with that code. Until replaced, the script fails silently (a 404 on
+a nonexistent subdomain) and collects nothing.
+
 ## Controlled vocabularies
 
 Fields like `pattern_tag` and `field_of_expertise.detail` are intentionally
