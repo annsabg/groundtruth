@@ -96,11 +96,9 @@ opening a PR.
 
 `site/index.html` loads [GoatCounter](https://www.goatcounter.com/)
 (privacy-friendly: no cookies, no tracking that requires a consent
-banner) for basic visitor counts. To activate it: create a free
-GoatCounter account, note the site code it gives you, and replace
-`REPLACE-ME-GOATCOUNTER-CODE` in `site/index.html`'s `data-goatcounter`
-URL with that code. Until replaced, the script fails silently (a 404 on
-a nonexistent subdomain) and collects nothing.
+banner) for basic visitor counts, reporting to `groundtruth.goatcounter.com`.
+Sign in there (GoatCounter is passwordless — it emails a sign-in link)
+to see the dashboard.
 
 ## Controlled vocabularies
 
