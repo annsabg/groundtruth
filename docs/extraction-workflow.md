@@ -46,7 +46,16 @@ Output: a list of draft JSON records, not yet written to `data/`.
 ## Self-check (Stage 3)
 
 In a **fresh** Claude Code call (new conversation or explicitly told to
-disregard prior context) — not a continuation of the extraction call:
+disregard prior context) — not a continuation of the extraction call —
+**dispatched on a stronger model than Stage 2 used** (e.g. Opus if
+Stage 2 ran on Sonnet). Stage 2 is bulk, semi-mechanical drafting work
+where a mid-tier model is cost-effective; Stage 3's entire job is
+catching what Stage 2 missed, so it's worth paying for the more capable
+model on this one call per batch rather than the whole pipeline. This
+isn't hypothetical: dispatched as a stronger-model fresh check, Stage 3
+has twice caught real, non-trivial problems the extractor missed (a
+systemic real-name leak inside quoted citation text, and a fabricated
+causal claim) — see decisions.md's 2026-09-25 and 2026-09-27 entries.
 
 > "Here is the original source text, and here are draft records claimed
 > to be extracted from it. Re-read the source and flag any claim in each

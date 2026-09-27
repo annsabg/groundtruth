@@ -474,3 +474,24 @@ which real person, or which of this dataset's two crew_member_ids,
 either tag corresponds to. (Stage 3 caught one instance where this
 session's own draft used the tags inconsistently within a single
 quote — fixed; see the Mars160 pages-83-95 entry above.)
+
+## 2026-09-27 — Stage 3 self-check dispatched on a stronger model than Stage 2
+
+Both extraction batches run so far (FMARS-C19-2026, Mars160 pages
+83-95) used the same model for Stage 2 (extraction) and Stage 3
+(fresh-context self-check) — Sonnet for both, via a `general-purpose`
+subagent with no explicit `model` override. Stage 3 still caught real
+problems both times regardless (the quoted-name leak; the fabricated
+GPS-causation claim), which is the two-pass design working as intended —
+but the two stages don't need to run on the same model, and Stage 3's
+entire purpose is being a stronger, independent check on Stage 2, so
+matching its strength to Stage 2's is leaving a free lever unused.
+
+Decided: Stage 3 should be dispatched with an explicit `model: "opus"`
+override (Stage 2 stays on whatever model is running the session —
+Sonnet is fine there, since it's bulk, semi-mechanical drafting work).
+Cost/latency tradeoff is bounded and worth it: one subagent call per
+batch, not the whole pipeline. Documented in
+`docs/extraction-workflow.md`'s Stage 3 section directly, not only
+here, since this is now the documented procedure for anyone running
+this pipeline, not a private habit.
