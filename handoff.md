@@ -6,16 +6,27 @@ decisions.md for the why-log.*
 ## Current state
 
 **`main`: v0.1 (data layer) + v0.2 (browsable site) + v0.3-mdrs-pilot
-(fetch tooling) all merged and pushed. This session also shipped the
-Incidents-view shareable-links feature, and — the session's main
-event — pulled, extracted, self-checked, and committed FMARS's 2026
-mission (Crew 19, "Tiriganiaq") end to end: the first source this
-dataset has fully round-tripped through Stages 1-5 in one sitting.
-Nothing from the MDRS pilot has reached `data/` yet — the Crew 335 draft
-from two sessions ago was never saved to disk and no longer exists
-except as a summary in this file's history; picking MDRS back up means
-re-extracting from `sources-local/mdrs-crew-reports-raw/`, not resuming
-a saved draft.**
+(fetch tooling) all merged and pushed. This session shipped the
+Incidents-view shareable-links feature, committed FMARS's 2026 mission
+(Crew 19, "Tiriganiaq") end to end, activated visitor analytics, built a
+reusable draft-review tool, and — the actual resume point — has a
+second full batch (Mars160/FMARS pages 83-95) drafted, Stage-3-checked,
+and fix-applied, but sitting unreviewed and uncommitted in
+`sources-local/flashline-pages-83-95/drafts/` because the session ended
+before human review happened. Nothing from the MDRS pilot has reached
+`data/` yet — the Crew 335 draft from several sessions ago was never
+saved to disk and no longer exists except as a summary in this file's
+history; picking MDRS back up means re-extracting from
+`sources-local/mdrs-crew-reports-raw/`, not resuming a saved draft.**
+
+**Next session should start here:** review
+`sources-local/flashline-pages-83-95/drafts/` (run
+`python scripts/summarize_drafts.py sources-local/flashline-pages-83-95/drafts`
+for the compact view), then either commit it (copy into `data/`, fill
+`verified_by`, `build_db.py`, commit+push per Stage 4/5 —
+see the "This session" write-up below for full context) or send back
+specific changes first. Nothing else blocks on this; it's just waiting
+for the human-review step that didn't get to happen.
 
 ### v0.1 — data layer (complete, on `main`)
 
@@ -218,32 +229,120 @@ sources (`sol-*.html`/`.txt`, `meet-the-crew.html`/`.txt`,
 `manifest.json`) remain under `sources-local/FMARS-C19-2026/` for any
 future re-check.
 
+### This session — visitor analytics, and a real draft-review tool
+
+Two smaller asks landed cleanly:
+
+- **GoatCounter analytics** wired into `site/index.html` (privacy-friendly:
+  no cookies, no consent banner). Activated with the user's real site
+  code (`groundtruth.goatcounter.com`) — not just placeholder-wired, live.
+  Documented in `CONTRIBUTING.md`.
+- **`scripts/summarize_drafts.py`** (+ `tests/test_summarize_drafts.py`,
+  11 tests): turns any Stage 2 `drafts/{sources,missions,crew_members,
+  events,research_projects}/*.json` directory into one skimmable line per
+  record. Built specifically because reviewing FMARS-C19-2026's 22 raw
+  JSON files directly was "not very user friendly" (the user's words).
+  Used for real on the very next batch (below) — this is now the actual
+  review step, not a one-off chat summary.
+
+### This session — Mars160/FMARS pages 83-95: Stage 2+3 done, Stage 4 never happened (session ended first)
+
+"Process Flashline Crew Reports pages 83-95" (top data-population
+priority since 2026-08-26) turned out to mean the **Mars160/FMARS-leg
+Final Mission Report + 12→actually-19 daily Commander Reports**
+(2017-07-20 through 2017-08-11) — content that **adds to the existing
+`MARS160-2017` mission**, not a new one. Found the local source
+(`~/Documents/Other Work/The Huge Analog Mission Database (THAMB)/
+Flashline Crew Reports.pdf`, plus an already-extracted `.txt` twin with
+page markers) — a *very* useful discovery: THAMB is Anna's separate
+planning workspace outside this repo, referenced in decisions.md's
+2026-08-26 entry but not previously located this concretely. Pages
+83-95 extracted to `sources-local/flashline-pages-83-95/pages-83-95.txt`.
+
+**Stage 2** drafted 10 records, staged at
+`sources-local/flashline-pages-83-95/drafts/`:
+- 1 **Source update** (not a new record — extends the existing
+  `SRC-flashline-crew-reports` to also cover `MARS160-2017` and
+  `research`).
+- 5 **new Operational Events** (`MARS160-2017-EVT006`–`EVT010`): a
+  3+-week pre-landing weather delay that killed the mission's entire
+  planned engineering workstream (high significance — new, previously
+  undocumented context); a fuel-conserving generator schedule; two
+  separate rain-disrupted EVAs; a ground-conditions-blocked probe
+  installation.
+- 4 **new Research Projects** (`RP-007`–`RP-010`): patterned-ground/
+  impact-lithology geology, extremophile-biosignature/Arctic-microbial
+  biology, an MDRS-vs-FMARS crew-cohesion psychology study (8-test
+  battery), and 360°/stereograph imaging + habitat VR/3D documentation —
+  the richest science-program material of any source in this dataset
+  so far.
+- **This source uses crew members' real names throughout** (unlike most
+  prior FMARS sources) — the sharpened 2026-09-25 rule (quotes aren't
+  exempt) was applied from the start this time, not discovered after
+  the fact.
+- **Deliberately not touched**: this same primary source independently
+  confirms specific real dates for all 5 *existing* `MARS160-2017`
+  events (`EVT001`-`EVT005`, currently sourced from a secondary
+  synthesis brief with vague placeholder sols) — Sol 1 = 2017-07-20 is
+  explicitly stated ("First day in Sim"), so exact sols are now
+  derivable. Left those 5 records alone rather than silently revise
+  already-approved data outside a dedicated review — flagged as a
+  follow-up in Known Gaps instead.
+
+**Stage 3** (fresh-context subagent, zero prior context) found 4 minor,
+all-fixed issues, and confirmed the important negatives held: **zero
+real-name leaks**, **zero fabricated claims**, **zero duplicates of
+EVT001-005**. Fixed:
+1. `EVT010`'s redacted-quote placeholder tags (`[Geologist A]`/`[Geologist B]`)
+   were reused inconsistently, misattributing one redacted individual's
+   actions to the other's tag — same two people, wrong tag on two of
+   the three mentions.
+2. `EVT008`'s citation misattributed its quote to "August 6th... recounting
+   the prior days" when it's actually the July 24th report directly — a
+   plain mislabel, quote itself was accurate.
+3. `RP-007`/`RP-010`'s `comparable_studies` cross-reference was
+   one-directional (`RP-010→RP-007` but not back) — this dataset's own
+   stated precedent (RP-002↔RP-003) is bidirectional; made it match.
+4. The Source-record update said "12 daily Commander Reports" —
+   independently grepped and recounted at **19** — fixed.
+
+**Stage 4 (human review) has not happened.** The batch was presented to
+the user in the compact `summarize_drafts.py` format, but the session
+ended (user closing the window) before they gave a go/no-go. **Nothing
+has been copied into `data/`; nothing has been committed.** This is the
+literal, complete resume point for next session — see "Current state"
+above.
+
 ## What's next
 
-Pick one of these up next session. Reordered this session to put FMARS
-data-completeness first — the user's confirmed, immediate use case is
-FMARS crew-engineer prep, with MDRS (and further stations) explicitly a
-"grow it later" goal, not the current priority:
+**Start here — the actual resume point:**
 
-1. **Build a faster human-review format for draft records** — explicitly
-   requested this session. Raw JSON file browsing across 22 files was
-   "not very user friendly." Next batch (e.g. the Flashline pages 83-95
-   below) should have a compact, skimmable summary ready alongside the
-   draft JSON, not just the JSON itself.
+1. **Review and commit (or send back) the Mars160/FMARS pages 83-95
+   batch**, staged at `sources-local/flashline-pages-83-95/drafts/`.
+   Run `python scripts/summarize_drafts.py sources-local/flashline-pages-83-95/drafts`
+   for the compact view. Already Stage-3-checked and fix-applied — just
+   needs the human review that didn't happen before the session ended.
+   On approval: copy into `data/`, fill `verified_by`, `python
+   scripts/build_db.py`, `git add data/ groundtruth.sqlite`, commit,
+   push (Stage 4/5, same mechanics as FMARS-C19-2026's commit `7e9f252`).
+
+Then, in priority order (FMARS-first remains the user's confirmed
+immediate use case; MDRS and further stations are "grow it later"):
+
 2. **Give FMARS-C19-2026's drafted records a real deep review**,
-   whenever there's time for one — this session's Stage 4 was
-   explicitly light, not deep (see above). Nothing blocks this from
-   happening later; corrections would just be ordinary edits + re-run
-   `validate.py`/`build_db.py`.
-3. **Process Flashline Crew Reports pages 83-95** (Mars160/FMARS-leg
-   section, ~430 unprocessed lines) — FMARS/Mars160 content already in
-   scope for the crew-engineer use case, and the top v0.1-era
-   data-population priority since 2026-08-26.
+   whenever there's time — its Stage 4 was explicitly light, not deep.
+   Nothing blocks this; corrections would just be ordinary edits + a
+   `validate.py`/`build_db.py` re-run.
+3. **Upgrade `MARS160-2017-EVT001`–`EVT005`'s sols/citations/confidence**
+   using the newly-found primary source (`sources-local/flashline-pages-83-95/`)
+   — their real dates are now derivable (Sol 1 = 2017-07-20), instead of
+   the placeholder sols they currently carry from a secondary synthesis
+   brief. Deliberately not done in the pages-83-95 batch itself (see
+   that write-up above) — a separate, dedicated revision pass.
 4. **Resume the Crew 335 (MDRS) draft** when MDRS coverage becomes the
-   priority again — note this now means re-running Stage 2 from
+   priority again — re-running Stage 2 from
    `sources-local/mdrs-crew-reports-raw/`, not resuming a saved draft
-   (see "Current state" above — the prior draft was never written to
-   disk and no longer exists).
+   (the prior draft was never written to disk and no longer exists).
 5. **Decide on the full ~715-page MDRS crawl** (same "when MDRS becomes
    priority" caveat). At `Crawl-delay: 10`, that's ~2+ hours minimum — a
    background job, not interactive.
@@ -269,9 +368,13 @@ FMARS crew-engineer prep, with MDRS (and further stations) explicitly a
   FMARS/MDRS/Mars160** — will need extension for LunAres/HI-SEAS/AMADEE.
 - **RP-001 `sample_size.n_crew` (5) doesn't match `FMARS-C15-2023`'s
   `crew_size` (6).** Unresolved.
-- **Flashline Crew Reports pages 83-95 were never extracted** — top
-  data-population priority; see decisions.md, 2026-08-26 "Mars160 pages
-  83-95... were never processed."
+- **Resolved (drafted, not yet committed):** Flashline Crew Reports
+  pages 83-95 were extracted this session — see "What's next" #1 above
+  for the exact resume step. Not a gap anymore once that batch lands in
+  `data/`.
+- **`MARS160-2017-EVT001`–`EVT005` carry placeholder sols from a
+  secondary source**, even though their real dates are now derivable
+  from the primary source found this session — see "What's next" #3.
 - **`sol` (Event) and Mission-level facts have no structured
   uncertainty/confidence option** — v0.2 schema candidate; see
   decisions.md, 2026-08-26 "structural uncertainty-disclosure gap."

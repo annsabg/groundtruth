@@ -371,3 +371,106 @@ faster/easier review format for future batches. No format was built yet
 this session (out of scope for finishing this batch) — noted in
 handoff.md's "What's next" as the top item for whenever the next
 extraction batch (e.g. Flashline pages 83-95) is ready for review.
+
+## 2026-09-26 — GoatCounter chosen for visitor analytics over Google Analytics
+
+Site is fully static (GitHub Pages, no backend), so any analytics has to
+be a client-side script. GoatCounter chosen over Google Analytics
+specifically for privacy: no cookies, no cross-site tracking, no
+consent-banner obligation — consistent with this project's existing
+privacy-conscious posture (pseudonymized crew data, CC BY 4.0, explicit
+real-name-leak discipline). Tradeoff accepted: a third-party script
+making an external network call on every page load, on an otherwise
+fully self-contained static site — judged acceptable since the script
+is small, async, and fails silently if misconfigured (verified: it 404s
+quietly rather than breaking the page). Activated with the user's real
+site code (`groundtruth.goatcounter.com`) the same session it was
+proposed, not left as a someday-todo.
+
+## 2026-09-26 — scripts/summarize_drafts.py built as a real script, not left as an ad-hoc chat format
+
+The prior session's fix for "raw JSON is hard to review" was Claude
+manually formatting a compact summary in chat each time — which works,
+but isn't durable: nothing guarantees the same format next time, and
+the user (or anyone else) can't run it themselves without asking an
+agent first. Built as `scripts/summarize_drafts.py` (+ 11 tests)
+instead, matching this project's established pattern of scripting
+mechanical, deterministic, repeated tasks rather than re-doing them by
+hand each session (see the 2026-08-27 "MDRS bulk-fetch built as a
+script" entry for the same reasoning applied to a different task).
+Dogfooded immediately on the very next extraction batch (Mars160/FMARS
+pages 83-95) rather than staying theoretical.
+
+## 2026-09-26 — Mars160/FMARS pages 83-95: found the actual local source, and what it turned out to contain
+
+"Process Flashline Crew Reports pages 83-95" (open since 2026-08-26)
+required first locating the source PDF itself, which is not in this
+repo (raw sources are never committed — see the 2026-08-25 entry). Found
+at `~/Documents/Other Work/The Huge Analog Mission Database (THAMB)/
+Flashline Crew Reports.pdf`, alongside an already-extracted `.txt` twin
+with page markers (`=== PAGE N ===`) that made pulling an exact page
+range straightforward. This is the first session to concretely locate
+and use the THAMB workspace referenced obliquely in the 2026-08-26
+"Fresh-eyes review" entry ("the restore-test task then silently assumed
+was this THAMB planning workspace") — worth remembering as *where the
+compiled source PDFs actually live* for any future extraction from this
+same compilation.
+
+Pages 83-95 turned out to be the Mars160 program's FMARS-leg **Final
+Mission Report** (a public retrospective essay: geology, biology,
+science-support/group-dynamics program summary) plus 19 daily
+**Commander Reports** (2017-07-20 to 2017-08-11) — i.e. new content for
+the *existing* `MARS160-2017` mission, not a new mission. This source
+also turned out to be the direct primary source for all 5 of that
+mission's *existing* events (`EVT001`-`EVT005`), which were originally
+drafted from a secondary synthesis brief (`SRC-hypatia-iii-brief`) with
+placeholder sols and confidence C, explicitly marked "sol not
+stated"/"arbitrary placeholder" in their own citations. Sol 1 = 2017-07-20
+is stated explicitly in this new source ("First day in Sim") — real
+sols for all 5 existing events are now derivable. Deliberately not
+revised in this same batch: silently rewriting 5 already-approved,
+already-committed records as a side effect of an unrelated new-content
+extraction risks changing verified data without the dedicated review
+that kind of change deserves. Recorded as its own separate, explicit
+follow-up (handoff.md's "What's next") instead.
+
+## 2026-09-26 — Real external collaborators' names are not covered by the crew pseudonymization rule, but were redacted anyway out of caution
+
+This source's Final Mission Report page names several real, external
+Earth-based scientists and Principal Investigators by full name in an
+acknowledgments-style passage, plus a named Mars Society press
+spokesperson quoted publicly. Per the established 2026-08-26 "author
+self-attribution is not a name-leak" precedent, these are a different
+category from a *crew member's* name — the rule exists specifically to
+protect people whose Crew Member records exist to be pseudonymous, and
+external collaborators named in a public acknowledgments/press context
+were never promised pseudonymity the way crew are.
+
+Even so, the one external PI's name that appeared inside a quote actually
+*used* in a drafted event (`EVT008`, an EVA-tasking mention) was redacted
+anyway, treated the same as a crew name. This was a deliberate
+over-caution call, not a misunderstanding of the rule: given the
+immediately-prior session's real-name-leak failure, erring toward
+redacting a borderline case costs nothing (the external PI's identity
+wasn't load-bearing for that event's facts) while getting it wrong in
+the other direction would repeat the exact mistake just fixed. Not
+applied retroactively to the untouched acknowledgments/press-quote
+passage itself, since nothing from that passage was ever quoted or
+otherwise reproduced in any drafted record.
+
+## 2026-09-26 — Two crew members' field actions in one quote, redacted to non-identifying but still-distinguishable tags
+
+One Commander Report describes two named crew members (both this
+mission's crew geologists, `MARS160-2017-CM03`/`-CM06` — which one is
+which is not confidently determinable from any source reviewed) doing
+different things in the same passage: one merely present, the other the
+subject of a specific probe-installation failure. Redacting both to the
+same generic tag (e.g. "a crew geologist") would have lost that
+distinction and made the quote read as describing one person's
+inconsistent actions. Used non-identifying but internally-consistent
+placeholder tags instead (`[Geologist A]`, `[Geologist B]`) so the
+quote's own internal structure survives redaction without asserting
+which real person, or which of this dataset's two crew_member_ids,
+either tag corresponds to. (Stage 3 caught one instance where this
+session's own draft used the tags inconsistently within a single
+quote — fixed; see the Mars160 pages-83-95 entry above.)
