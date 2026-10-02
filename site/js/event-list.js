@@ -84,12 +84,17 @@ export function attachEventListListeners(listEl) {
 
 // Renders a list of events into listEl (card HTML + expand-in-place +
 // source-toggle wiring), or a plain empty-state message if there are none.
-// listEl is expected to be freshly created each render (the view modules
-// rebuild container.innerHTML wholesale), so re-attaching listeners here
-// each call never double-binds.
+// listEl is NOT always fresh: incidents-view.js re-renders into the same
+// .event-list on every filter change. The click handler is delegated, so it
+// must be bound only once per element — binding it again on each re-render
+// stacked handlers, and two handlers toggling the same card cancel out,
+// leaving cards impossible to expand after any filter change.
 export function renderEventListInto(listEl, events, emptyMessage = "No events match these filters.") {
   listEl.innerHTML = events.length
     ? events.map(eventCardHtml).join("")
     : `<p>${escapeHtml(emptyMessage)}</p>`;
-  attachEventListListeners(listEl);
+  if (!listEl.dataset.listenersAttached) {
+    attachEventListListeners(listEl);
+    listEl.dataset.listenersAttached = "true";
+  }
 }
