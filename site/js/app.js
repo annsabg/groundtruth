@@ -4,6 +4,7 @@ import { initDatabase } from "./db.js";
 import { renderLanding } from "./landing-view.js";
 import { renderMissions } from "./missions-view.js";
 import { renderIncidents } from "./incidents-view.js";
+import { renderPacking } from "./packing-view.js";
 import { renderPatterns } from "./patterns-view.js";
 import { renderAbout } from "./about-view.js";
 
@@ -13,6 +14,7 @@ const views = {
   landing: renderLanding,
   missions: renderMissions,
   incidents: renderIncidents,
+  packing: renderPacking,
   patterns: renderPatterns,
   about: renderAbout,
 };

@@ -41,7 +41,7 @@ function sourceInfoFor(eventId) {
 // file, not in repo)") — it covers 46 of the 60 events, the majority, and
 // naively linking to it would produce a broken href for most of the site.
 // Only render a link when the value actually starts with a real URL scheme.
-function linkHtmlFor(urlOrReference) {
+export function linkHtmlFor(urlOrReference) {
   if (!urlOrReference) return "";
   const firstToken = urlOrReference.split(" ")[0];
   if (!/^https?:\/\//.test(firstToken)) return "";
