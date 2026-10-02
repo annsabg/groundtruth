@@ -327,3 +327,58 @@ def test_source_schema_accepts_equipment_in_covers(tmp_path):
     path = tmp_path / "source.json"
     path.write_text(json.dumps(record))
     assert validate_file(SCHEMA / "source.schema.json", path) == []
+
+
+def _refs_data_dir(tmp_path, equipment_record):
+    """Minimal data/ tree: mission M1 at FMARS, event E1, source S1, plus
+    one equipment item record."""
+    import json
+    data_dir = tmp_path / "data"
+    for sub in ["missions", "events", "crew_members", "research_projects", "sources", "equipment_items"]:
+        (data_dir / sub).mkdir(parents=True)
+    (data_dir / "missions" / "m1.json").write_text(json.dumps({"mission_id": "M1", "stations": ["FMARS"]}))
+    (data_dir / "events" / "e1.json").write_text(
+        json.dumps({"event_id": "E1", "mission_id": "M1", "station": "FMARS", "related_events": []})
+    )
+    (data_dir / "sources" / "s1.json").write_text(json.dumps({"source_id": "S1", "mission_ids": ["M1"]}))
+    (data_dir / "equipment_items" / "q1.json").write_text(json.dumps(equipment_record))
+    return data_dir
+
+
+_GOOD_EQUIPMENT = {
+    "item_id": "M1-EQP001", "mission_id": "M1", "station": "FMARS",
+    "source_id": "S1", "related_events": ["E1"],
+}
+
+
+def test_check_references_accepts_valid_equipment_item(tmp_path):
+    assert check_references(_refs_data_dir(tmp_path, _GOOD_EQUIPMENT)) == []
+
+
+def test_check_references_detects_equipment_item_orphaned_mission_id(tmp_path):
+    errors = check_references(_refs_data_dir(tmp_path, {**_GOOD_EQUIPMENT, "mission_id": "M9", "station": None}))
+    assert any("equipment_items/q1.json" in e and "M9" in e for e in errors)
+
+
+def test_check_references_detects_equipment_item_orphaned_related_event(tmp_path):
+    errors = check_references(_refs_data_dir(tmp_path, {**_GOOD_EQUIPMENT, "related_events": ["E1", "E7"]}))
+    assert any("equipment_items/q1.json" in e and "E7" in e for e in errors)
+
+
+def test_check_references_detects_equipment_item_orphaned_source_id(tmp_path):
+    errors = check_references(_refs_data_dir(tmp_path, {**_GOOD_EQUIPMENT, "source_id": "S9"}))
+    assert any("equipment_items/q1.json" in e and "S9" in e for e in errors)
+
+
+def test_check_references_detects_equipment_item_station_not_in_mission_stations(tmp_path):
+    errors = check_references(_refs_data_dir(tmp_path, {**_GOOD_EQUIPMENT, "station": "MDRS"}))
+    assert any("equipment_items/q1.json" in e and "MDRS" in e for e in errors)
+
+
+def test_check_references_tolerates_missing_equipment_items_dir(tmp_path):
+    import json
+    data_dir = tmp_path / "data"
+    for sub in ["missions", "events", "crew_members", "research_projects", "sources"]:
+        (data_dir / sub).mkdir(parents=True)
+    (data_dir / "missions" / "m1.json").write_text(json.dumps({"mission_id": "M1"}))
+    assert check_references(data_dir) == []

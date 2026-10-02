@@ -135,6 +135,27 @@ def check_references(data_dir) -> list[str]:
                     f"looks like a crew_member_id but does not resolve to any committed Crew Member"
                 )
 
+    # Equipment Items: same reference rules as Events — mission_id,
+    # source_id, related_events must resolve, and station must be one of
+    # the mission's stations.
+    for p in (data_dir / "equipment_items").glob("*.json"):
+        record = json.loads(p.read_text())
+        mission_id = record.get("mission_id")
+        if mission_id is not None:
+            _check("equipment_items", p.name, "mission_id", mission_id, mission_ids, "Mission")
+        source_id = record.get("source_id")
+        if source_id is not None:
+            _check("equipment_items", p.name, "source_id", source_id, source_ids, "Source")
+        for value in record.get("related_events") or []:
+            _check("equipment_items", p.name, "related_events", value, event_ids, "Event")
+        station = record.get("station")
+        if station is not None and mission_id in mission_stations:
+            if station not in mission_stations[mission_id]:
+                errors.append(
+                    f"equipment_items/{p.name}: station '{station}' is not in mission "
+                    f"'{mission_id}''s stations {sorted(mission_stations[mission_id])}"
+                )
+
     return errors
 
 
