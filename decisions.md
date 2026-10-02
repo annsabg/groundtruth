@@ -495,3 +495,37 @@ batch, not the whole pipeline. Documented in
 `docs/extraction-workflow.md`'s Stage 3 section directly, not only
 here, since this is now the documented procedure for anyone running
 this pipeline, not a private habit.
+
+## 2026-10-02 — Equipment Items: new entity, 'Recommended' advice kind, confidence inherited from incidents
+
+Crews' packing lessons (what to bring, what to spare, what to leave)
+were scattered through incident `lesson` fields and couldn't be filtered
+or printed as a checklist. Added **Equipment Item** as its own entity
+rather than more event fields: one record per item (a lesson naming five
+parts is five records), able to carry advice that isn't tied to any
+incident, and linking back to incidents via `related_events`. Full design
+in `docs/superpowers/specs/2026-10-02-equipment-packing-lessons-design.md`.
+
+`area` is a closed list of 13 (adding one is a deliberate schema
+change), while `item_key` is an open grouping key whose vocabulary grows
+from data. The Packing tab groups rows by area + advice_type + item_key,
+so conflicting advice about the same item (e.g. "Bring Spare" from one
+crew, "Don't Bring" from another) stays visible instead of being merged
+away.
+
+Stage 3 (Opus, two rounds) caught `Wished Brought` being applied to items
+the crew actually already had, where the advice came from the mission
+brief's author, not the crew. At Stage 4 the human added a fifth kind,
+**`Recommended`**: advice to bring an item the crew already had, from a
+planner/brief or the source, without the crew's own complaint or
+emphasis. Nine of the 29 drafts moved to it. `Wished Brought` is now
+reserved for items the crew lacked.
+
+Confidence on each item is inherited from its linked incident (first
+`related_events` entry), for consistency with how the same brief rows
+are already rated on the event side. Items with no linked event kept
+their draft value.
+
+Crew 18/19 and Mars160 produced no Equipment Items: their sources give no
+explicit packing advice, and the rules forbid inferring advice from a
+failure alone. No `item_key`s have been assigned yet.

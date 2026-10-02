@@ -19,6 +19,17 @@ saved to disk and no longer exists except as a summary in this file's
 history; picking MDRS back up means re-extracting from
 `sources-local/mdrs-crew-reports-raw/`, not resuming a saved draft.**
 
+**Equipment Items shipped on branch `feature/equipment-packing`
+(unmerged and unpushed at time of writing).** New entity (schema,
+validation, build, a filterable/printable Packing tab) plus 29 records
+backfilled from the FMARS Crew 15-17 incident sources
+(Hypatia III brief + Flashline crew reports). Five advice kinds: Wished
+Brought, Essential, Bring Spare, Recommended (added at Stage 4 review),
+Don't Bring. Confidence on each item is inherited from its linked
+incident. Design: `docs/superpowers/specs/2026-10-02-equipment-packing-lessons-design.md`;
+why-log: decisions.md, 2026-10-02. No `item_key`s assigned yet; Crew 18/19
+and Mars160 produced no items (no explicit packing advice in their sources).
+
 **Next session should start here:** review
 `sources-local/flashline-pages-83-95/drafts/` (run
 `python scripts/summarize_drafts.py sources-local/flashline-pages-83-95/drafts`
@@ -43,6 +54,7 @@ Member, Event, Research Project, Source), `validate.py` (schema +
 | Crew Member         | 34 of 37 known slots | 5/7/4/7/5 across FMARS C15–C19, 6 for MARS160-2017 |
 | Research Project    | 6     | RP-001–003 (FMARS C15/C16, hand-curated) + RP-004–006 (FMARS C19) |
 | Source              | 8     | citation registry, keyed by `source_id` + `mission_ids[]` |
+| Equipment Item      | 29    | Packing advice (branch `feature/equipment-packing`, unmerged): 15 Bring Spare, 9 Recommended, 5 Wished Brought |
 
 v0.1's original 5/60/29/3/6 counts held through v0.2 and the v0.3-pilot
 merge (both were tooling/site-only, no `data/` change) — this session's
@@ -325,6 +337,13 @@ above.
    On approval: copy into `data/`, fill `verified_by`, `python
    scripts/build_db.py`, `git add data/ groundtruth.sqlite`, commit,
    push (Stage 4/5, same mechanics as FMARS-C19-2026's commit `7e9f252`).
+
+Also pending from the Equipment Items work (branch
+`feature/equipment-packing`): **merge and push** it (pushing to `main`
+deploys the Packing tab); assign `item_key`s as more crews are added so
+the same item groups across missions; and extract equipment advice from
+new sources going forward (Equipment Item extraction rules in
+`docs/extraction-workflow.md`).
 
 Then, in priority order (FMARS-first remains the user's confirmed
 immediate use case; MDRS and further stations are "grow it later"):
