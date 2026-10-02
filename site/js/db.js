@@ -68,3 +68,19 @@ export function buildEventsQuery(filters) {
     : "SELECT * FROM event ORDER BY mission_id, sol";
   return { sql, params };
 }
+
+// Filters the packing checklist (packing-view.js). Ordered by item name so
+// records about the same item from different crews sit together before
+// groupEquipmentItems() (util.js) merges them.
+export function buildEquipmentQuery(filters) {
+  const clauses = [];
+  const params = [];
+  for (const column of ["station", "area", "advice_type"]) {
+    if (filters[column]) {
+      clauses.push(`${column} = ?`);
+      params.push(filters[column]);
+    }
+  }
+  const where = clauses.length ? ` WHERE ${clauses.join(" AND ")}` : "";
+  return { sql: `SELECT * FROM equipment_item${where} ORDER BY item, mission_id`, params };
+}
