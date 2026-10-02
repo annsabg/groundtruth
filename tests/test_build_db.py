@@ -18,6 +18,7 @@ SCHEMA_FILES = {
     "event": "event.schema.json",
     "research_project": "research_project.schema.json",
     "source": "source.schema.json",
+    "equipment_item": "equipment_item.schema.json",
 }
 
 
@@ -30,6 +31,7 @@ def _write_fixture_data_dir(tmp_path):
         "events": "valid_event.json",
         "research_projects": "valid_research_project.json",
         "sources": "valid_source.json",
+        "equipment_items": "valid_equipment_item.json",
     }
     for subdir, fixture_name in mapping.items():
         target_dir = data_dir / subdir
@@ -48,7 +50,7 @@ def test_build_database_creates_sqlite_with_all_tables(tmp_path):
     assert output_path.exists()
     conn = sqlite3.connect(output_path)
     tables = {row[0] for row in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
-    assert tables == {"mission", "crew_member", "event", "research_project", "source"}
+    assert tables == {"mission", "crew_member", "event", "research_project", "source", "equipment_item"}
     conn.close()
 
 
@@ -94,4 +96,19 @@ def test_build_database_is_idempotent_overwrite(tmp_path):
     conn = sqlite3.connect(output_path)
     count = conn.execute("SELECT COUNT(*) FROM mission").fetchone()[0]
     assert count == 1  # not duplicated
+    conn.close()
+
+
+def test_build_database_inserts_equipment_item_with_json_encoded_related_events(tmp_path):
+    data_dir = _write_fixture_data_dir(tmp_path)
+    output_path = tmp_path / "groundtruth.sqlite"
+
+    build_database(str(data_dir), str(output_path))
+
+    conn = sqlite3.connect(output_path)
+    row = conn.execute(
+        "SELECT item_id, area, advice_type, item_key, related_events FROM equipment_item"
+    ).fetchone()
+    assert row[:4] == ("FMARS-C16-2024-EQP001", "Vehicles", "Wished Brought", "atv-spark-plugs")
+    assert json.loads(row[4]) == ["FMARS-C16-2024-EVT001"]
     conn.close()

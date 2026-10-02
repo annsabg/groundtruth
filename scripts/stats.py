@@ -46,6 +46,16 @@ def generate_stats(sqlite_path="groundtruth.sqlite") -> str:
     research_count = conn.execute("SELECT COUNT(*) FROM research_project").fetchone()[0]
     lines.append(f"Research Projects: {research_count}")
 
+    equipment_count = conn.execute("SELECT COUNT(*) FROM equipment_item").fetchone()[0]
+    equipment_by_advice = conn.execute(
+        "SELECT advice_type, COUNT(*) FROM equipment_item GROUP BY advice_type ORDER BY COUNT(*) DESC"
+    ).fetchall()
+    if equipment_by_advice:
+        breakdown = ", ".join(f"{t}: {c}" for t, c in equipment_by_advice)
+        lines.append(f"Equipment Items: {equipment_count} ({breakdown})")
+    else:
+        lines.append(f"Equipment Items: {equipment_count}")
+
     # Vocabulary-drift signal: "Other" is a legal escape hatch in several
     # enums (stations, primary_role, field_of_expertise, domain), but heavy
     # use of it usually means the controlled vocabulary needs extending,

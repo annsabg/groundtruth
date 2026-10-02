@@ -19,6 +19,7 @@ def _write_fixture_data_dir(tmp_path):
         "events": "valid_event.json",
         "research_projects": "valid_research_project.json",
         "sources": "valid_source.json",
+        "equipment_items": "valid_equipment_item.json",
     }
     for subdir, fixture_name in mapping.items():
         target_dir = data_dir / subdir
@@ -40,12 +41,13 @@ def test_generate_stats_summarizes_the_dataset(tmp_path):
     assert "Failure" in summary  # the event_type breakdown
     assert "Crew Members: 1" in summary
     assert "Research Projects: 1" in summary
+    assert "Equipment Items: 1 (Wished Brought: 1)" in summary
 
 
 def test_generate_stats_handles_empty_database(tmp_path):
     # Task 1's initial state — data/ exists but every subdir is empty.
     data_dir = tmp_path / "data"
-    for sub in ["missions", "crew_members", "events", "research_projects", "sources"]:
+    for sub in ["missions", "crew_members", "events", "research_projects", "sources", "equipment_items"]:
         (data_dir / sub).mkdir(parents=True)
     sqlite_path = tmp_path / "groundtruth.sqlite"
     build_database(str(data_dir), str(sqlite_path))
@@ -54,6 +56,7 @@ def test_generate_stats_handles_empty_database(tmp_path):
 
     assert "Missions: 0" in summary
     assert "Events: 0" in summary
+    assert "Equipment Items: 0" in summary
 
 
 def test_generate_stats_flags_other_usage_as_vocabulary_drift_signal(tmp_path):

@@ -42,6 +42,12 @@ ENTITIES = {
         ["source_id", "mission_ids", "url_or_reference", "source_type", "covers",
          "date_range_or_sols", "discovery_method", "approved_by", "approved_date"],
     ),
+    "equipment_item": (
+        "equipment_items",
+        ["item_id", "mission_id", "station", "item", "area", "advice_type", "rationale",
+         "item_key", "related_events", "source_id", "source_citation", "confidence",
+         "verified_by"],
+    ),
 }
 
 # Columns whose value is a list/object and must be JSON-encoded as TEXT.
