@@ -17,7 +17,7 @@ export const AREAS = [
   "Power & Electronics", "EVA Suits & Comms", "Vehicles", "Science & Lab",
   "Morale & Recreation",
 ];
-export const ADVICE_TYPES = ["Wished Brought", "Essential", "Bring Spare", "Don't Bring"];
+export const ADVICE_TYPES = ["Wished Brought", "Essential", "Bring Spare", "Recommended", "Don't Bring"];
 
 function currentFilters(container) {
   const get = (sel) => container.querySelector(sel)?.value || undefined;

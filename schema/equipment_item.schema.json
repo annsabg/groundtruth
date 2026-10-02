@@ -30,8 +30,8 @@
       "description": "Closed list. Adding an area is a deliberate schema change — see CONTRIBUTING.md."
     },
     "advice_type": {
-      "enum": ["Wished Brought", "Essential", "Bring Spare", "Don't Bring"],
-      "description": "Essential requires the crew's own emphasis in the source — having packed something is not enough. See docs/extraction-workflow.md."
+      "enum": ["Wished Brought", "Essential", "Bring Spare", "Recommended", "Don't Bring"],
+      "description": "Essential requires the crew's own emphasis in the source — having packed something is not enough. Recommended means a planner/brief or the source advises bringing an item the crew already had, with no complaint or emphasis from the crew. See docs/extraction-workflow.md."
     },
     "rationale": {
       "type": "string",

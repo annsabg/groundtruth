@@ -40,7 +40,7 @@ single queryable `groundtruth.sqlite`:
   just narrated.
 - **Research Project** — what's been studied, by whom, with what methods,
   published or not.
-- **Equipment Item** — packing advice from crews (wished they'd brought, essential, bring a spare, don't bring), tagged by area (food, hygiene, water, …) and grouped across missions by an optional `item_key`.
+- **Equipment Item** — packing advice from crews (wished they'd brought, essential, bring a spare, recommended, don't bring), tagged by area (food, hygiene, water, …) and grouped across missions by an optional `item_key`.
 
 Plus a **Source** registry tracking what document/page each record was
 extracted from.

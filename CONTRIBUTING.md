@@ -110,7 +110,7 @@ your record genuinely needs a new value in one of those, propose the schema
 change in the same PR and explain why the existing options don't fit.
 
 Equipment Items (`schema/equipment_item.schema.json`) follow the same
-split: `area` and `advice_type` are closed enums (`area` is one of: Food & Cooking, Water & Drinking, Personal Hygiene & Sanitation, Clothing & Thermal, Sleep & Personal Comfort, Medical & First Aid, Safety & Environmental Monitoring, Tools & Spare Parts, Power & Electronics, EVA Suits & Comms, Vehicles, Science & Lab, Morale & Recreation), while `item_key` is an
+split: `area` and `advice_type` are closed enums (`advice_type` is one of: wished brought, essential, bring spare, recommended, don't bring; `area` is one of: Food & Cooking, Water & Drinking, Personal Hygiene & Sanitation, Clothing & Thermal, Sleep & Personal Comfort, Medical & First Aid, Safety & Environmental Monitoring, Tools & Spare Parts, Power & Electronics, EVA Suits & Comms, Vehicles, Science & Lab, Morale & Recreation), while `item_key` is an
 open grouping key in lowercase-with-dashes form (e.g.
 `spare-comms-earpiece`) shared by records about the same item across
 missions. Reuse an existing key whenever it's genuinely the same item;

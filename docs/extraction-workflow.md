@@ -70,7 +70,7 @@ retrying further.
 
 Equipment Items (`schema/equipment_item.schema.json`) capture packing
 advice: what a crew wished they'd brought, found essential, needs spares
-of, or shouldn't bring. One record per distinct item — a lesson naming
+of, recommended to bring, or shouldn't bring. One record per distinct item — a lesson naming
 five parts is five records, each with `related_events` pointing at the
 event it came from.
 
@@ -80,6 +80,10 @@ event it came from.
   Stage 3 should flag any advice the source doesn't actually give.
 - **`Essential` requires the crew's own emphasis** ("critical",
   "couldn't have managed without"). Having packed something isn't enough.
+- **`Recommended`** is for advice to bring an item the crew already had,
+  where the advice comes from a planner/brief or the source without the
+  crew's own complaint or emphasis. The rationale must say who gave the
+  advice. Never use `Wished Brought` for an item the crew had.
 - **`item_key`:** reuse an existing key (`SELECT DISTINCT item_key FROM
   equipment_item`) when it's clearly the same item; otherwise leave it
   unset. Keys are assigned or confirmed at Stage 4, never invented at

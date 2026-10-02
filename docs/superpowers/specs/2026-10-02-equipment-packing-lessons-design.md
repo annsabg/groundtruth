@@ -39,7 +39,7 @@ records in `data/equipment_items/{item_id}.json`, table `equipment_item`.
 | `station` | ✓ | same enum as `event.station` | Must be one of the mission's `stations` |
 | `item` | ✓ | string, minLength 1 | Short, specific name ("Spark plugs matched to ATV models") |
 | `area` | ✓ | enum, see below | Closed list; adding an area is a deliberate schema change |
-| `advice_type` | ✓ | `Wished Brought`, `Essential`, `Bring Spare`, `Don't Bring` | |
+| `advice_type` | ✓ | `Wished Brought`, `Essential`, `Bring Spare`, `Recommended`, `Don't Bring` | `Recommended` (added 2026-10-02 at Stage 4 review — see decisions.md) |
 | `rationale` | ✓ | string, minLength 1 | Why, in the source's terms |
 | `item_key` | — | pattern `^[a-z0-9]+(-[a-z0-9]+)*$` | Open grouping key, e.g. `spare-comms-earpiece`; same key = same item across missions. Vocabulary grows from data, like `pattern_tag`. |
 | `related_events` | — | array of event IDs | Events the advice derives from; empty/absent for non-incident advice |
