@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://groundtruth.dev/schema/equipment_item.schema.json",
+  "title": "Equipment Item",
+  "type": "object",
+  "properties": {
+    "item_id": {
+      "type": "string",
+      "pattern": "^.+-EQP[0-9]{3}$",
+      "description": "Format {mission_id}-EQP{NNN}."
+    },
+    "mission_id": {"type": "string"},
+    "station": {
+      "enum": ["FMARS", "MDRS", "LunAres", "HI-SEAS", "AMADEE", "Other"],
+      "description": "The single station this advice applies to. Must be one of mission.stations for this item's mission_id (checked by scripts/validate.py's check_references())."
+    },
+    "item": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Short, specific item name, e.g. 'Spark plugs matched to each ATV model'."
+    },
+    "area": {
+      "enum": [
+        "Food & Cooking", "Water & Drinking", "Personal Hygiene & Sanitation",
+        "Clothing & Thermal", "Sleep & Personal Comfort", "Medical & First Aid",
+        "Safety & Environmental Monitoring", "Tools & Spare Parts",
+        "Power & Electronics", "EVA Suits & Comms", "Vehicles", "Science & Lab",
+        "Morale & Recreation"
+      ],
+      "description": "Closed list. Adding an area is a deliberate schema change — see CONTRIBUTING.md."
+    },
+    "advice_type": {
+      "enum": ["Wished Brought", "Essential", "Bring Spare", "Don't Bring"],
+      "description": "Essential requires the crew's own emphasis in the source — having packed something is not enough. See docs/extraction-workflow.md."
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Why, in the source's own terms."
+    },
+    "item_key": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Open grouping key: records about the same item across missions share a key (e.g. 'spare-comms-earpiece'). Vocabulary grows from data, like event.pattern_tag. Assigned or confirmed at Stage 4 review, never invented speculatively at Stage 2."
+    },
+    "related_events": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Event IDs this advice derives from. Empty or absent for advice not tied to an incident."
+    },
+    "source_id": {
+      "type": "string",
+      "description": "References Source.source_id. Optional for parity with Event, but should be set on every real record."
+    },
+    "source_citation": {"type": "string", "minLength": 1},
+    "confidence": {
+      "enum": ["A", "B", "C", "D"],
+      "description": "A: formal engineering report. B: daily narrative report. C: journalist/XO report. D: secondhand/inferred."
+    },
+    "verified_by": {"type": "string", "minLength": 1}
+  },
+  "required": [
+    "item_id", "mission_id", "station", "item", "area", "advice_type",
+    "rationale", "source_citation", "confidence", "verified_by"
+  ],
+  "additionalProperties": false
+}

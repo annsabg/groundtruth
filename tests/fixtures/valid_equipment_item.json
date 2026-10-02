@@ -1,0 +1,15 @@
+{
+  "item_id": "FMARS-C16-2024-EQP001",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Spark plugs matched to each ATV model",
+  "area": "Vehicles",
+  "advice_type": "Wished Brought",
+  "rationale": "Only one of five ATVs was operational on arrival; one had failed ignition and replacement parts were not available in Resolute.",
+  "item_key": "atv-spark-plugs",
+  "related_events": ["FMARS-C16-2024-EVT001"],
+  "source_id": "SRC-flashline-crew-reports",
+  "source_citation": "FMARS Crew 16 Daily Report, Crew Engineer, 2024-06-19",
+  "confidence": "B",
+  "verified_by": "ASG"
+}

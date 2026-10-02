@@ -257,3 +257,73 @@ def test_source_schema_accepts_valid_record():
 def test_source_schema_rejects_invalid_record():
     errors = validate_file(SCHEMA / "source.schema.json", FIXTURES / "invalid_source.json")
     assert len(errors) >= 1
+
+
+def _equipment_variant(tmp_path, **changes):
+    """Copy of the valid equipment fixture with fields changed; a value of
+    None deletes the field. Returns the path of the written variant."""
+    import json
+    record = json.loads((FIXTURES / "valid_equipment_item.json").read_text())
+    for key, value in changes.items():
+        if value is None:
+            record.pop(key, None)
+        else:
+            record[key] = value
+    path = tmp_path / "variant.json"
+    path.write_text(json.dumps(record))
+    return path
+
+
+def test_equipment_item_schema_accepts_valid_record():
+    errors = validate_file(SCHEMA / "equipment_item.schema.json", FIXTURES / "valid_equipment_item.json")
+    assert errors == []
+
+
+def test_equipment_item_schema_rejects_invalid_record():
+    errors = validate_file(SCHEMA / "equipment_item.schema.json", FIXTURES / "invalid_equipment_item.json")
+    assert len(errors) >= 2  # bad area AND missing rationale
+
+
+def test_equipment_item_schema_rejects_unknown_area(tmp_path):
+    path = _equipment_variant(tmp_path, area="Hygiene")
+    assert validate_file(SCHEMA / "equipment_item.schema.json", path) != []
+
+
+def test_equipment_item_schema_rejects_unknown_advice_type(tmp_path):
+    path = _equipment_variant(tmp_path, advice_type="Nice to Have")
+    assert validate_file(SCHEMA / "equipment_item.schema.json", path) != []
+
+
+def test_equipment_item_schema_rejects_missing_rationale(tmp_path):
+    path = _equipment_variant(tmp_path, rationale=None)
+    assert validate_file(SCHEMA / "equipment_item.schema.json", path) != []
+
+
+def test_equipment_item_schema_rejects_malformed_item_key(tmp_path):
+    for bad in ["Spare Comms", "spare_comms", "-spare", "spare--comms"]:
+        path = _equipment_variant(tmp_path, item_key=bad)
+        assert validate_file(SCHEMA / "equipment_item.schema.json", path) != [], bad
+
+
+def test_equipment_item_schema_rejects_malformed_item_id(tmp_path):
+    path = _equipment_variant(tmp_path, item_id="FMARS-C16-2024-EQ1")
+    assert validate_file(SCHEMA / "equipment_item.schema.json", path) != []
+
+
+def test_equipment_item_schema_accepts_record_without_optional_fields(tmp_path):
+    path = _equipment_variant(tmp_path, item_key=None, related_events=None, source_id=None)
+    assert validate_file(SCHEMA / "equipment_item.schema.json", path) == []
+
+
+def test_equipment_item_schema_rejects_quantity_field(tmp_path):
+    path = _equipment_variant(tmp_path, quantity=4)
+    assert validate_file(SCHEMA / "equipment_item.schema.json", path) != []
+
+
+def test_source_schema_accepts_equipment_in_covers(tmp_path):
+    import json
+    record = json.loads((FIXTURES / "valid_source.json").read_text())
+    record["covers"] = ["events", "equipment"]
+    path = tmp_path / "source.json"
+    path.write_text(json.dumps(record))
+    assert validate_file(SCHEMA / "source.schema.json", path) == []

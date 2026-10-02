@@ -18,7 +18,7 @@
     "covers": {
       "type": "array",
       "minItems": 1,
-      "items": {"enum": ["events", "crew", "research"]},
+      "items": {"enum": ["events", "crew", "research", "equipment"]},
       "description": "What kind(s) of data this source can supply."
     },
     "date_range_or_sols": {"type": "string"},

@@ -22,13 +22,14 @@ jobs:
         run: node --test site-tests/*.test.js
       - name: Validate all committed data against schema
         run: |
-          for entity in mission crew_member event research_project source; do
+          for entity in mission crew_member event research_project source equipment_item; do
             case $entity in
               mission) dir=missions ;;
               crew_member) dir=crew_members ;;
               event) dir=events ;;
               research_project) dir=research_projects ;;
               source) dir=sources ;;
+              equipment_item) dir=equipment_items ;;
             esac
             python scripts/validate.py schema/$entity.schema.json data/$dir/
           done
