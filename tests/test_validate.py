@@ -289,6 +289,11 @@ def test_equipment_item_schema_rejects_unknown_area(tmp_path):
     assert validate_file(SCHEMA / "equipment_item.schema.json", path) != []
 
 
+def test_equipment_item_schema_accepts_recommended(tmp_path):
+    path = _equipment_variant(tmp_path, advice_type="Recommended")
+    assert validate_file(SCHEMA / "equipment_item.schema.json", path) == []
+
+
 def test_equipment_item_schema_rejects_unknown_advice_type(tmp_path):
     path = _equipment_variant(tmp_path, advice_type="Nice to Have")
     assert validate_file(SCHEMA / "equipment_item.schema.json", path) != []
