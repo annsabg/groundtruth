@@ -10,14 +10,14 @@ import { routeToHash } from "./router.js";
 
 // Same order as schema/equipment_item.schema.json's area enum — headings
 // render in this order.
-const AREAS = [
+export const AREAS = [
   "Food & Cooking", "Water & Drinking", "Personal Hygiene & Sanitation",
   "Clothing & Thermal", "Sleep & Personal Comfort", "Medical & First Aid",
   "Safety & Environmental Monitoring", "Tools & Spare Parts",
   "Power & Electronics", "EVA Suits & Comms", "Vehicles", "Science & Lab",
   "Morale & Recreation",
 ];
-const ADVICE_TYPES = ["Wished Brought", "Essential", "Bring Spare", "Don't Bring"];
+export const ADVICE_TYPES = ["Wished Brought", "Essential", "Bring Spare", "Don't Bring"];
 
 function currentFilters(container) {
   const get = (sel) => container.querySelector(sel)?.value || undefined;
@@ -71,8 +71,12 @@ function groupRowHtml(group) {
   `;
 }
 
-function checklistHtml(groups) {
-  if (!groups.length) return "<p>No packing advice matches these filters.</p>";
+function checklistHtml(groups, hasAnyRecords) {
+  if (!groups.length) {
+    return hasAnyRecords
+      ? "<p>No packing advice matches these filters.</p>"
+      : "<p>No packing advice has been recorded yet.</p>";
+  }
   return AREAS.map((area) => {
     const inArea = groups.filter((g) => g.area === area);
     if (!inArea.length) return "";
@@ -128,8 +132,14 @@ function attachListeners(listEl) {
 
 function renderResults(container) {
   const listEl = container.querySelector(".packing-list");
-  const { sql, params } = buildEquipmentQuery(currentFilters(container));
-  listEl.innerHTML = checklistHtml(groupEquipmentItems(runQuery(sql, params)));
+  const filters = currentFilters(container);
+  const { sql, params } = buildEquipmentQuery(filters);
+  const groups = groupEquipmentItems(runQuery(sql, params));
+  const hasAnyRecords = runQuery("SELECT COUNT(*) AS n FROM equipment_item")[0].n > 0;
+  const heading = `Packing checklist — Station: ${filters.station || "All"} · Area: ${filters.area || "All"} · Advice: ${filters.advice_type || "All"}`;
+  listEl.innerHTML =
+    `<p class="packing-print-heading">${escapeHtml(heading)}</p>` +
+    checklistHtml(groups, hasAnyRecords);
   attachListeners(listEl);
 }
 

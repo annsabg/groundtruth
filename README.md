@@ -26,7 +26,7 @@ The knowledge exists. It just has no address.
 
 ## What's here
 
-Four linked entity types, each stored as one JSON file per record under
+Five linked entity types, each stored as one JSON file per record under
 `data/`, validated against a JSON Schema in `schema/`, and compiled into a
 single queryable `groundtruth.sqlite`:
 
@@ -40,6 +40,7 @@ single queryable `groundtruth.sqlite`:
   just narrated.
 - **Research Project** — what's been studied, by whom, with what methods,
   published or not.
+- **Equipment Item** — packing advice from crews (wished they'd brought, essential, bring a spare, don't bring), tagged by area (food, hygiene, water, …) and grouped across missions by an optional `item_key`.
 
 Plus a **Source** registry tracking what document/page each record was
 extracted from.
@@ -118,7 +119,7 @@ v0.2 — schema, seed data from FMARS Crews 15–18 and Mars160, and a
 browsable static site (`site/`) on top of `groundtruth.sqlite`: Missions
 (actual mission records — station, dates, crew size, goal — drilling into
 each one's own incidents), Incidents (a filterable cross-mission event
-list for pattern-hunting), a Patterns dashboard, and an About page. The
+list for pattern-hunting), Packing (a filterable, printable checklist of crews' equipment advice), a Patterns dashboard, and an About page. The
 site is deployed via GitHub Actions to GitHub Pages on every push to
 `main` — **merging to `main` now triggers a live public deployment**, not
 just a data-repo commit. See `.github/workflows/deploy-pages.yml`.

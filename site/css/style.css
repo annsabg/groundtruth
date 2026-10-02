@@ -101,6 +101,10 @@ main#app {
   flex: 1;
 }
 
+.packing-print-heading {
+  display: none;
+}
+
 .packing-area h3 {
   margin: 1.25rem 0 0.5rem;
 }
@@ -172,6 +176,14 @@ main#app {
   }
   .packing-box {
     display: inline-block;
+  }
+  .packing-dont .packing-box {
+    display: none;
+  }
+  .packing-print-heading {
+    display: block;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
   }
   .packing-item {
     border: none;
