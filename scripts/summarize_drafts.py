@@ -5,7 +5,7 @@ Usage:
     python scripts/summarize_drafts.py <drafts_dir>
 
 Reads a drafts directory laid out like data/ (sources/, missions/,
-crew_members/, events/, research_projects/ subdirectories of *.json
+crew_members/, events/, research_projects/, equipment_items/ subdirectories of *.json
 files, as produced by a Stage 2 extraction) and prints one compact line
 per record, grouped by entity type and sorted by filename — so a human
 reviewer can scan a whole batch in one screen instead of opening every
@@ -27,6 +27,7 @@ _ENTITY_TYPES = [
     ("crew_members", "CREW MEMBERS", "format_crew_member"),
     ("events", "EVENTS", "format_event"),
     ("research_projects", "RESEARCH PROJECTS", "format_research_project"),
+    ("equipment_items", "EQUIPMENT ITEMS", "format_equipment_item"),
 ]
 
 
@@ -85,12 +86,22 @@ def format_research_project(r: dict) -> str:
     )
 
 
+def format_equipment_item(r: dict) -> str:
+    events = ", ".join(r.get("related_events") or []) or "-"
+    return (
+        f"{r.get('item_id', '?')} [{r.get('area', '?')}/{r.get('advice_type', '?')}] "
+        f"{r.get('item', '?')} -- {truncate(r.get('rationale', ''), 90)} "
+        f"(key: {r.get('item_key') or '-'}; events: {events})"
+    )
+
+
 _FORMATTERS = {
     "format_source": format_source,
     "format_mission": format_mission,
     "format_crew_member": format_crew_member,
     "format_event": format_event,
     "format_research_project": format_research_project,
+    "format_equipment_item": format_equipment_item,
 }
 
 

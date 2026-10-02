@@ -109,6 +109,13 @@ missions and stations get added. Fields like `stations`, `event_type`, and
 your record genuinely needs a new value in one of those, propose the schema
 change in the same PR and explain why the existing options don't fit.
 
+Equipment Items (`schema/equipment_item.schema.json`) follow the same
+split: `area` and `advice_type` are closed enums, while `item_key` is an
+open grouping key in lowercase-with-dashes form (e.g.
+`spare-comms-earpiece`) shared by records about the same item across
+missions. Reuse an existing key whenever it's genuinely the same item;
+see docs/extraction-workflow.md's "Equipment Item extraction rules".
+
 ## Licensing
 
 By contributing, you agree your data contributions are licensed CC BY 4.0

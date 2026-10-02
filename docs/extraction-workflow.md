@@ -37,8 +37,7 @@ Ask Claude Code, for the approved source:
 
 > "Read [source]. First identify mission boundaries within it (which
 > mission each part belongs to). Then, within each mission, extract
-> candidate [Mission / Crew Member / Operational Event / Research
-> Project] records matching schema/[entity].schema.json. Cite the
+> candidate [Mission / Crew Member / Operational Event / Research Project / Equipment Item] records matching schema/[entity].schema.json. Cite the
 > specific location in the source for each record's source_citation."
 
 Output: a list of draft JSON records, not yet written to `data/`.
@@ -67,13 +66,36 @@ Stage 3 again on the new draft. If it fails a second time, stop — take
 both drafts and both flag sets to human review (next step) rather than
 retrying further.
 
+## Equipment Item extraction rules
+
+Equipment Items (`schema/equipment_item.schema.json`) capture packing
+advice: what a crew wished they'd brought, found essential, needs spares
+of, or shouldn't bring. One record per distinct item — a lesson naming
+five parts is five records, each with `related_events` pointing at the
+event it came from.
+
+- **Explicit only.** Record an item only when the source names it, or
+  clearly implies it ("we had no X and needed it"). Never infer advice
+  from a failure alone — "the pump failed" is not "bring a spare pump".
+  Stage 3 should flag any advice the source doesn't actually give.
+- **`Essential` requires the crew's own emphasis** ("critical",
+  "couldn't have managed without"). Having packed something isn't enough.
+- **`item_key`:** reuse an existing key (`SELECT DISTINCT item_key FROM
+  equipment_item`) when it's clearly the same item; otherwise leave it
+  unset. Keys are assigned or confirmed at Stage 4, never invented at
+  Stage 2.
+- **`area`** is a closed list — see CONTRIBUTING.md. If nothing fits,
+  flag it at Stage 4 rather than forcing a poor fit.
+- Every existing rule still applies: no real names (including inside
+  quoted citations), cite specific locations.
+
 ## Human review (Stage 4)
 
 For each draft (with any self-check flags attached):
 - Approve as-is, edit, or reject.
 - On approval: write the record to `data/{entity_dir}/{id}.json`, fill in
-  `verified_by` with your initials — required on all four entity types
-  (Mission, Crew Member, Operational Event, Research Project), not just
+  `verified_by` with your initials — required on all five entity types
+  (Mission, Crew Member, Operational Event, Research Project, Equipment Item), not just
   Events.
 - Validate immediately: `python scripts/validate.py
   schema/{entity}.schema.json data/{entity_dir}/{id}.json`

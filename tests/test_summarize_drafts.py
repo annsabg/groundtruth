@@ -11,6 +11,7 @@ from summarize_drafts import (
     format_crew_member,
     format_event,
     format_research_project,
+    format_equipment_item,
     summarize_directory,
 )
 
@@ -163,3 +164,46 @@ def test_summarize_directory_skips_entity_types_with_no_files(tmp_path):
 
     report = summarize_directory(tmp_path)
     assert "EVENTS" not in report.upper()
+
+
+def test_format_equipment_item_includes_area_advice_key_and_events():
+    record = {
+        "item_id": "FMARS-TEST-2026-EQP001",
+        "area": "Vehicles",
+        "advice_type": "Bring Spare",
+        "item": "ATV tyre repair kit",
+        "rationale": "Two flat tyres in the first week and no replacements available locally.",
+        "item_key": "atv-tyre-repair-kit",
+        "related_events": ["FMARS-TEST-2026-EVT004"],
+    }
+    line = format_equipment_item(record)
+    assert "\n" not in line
+    assert "EQP001" in line
+    assert "[Vehicles/Bring Spare]" in line
+    assert "ATV tyre repair kit" in line
+    assert "key: atv-tyre-repair-kit" in line
+    assert "FMARS-TEST-2026-EVT004" in line
+
+
+def test_format_equipment_item_handles_missing_optional_fields():
+    record = {
+        "item_id": "FMARS-TEST-2026-EQP002",
+        "area": "Food & Cooking",
+        "advice_type": "Essential",
+        "item": "Hot sauce",
+        "rationale": "Crew called it a morale essential.",
+    }
+    line = format_equipment_item(record)
+    assert "key: -" in line
+    assert "events: -" in line
+
+
+def test_summarize_directory_includes_equipment_items(tmp_path):
+    (tmp_path / "equipment_items").mkdir()
+    (tmp_path / "equipment_items" / "a.json").write_text(json.dumps({
+        "item_id": "X-EQP001", "area": "Vehicles", "advice_type": "Essential",
+        "item": "Starter fluid", "rationale": "Needed to start ATVs in the cold.",
+    }))
+    output = summarize_directory(tmp_path)
+    assert "EQUIPMENT ITEMS (1)" in output
+    assert "X-EQP001" in output
