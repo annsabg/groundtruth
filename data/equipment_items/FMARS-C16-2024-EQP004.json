@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP004",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Replacement hot water heater",
+  "area": "Water & Drinking",
+  "advice_type": "Bring Spare",
+  "rationale": "The hot water heater ruptured over winter because a valve left closed at the end of the previous mission trapped water that froze; the unit was removed and there was no hot water for either mission. The brief's lesson is to source a replacement heater as a pre-mission supply.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 512-517, 'Lesson for Hypatia III' column",
+  "confidence": "A",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT003"
+  ]
+}

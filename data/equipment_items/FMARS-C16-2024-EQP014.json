@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP014",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Collapsible container for extra gray water storage",
+  "area": "Personal Hygiene & Sanitation",
+  "advice_type": "Wished Brought",
+  "rationale": "The gray water container reached capacity with a 7-person crew and the crew improvised a second reservoir from a wheelbarrow found under the hab. The brief's lesson, for crews of 5 or more, is to plan secondary gray water storage in advance and consider bringing a dedicated collapsible container.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 554-559, 'Lesson for Hypatia III' column; Flashline corroboration: SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 08-07-2024 (Gray Water Reservoir item)",
+  "confidence": "B",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT008"
+  ]
+}

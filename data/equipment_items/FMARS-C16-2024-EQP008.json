@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP008",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Duct tape carried in suit pockets on every EVA",
+  "area": "EVA Suits & Comms",
+  "advice_type": "Recommended",
+  "rationale": "After an air hose tore on an ATV rail edge during EVA 01 and was cut, patched and pressure-tested in the field, the mission brief's lesson is to carry duct tape and a hose repair kit in suit pockets on every EVA. The crew's report describes only the patching of the hose and does not say what material was used.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 536-541, 'Lesson for Hypatia III' column",
+  "confidence": "A",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT005"
+  ]
+}

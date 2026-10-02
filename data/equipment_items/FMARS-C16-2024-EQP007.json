@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP007",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Hose repair kit carried in suit pockets on every EVA",
+  "area": "EVA Suits & Comms",
+  "advice_type": "Bring Spare",
+  "rationale": "An experimental pressurised suit's air hose tore on a sharp ATV rail edge during transit on EVA 01 and was cut, patched and pressure-tested in the field. The brief's lesson is to carry a hose repair kit in suit pockets on every EVA.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 536-541, 'Lesson for Hypatia III' column; Flashline corroboration: SRC-flashline-crew-reports, FLASHLINE-16 EVA REPORT-01 08-07-2024 (torn air hose cut and patched in the field)",
+  "confidence": "A",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT005"
+  ]
+}

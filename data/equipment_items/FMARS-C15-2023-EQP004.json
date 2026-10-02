@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C15-2023-EQP004",
+  "mission_id": "FMARS-C15-2023",
+  "station": "FMARS",
+  "item": "Sewing needles of the correct type for the on-site suit-repair sewing machine",
+  "area": "Tools & Spare Parts",
+  "advice_type": "Wished Brought",
+  "rationale": "Suit repair requires a sewing machine, and only two usable needles remained at the start of Crew 15's simulation. The brief advises stocking adequate needles of the correct type for the machine on site as a pre-mission item, and to confirm a sewing machine is present.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part II §2.4 EVA suits and comms, line 290; also Part IV §4.1 Technical failures, lines 524-529 (lesson: 'confirm sewing machine is present with compatible needles') and §1.3 line 75",
+  "confidence": "A",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C15-2023-EVT002"
+  ]
+}

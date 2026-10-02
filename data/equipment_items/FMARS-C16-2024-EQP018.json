@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP018",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Replacement ATV tyres matched to the fleet's tyre sizes",
+  "area": "Vehicles",
+  "advice_type": "Bring Spare",
+  "rationale": "Replacement ATV tyres were not available through normal channels in Resolute, and the XO had to negotiate a loan of two matching tyres and rims from a local contact. The brief's lesson is to identify ATV tyre sizes and specifications before departure and attempt to ship tyres via the Mars Society.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 809-814, 'Lesson for Hypatia III' column; also §1.3 line 72 ('inner tubes or spare tyres')",
+  "confidence": "C",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT027"
+  ]
+}

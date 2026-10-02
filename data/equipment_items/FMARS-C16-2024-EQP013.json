@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP013",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Fuel conditioner for ATVs",
+  "area": "Vehicles",
+  "advice_type": "Wished Brought",
+  "rationale": "Fuel conditioner is on the brief's lesson list for the ATV triage, and the pre-mission checklist calls it critical for overwintering issues. The crew's own report notes that adding fuel conditioner to each vehicle will prevent other overwintering issues for the next crew.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 542-547, 'Lesson for Hypatia III' column; also §1.3 line 72 ('fuel conditioner (critical for overwintering issues)'); SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 05-07-2024 (ATV Startup item)",
+  "confidence": "A",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT006"
+  ]
+}

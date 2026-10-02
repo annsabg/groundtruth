@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C15-2023-EQP002",
+  "mission_id": "FMARS-C15-2023",
+  "station": "FMARS",
+  "item": "Replacement EVA backpack battery chargers matched to each backpack model",
+  "area": "EVA Suits & Comms",
+  "advice_type": "Bring Spare",
+  "rationale": "Two of the three suit-backpack battery trickle chargers were inoperative on arrival, and engineers spent Sols 1-2 on suit rehabilitation. The brief's lesson is to source replacement chargers matched to the backpack model before the mission.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 524-529, 'Lesson for Hypatia III' column; also pre-mission checklist §1.3, line 75 and §2.4 EVA suits and comms, line 289",
+  "confidence": "A",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C15-2023-EVT002"
+  ]
+}

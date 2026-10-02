@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C17-2025-EQP001",
+  "mission_id": "FMARS-C17-2025",
+  "station": "FMARS",
+  "item": "Custom helmet sun visors for EVA suits",
+  "area": "EVA Suits & Comms",
+  "advice_type": "Recommended",
+  "rationale": "The crew's own report says custom-made sun visors for the space suits debuted on its second EVA and the crew felt comfortable in the sunny landscape. The mission brief (not the crew) says the visors were well received, reducing overheating and improving visibility against low sun angle, and recommends considering them a standard kit item.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part II §2.4 EVA suits and comms, line 293 ('Helmet sun visor'); crew's own account: SRC-flashline-crew-reports, SILALIQ (CREW 17) SOL 2 REPORT 22-7-2025 (sun visors debuted on the day's EVA)",
+  "confidence": "B",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C17-2025-EVT001"
+  ]
+}

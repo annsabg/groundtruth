@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP017",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Personal LifeStraw water filter for each crew member",
+  "area": "Water & Drinking",
+  "advice_type": "Bring Spare",
+  "rationale": "The communal team LifeStraw did not arrive via the Yellowknife cargo in time; most crew members had personal LifeStraws and that redundancy saved the objective. The brief's lesson is to maintain personal redundancy for communal safety and water-related kit.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.6 Logistics and safety, lines 803-808, 'Lesson for Hypatia III' column; Flashline corroboration: SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 29-06-2024 (cargo check at Resolute Bay)",
+  "confidence": "B",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT026"
+  ]
+}

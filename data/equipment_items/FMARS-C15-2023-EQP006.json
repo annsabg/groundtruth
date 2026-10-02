@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C15-2023-EQP006",
+  "mission_id": "FMARS-C15-2023",
+  "station": "FMARS",
+  "item": "TVOC meter with benzene/formaldehyde disaggregation",
+  "area": "Safety & Environmental Monitoring",
+  "advice_type": "Recommended",
+  "rationale": "Crew 15 measured TVOC at 9.99 mg/m3 on the upper floor (sensor maximum; the cited WHO limit is 3 mg/m3) and traced the benzene source to a gasoline tank used as a urine container, so a TVOC sensor was already in use. The mission brief (not the crew) recommends bringing a TVOC meter that separates benzene and formaldehyde and taking a baseline on arrival before sleeping in the hab.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.4 Scientific incidents, lines 695-700, 'Lesson for Hypatia III' column; also §1.3 line 78 (air quality monitoring kit: 'VOC/TVOC meter (benzene/formaldehyde)')",
+  "confidence": "A",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C15-2023-EVT008"
+  ]
+}

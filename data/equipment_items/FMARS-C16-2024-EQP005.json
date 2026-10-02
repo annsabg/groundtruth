@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP005",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Replacement water pump matched to the on-site pump model",
+  "area": "Water & Drinking",
+  "advice_type": "Bring Spare",
+  "rationale": "The water pump was identified as needing replacement by Day 5 and a workaround stayed in place for the whole mission. The brief's lesson is to identify the pump model from the previous crew's report and bring a replacement unit (§2.3: if it can be identified from the manufacturer's spec).",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 518-523, 'Lesson for Hypatia III' column; also Part II §2.3 Water systems, line 283",
+  "confidence": "B",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT004"
+  ]
+}

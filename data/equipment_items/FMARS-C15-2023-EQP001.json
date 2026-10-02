@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C15-2023-EQP001",
+  "mission_id": "FMARS-C15-2023",
+  "station": "FMARS",
+  "item": "OEM-spec fuel line tubing for each generator model",
+  "area": "Tools & Spare Parts",
+  "advice_type": "Bring Spare",
+  "rationale": "A non-OEM replacement fuel line was weathered and too stiff to survive engine vibration, and the generator's fuel line leaked three times at the same spot despite two repairs. The brief's lesson is to bring OEM-spec tubing for each generator model and not use aftermarket tubing as a permanent fix in Arctic conditions.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 494-499, 'Lesson for Hypatia III' column; also pre-mission checklist §1.3, line 69 (generator spare parts: 'fuel line tubing (OEM spec, not aftermarket)')",
+  "confidence": "A",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C15-2023-EVT001"
+  ]
+}

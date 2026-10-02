@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP002",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Generator engine oil",
+  "area": "Tools & Spare Parts",
+  "advice_type": "Bring Spare",
+  "rationale": "The mission brief attributes a generator seizing on Day 4 to a long-overdue oil change and recommends including oil in the pre-mission spare parts kit and servicing all generators on arrival. The crew's own report (FLASHLINE-16 DAILY REPORT 08-07-2024, Generator Repair item) says the confirmed cause was a dirty air filter, and the oil was replaced at the same time.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 500-505, 'Lesson for Hypatia III' column; also §1.3 line 69 ('oil'); crew account: SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 08-07-2024 (Generator Repair item)",
+  "confidence": "A",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT001"
+  ]
+}

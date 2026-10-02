@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP016",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Mold test kit (first item unpacked on arrival)",
+  "area": "Safety & Environmental Monitoring",
+  "advice_type": "Recommended",
+  "rationale": "Crew 16 had a mold test, used it, and detected no harmful mold. The mission brief (not the crew) recommends running a mold test on Day 1 and making the mold test kit the first item unpacked on arrival. The crew's report notes mold was seen on entering and the test was run the following day.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV §4.6 Logistics and safety, lines 791-796, 'Lesson for Hypatia III' column; also §1.3 line 81 (mold test kits); crew account: SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 03-07-2024 (Mold Test item)",
+  "confidence": "B",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT024"
+  ]
+}

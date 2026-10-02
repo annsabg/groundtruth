@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP006",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Kitchen faucet assembly",
+  "area": "Water & Drinking",
+  "advice_type": "Bring Spare",
+  "rationale": "The kitchen sink sprayer cracked on arrival and the faucet head had to be replaced entirely. The brief's lesson is to add the faucet assembly to the spare parts list because kitchen plumbing is vulnerable to freeze-thaw cycling.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 518-523, 'Lesson for Hypatia III' column",
+  "confidence": "B",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT004"
+  ]
+}

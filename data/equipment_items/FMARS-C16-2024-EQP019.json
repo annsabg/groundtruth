@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP019",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Critical reagents brought from home in temperature-protected packaging",
+  "area": "Science & Lab",
+  "advice_type": "Recommended",
+  "rationale": "Reagents stored on site over winter were far outside their specified storage temperature range (15-30 C vs about -55 C in the habitat): the crew report says this may have affected some reagents and the coliform powder had solidified into a cake. The mission brief (not the crew) recommends not relying on on-site reagents for safety-critical or publication-quality measurements and bringing all critical reagents from home in temperature-protected packaging.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV §4.4 Scientific incidents, lines 713-718 ('Lesson for Hypatia III' at line 718; note this register row is tagged 'C15' in the brief, a known mis-tag - see event FMARS-C16-2024-EVT034); crew account placing it in Crew 16: SRC-flashline-crew-reports, FLASHLINE-16 SCIENCE REPORT-02 03-07-2024 (coliform test: kit storage limit 15-30 C vs habitat down to -55 C)",
+  "confidence": "A",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT034"
+  ]
+}

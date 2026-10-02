@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP001",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Generator air filters matched to each generator model",
+  "area": "Tools & Spare Parts",
+  "advice_type": "Bring Spare",
+  "rationale": "A generator seized on Day 4 and the root cause was a long-overdue oil change; its air filter had not been changed since 2009. The brief's lesson is to include matched air filters in the pre-mission spare parts kit and service all generators on arrival.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 500-505, 'Lesson for Hypatia III' column; also §1.3 line 69 ('correct air filters per model')",
+  "confidence": "A",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT001"
+  ]
+}

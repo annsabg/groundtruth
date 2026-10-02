@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP010",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Starter fluid for ATVs",
+  "area": "Vehicles",
+  "advice_type": "Wished Brought",
+  "rationale": "Starter fluid sprayed into the air filter was what got one of the ATVs running during the pre-sim triage of a fleet that mostly would not start. The brief's lesson is to bring starter fluid.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.1 Technical failures, lines 542-547, 'Lesson for Hypatia III' column; Flashline corroboration: SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 05-07-2024 (ATV Startup item)",
+  "confidence": "A",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT006"
+  ]
+}

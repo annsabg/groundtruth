@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP020",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "Better climbing equipment for roof-sealing work",
+  "area": "Tools & Spare Parts",
+  "advice_type": "Wished Brought",
+  "rationale": "While inspecting the radio tower during a weather hold, the Logistics Officer found the previous year's roof sealing still holding but noted that better climbing equipment would be needed to more safely seal the rest of the roof. The brief repeats this in its hab maintenance section: include it in the kit if further roof work is planned.",
+  "source_id": "SRC-flashline-crew-reports",
+  "source_citation": "SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 13 & 14-07-2024 (radio tower inspection paragraph); also SRC-hypatia-iii-brief, Part II §2.6 Hab structure and maintenance, line 303",
+  "confidence": "C",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT033"
+  ]
+}

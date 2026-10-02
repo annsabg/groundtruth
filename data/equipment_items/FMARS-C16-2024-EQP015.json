@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C16-2024-EQP015",
+  "mission_id": "FMARS-C16-2024",
+  "station": "FMARS",
+  "item": "High-SPF sunscreen in the medical kit",
+  "area": "Medical & First Aid",
+  "advice_type": "Recommended",
+  "rationale": "Crew 16 applied sunscreen to all seven participants before the crater expedition, so it had it. The mission brief (not the crew) recommends including high-SPF sunscreen in the medical kit, since lack of perceived heat in cold air masks cumulative UV dose. The crew's own report says sunscreen application is more important than normal for hikes because the ozone layer is depleted near the poles.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV §4.6 Logistics and safety, lines 785-790, 'Lesson for Hypatia III' column; crew account: SRC-flashline-crew-reports, FLASHLINE-16 DAILY REPORT 06-07-2024 (hike to the crater centre)",
+  "confidence": "B",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C16-2024-EVT023"
+  ]
+}

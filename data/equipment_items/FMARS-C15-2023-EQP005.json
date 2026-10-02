@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C15-2023-EQP005",
+  "mission_id": "FMARS-C15-2023",
+  "station": "FMARS",
+  "item": "Thermal emergency kit (hand warmers, emergency blankets) accessible on every EVA",
+  "area": "Clothing & Thermal",
+  "advice_type": "Recommended",
+  "rationale": "The incident records only that EVA duration was adjusted and extra layers worn as wind reached about 10 m/s and temperatures fell to single digits in late July. The mission brief (its lesson column, not the crew) recommends that a thermal emergency kit of hand warmers and emergency blankets be accessible on every EVA, since temperature drops fast in late July.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part IV – Incident and emergency register, §4.2 Meteorological incidents, lines 611-616, 'Lesson for Hypatia III' column",
+  "confidence": "B",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C15-2023-EVT004"
+  ]
+}

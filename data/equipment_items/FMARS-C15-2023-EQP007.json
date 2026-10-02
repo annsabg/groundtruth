@@ -1,0 +1,16 @@
+{
+  "item_id": "FMARS-C15-2023-EQP007",
+  "mission_id": "FMARS-C15-2023",
+  "station": "FMARS",
+  "item": "CO2 meter",
+  "area": "Safety & Environmental Monitoring",
+  "advice_type": "Recommended",
+  "rationale": "The mission brief's pre-mission checklist lists a CO2 meter (with a VOC/TVOC meter and spare batteries) in the air quality monitoring kit to source. Crew 15 was already measuring CO2, which rose sharply overnight on the upper floor every night; the register lesson (CO2 monitoring from Day 1, before the first night) concerns timing and ventilation, and the meter itself is the brief author's checklist item.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part I §1.3 Pre-mission checklist, line 78 (air quality monitoring kit: 'CO2 meter'); context: Part IV §4.4 Scientific incidents, lines 689-694",
+  "confidence": "A",
+  "verified_by": "ASG",
+  "related_events": [
+    "FMARS-C15-2023-EVT007"
+  ]
+}

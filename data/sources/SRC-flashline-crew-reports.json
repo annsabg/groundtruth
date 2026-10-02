@@ -3,7 +3,7 @@
   "mission_ids": ["FMARS-C15-2023", "FMARS-C16-2024", "FMARS-C17-2025", "FMARS-C18-2025"],
   "url_or_reference": "https://fmars.marssociety.org — original daily/Sol reports this compilation was drawn from (compiled locally into Flashline Crew Reports.pdf by Anna Sabaté Garcia, May 2025; the compiled PDF itself is not published)",
   "source_type": "compiled_pdf",
-  "covers": ["events"],
+  "covers": ["events", "equipment"],
   "date_range_or_sols": "FMARS Crews 15-18, 2023-2025",
   "discovery_method": "manual",
   "approved_by": "ASG",

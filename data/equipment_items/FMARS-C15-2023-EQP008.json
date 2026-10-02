@@ -1,0 +1,13 @@
+{
+  "item_id": "FMARS-C15-2023-EQP008",
+  "mission_id": "FMARS-C15-2023",
+  "station": "FMARS",
+  "item": "Enough fresh generator diesel to avoid reliance on old stocks",
+  "area": "Power & Electronics",
+  "advice_type": "Recommended",
+  "rationale": "Fuel degrades over the Arctic winter; Crew 15 ran on a 50/50 new/old diesel mix as an emergency measure, and pure old fuel risks clogging the fuel feed system. The brief advises bringing enough fresh fuel to avoid reliance on old stocks, or planning to dispose of separated fuel on arrival.",
+  "source_id": "SRC-hypatia-iii-brief",
+  "source_citation": "SRC-hypatia-iii-brief, Part II §2.1 Power systems, line 269",
+  "confidence": "B",
+  "verified_by": "ASG"
+}
