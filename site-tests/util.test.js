@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { escapeHtml, bracketAges, wrapLabel } from "../site/js/util.js";
+import { escapeHtml, bracketAges, wrapLabel, groupEquipmentItems, pickKnownFilters } from "../site/js/util.js";
 
 const AGE_BRACKETS = ["18-24", "25-34", "35-44", "45-54", "55-64", "65+", "Undisclosed"];
 
@@ -97,4 +97,65 @@ test("wrapLabel: a single word longer than maxLineLength is kept whole, not trun
 
 test("wrapLabel: respects a custom maxLineLength", () => {
   assert.deepEqual(wrapLabel("one two three four", 7), ["one two", "three", "four"]);
+});
+
+const eq = (overrides) => ({
+  item_id: "M1-EQP001", mission_id: "M1", area: "Vehicles", advice_type: "Bring Spare",
+  item: "Spark plugs", item_key: "atv-spark-plugs", ...overrides,
+});
+
+test("groupEquipmentItems: same area + advice_type + item_key merge into one group", () => {
+  const groups = groupEquipmentItems([
+    eq({ item_id: "M1-EQP001", mission_id: "M1" }),
+    eq({ item_id: "M2-EQP001", mission_id: "M2", item: "ATV spark plugs" }),
+  ]);
+  assert.equal(groups.length, 1);
+  assert.equal(groups[0].records.length, 2);
+  assert.equal(groups[0].crewCount, 2);
+  assert.equal(groups[0].item, "Spark plugs"); // first-seen record's name
+});
+
+test("groupEquipmentItems: two records from one mission count as one crew", () => {
+  const groups = groupEquipmentItems([
+    eq({ item_id: "M1-EQP001" }),
+    eq({ item_id: "M1-EQP002" }),
+  ]);
+  assert.equal(groups.length, 1);
+  assert.equal(groups[0].crewCount, 1);
+});
+
+test("groupEquipmentItems: conflicting advice for the same key stays as separate groups", () => {
+  const groups = groupEquipmentItems([
+    eq({ item_id: "M1-EQP001", advice_type: "Bring Spare" }),
+    eq({ item_id: "M2-EQP001", mission_id: "M2", advice_type: "Don't Bring" }),
+  ]);
+  assert.equal(groups.length, 2);
+  assert.deepEqual(groups.map((g) => g.advice_type), ["Bring Spare", "Don't Bring"]);
+});
+
+test("groupEquipmentItems: records without an item_key are never merged", () => {
+  const groups = groupEquipmentItems([
+    eq({ item_id: "M1-EQP001", item_key: null, item: "Spark plugs" }),
+    eq({ item_id: "M2-EQP001", mission_id: "M2", item_key: null, item: "Spark plugs" }),
+    eq({ item_id: "M3-EQP001", mission_id: "M3", item_key: "", item: "Spark plugs" }),
+  ]);
+  assert.equal(groups.length, 3);
+  groups.forEach((g) => assert.equal(g.crewCount, 1));
+});
+
+test("groupEquipmentItems: empty input gives no groups", () => {
+  assert.deepEqual(groupEquipmentItems([]), []);
+});
+
+test("pickKnownFilters: keeps only known fields with allowed values", () => {
+  const allowed = { area: ["Vehicles", "Water & Drinking"], advice_type: ["Essential"] };
+  assert.deepEqual(
+    pickKnownFilters({ area: "Water & Drinking", advice_type: "Essential", junk: "x" }, allowed),
+    { area: "Water & Drinking", advice_type: "Essential" }
+  );
+});
+
+test("pickKnownFilters: drops stale or hand-edited values", () => {
+  const allowed = { area: ["Vehicles"], advice_type: ["Essential"] };
+  assert.deepEqual(pickKnownFilters({ area: "Water", advice_type: "essential" }, allowed), {});
 });

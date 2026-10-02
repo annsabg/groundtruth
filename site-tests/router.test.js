@@ -75,3 +75,9 @@ test("routeToHash: round-trips through parseHash", () => {
     query: { station: "FMARS", event_type: "Failure" },
   });
 });
+
+test("routeToHash/parseHash: filter values with '&' and apostrophes round-trip intact", () => {
+  const query = { area: "Water & Drinking", advice_type: "Don't Bring", station: "FMARS" };
+  const hash = routeToHash("packing", null, query);
+  assert.deepEqual(parseHash(hash), { view: "packing", param: null, query });
+});

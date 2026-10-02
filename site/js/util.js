@@ -70,3 +70,47 @@ export function bracketAges(ages) {
   });
   return { labels: AGE_BRACKETS, values: AGE_BRACKETS.map((b) => buckets[b]) };
 }
+
+// Merges packing-checklist rows that describe the same item: same area,
+// same advice_type, same non-empty item_key. advice_type is part of the
+// key on purpose — if one crew says "Bring Spare" and another "Don't
+// Bring" for the same item, both rows must stay visible rather than one
+// silently absorbing the other. Rows with no item_key are never merged.
+// crewCount counts distinct missions, so two records from one mission's
+// report count once.
+export function groupEquipmentItems(rows) {
+  const groups = [];
+  const byKey = new Map();
+  for (const row of rows) {
+    const key = row.item_key ? `${row.area}|${row.advice_type}|${row.item_key}` : null;
+    let group = key ? byKey.get(key) : undefined;
+    if (!group) {
+      group = {
+        area: row.area,
+        advice_type: row.advice_type,
+        item: row.item,
+        item_key: row.item_key || null,
+        records: [],
+        crewCount: 0,
+      };
+      groups.push(group);
+      if (key) byKey.set(key, group);
+    }
+    group.records.push(row);
+  }
+  for (const group of groups) {
+    group.crewCount = new Set(group.records.map((r) => r.mission_id)).size;
+  }
+  return groups;
+}
+
+// Keeps only query-string filters whose value is one the view actually
+// offers — a stale or hand-edited link (?area=Water) is ignored rather
+// than selecting nothing. Same graceful-degradation rule as incidents-view.js.
+export function pickKnownFilters(query, allowed) {
+  const picked = {};
+  for (const [field, values] of Object.entries(allowed)) {
+    if (query[field] && values.includes(query[field])) picked[field] = query[field];
+  }
+  return picked;
+}
